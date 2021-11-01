@@ -1,0 +1,119 @@
+<app-nav></app-nav>
+ <!-- Header - set the background image for the header in the line below-->
+ <header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/rf6ywHVkrlY')">
+  <div class="text-center my-5">
+      <h1 class="text-grey fs-3 fw-bolder">SRL Airlines</h1>
+      <p class="text-grey-50 mb-0">Construyendo tu destino</p>
+  </div>
+</header>
+<!-- Content section-->
+<section class="py-5" style="background-color:rgb(238, 236, 236);margin:0;padding: 0;">
+    <h5 style="margin-left: 5%;margin-bottom: 1%;margin-right: 5%;text-align: justify;">Somos una empresa creada en el 2021, especializada en el turismo, encargada de brindar un medio digital intermediario para la compra y reserva de tickets aéreos, comprometida en brindar cada año nuevas rutas, contenidos, noticias, entre mucho más.</h5>
+ </section>
+    <section class="contact-us" id="contact">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 align-self-center">
+              <div class="row">
+                <div class="col-lg-12">
+                  <form id="contact" action="" method="post">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <h2>Contáctanos</h2>
+                      </div>
+                      <div class="col-lg-4">
+                        <fieldset>
+                          <input name="name" type="text" id="name" placeholder="Nombre" required="">
+                        </fieldset>
+                      </div>
+                      <div class="col-lg-4">
+                        <fieldset>
+                        <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Correo electronico" required="">
+                      </fieldset>
+                      </div>
+                      <div class="col-lg-4">
+                        <fieldset>
+                          <input name="subject" type="text" id="subject" placeholder="Sujeto" required="">
+                        </fieldset>
+                      </div>
+                      <div class="col-lg-12">
+                        <fieldset>
+                          <textarea name="message" type="text" class="form-control" id="message" placeholder="Mensaje" required=""></textarea>
+                        </fieldset>
+                      </div>
+                      <div class="col-lg-12">
+                        <fieldset>
+                          <button type="submit" id="form-submit" class="button">Enviar</button>
+                        </fieldset>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="right-info">
+                <ul>
+                  <li>
+                    <h6>Teléfono</h6>
+                    <span>+506 2436 0219</span>
+                  </li>
+                  <li>
+                    <h6>Correo electrónico</h6>
+                    <span>srl@airlines.com</span>
+                  </li>
+                  <li>
+                    <h6>Dirección</h6>
+                    <span>Alajuela - Alajuela, Costa Rica</span>
+                  </li>
+               
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </section>
+    
+
+<!-- Content section-->
+<section class="py-5">
+  <div class="row gx-lg-5">
+    <div class="col-lg-6 col-xxl-4 mb-5">
+        <div class="card bg-light border-0 h-100">
+            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"></i></div>
+                <h2 class="fs-4 fw-bold">Misión</h2>
+                <p class="mb-0">Ser el canal número uno en la reserva de tickets a nivel nacional. Esto prestando servicios aéreos eficientes y de calidad, a fin de estimular el turismo, los negocios y el comercio.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xxl-4 mb-5">
+        <div class="card bg-light border-0 h-100">
+            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-cloud-download"></i></div>
+                <h2 class="fs-4 fw-bold">Visión</h2>
+                <p class="mb-0"> Posicionarnos como la primera opción de compra online en Costa Rica, ofreciendo una amplia selección de destinos nacionales e internacionales para que viajar sea más fácil. </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xxl-4 mb-5">
+        <div class="card bg-light border-0 h-100">
+            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-card-heading"></i></div>
+                <h2 class="fs-4 fw-bold">Valores</h2>
+                <p class="mb-0">
+                    Respeto | Eficiencia <br>
+                   Calidad | Honestidad <br>
+                  Compromiso | Responsabilidad <br>
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<app-footer></app-footer>
+<router-outlet></router-outlet>
+
+
