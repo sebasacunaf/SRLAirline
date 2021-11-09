@@ -1,10 +1,7 @@
-//const dotEnv = require("dotenv");
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-//Lectura del .env
-//dotEnv.config();
-
+const passport = require('passport');
 const cors = require("cors");
 const logger = require("morgan");
 const chalk = require("chalk");
@@ -51,7 +48,7 @@ app.use("/Horario/", HorarioRouter);
 app.use("/Reservaciones/", ReservacionesRouter);
 app.use("/Rol/", RolRouter);
 app.use("/Ruta/", RutaRouter);
-app.use("/TipoAvion/", TipoAvionRouter);
+app.use("/TipoAvion", TipoAvionRouter);
 app.use("/Usuario/", UsuarioRouter);
 app.use("/Vuelos/", VuelosRouter);
 

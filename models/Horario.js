@@ -4,8 +4,7 @@ const HorarioSchema = new Schema({
         type: Schema.Types.ObjectId, 
         ref: "Ruta"
     },
-    Dia:String,
-    Minutos: String, 
+    Dia: String,
     HoraSalida: String, 
     HoraLlegada: String, 
     Precio: Number

@@ -2,12 +2,12 @@ const PostModel = require("../models/Avion");
 
 
 module.exports.get = async (req, res, next)=>{
-    const posts = await PostModel.find().exec
+    const posts = await PostModel.find().exec()
     res.json(posts);
 };
 module.exports.getByID = async (req, res, next)=>{
     const id = req.params.id;
-    const posts = await PostModel.findOne({ _id: id }).exec();
+    const posts = await PostModel.findOne({ _id: id }).exec()
     if(posts){
         res.json({result: "Registro encontrado"});
         res.json(posts);
