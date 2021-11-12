@@ -29,6 +29,8 @@ import { EditarTipoAvionComponent } from './pages/editar-tipo-avion/editar-tipo-
 import { EditarHorarioComponent } from './pages/editar-horario/editar-horario.component';
 import { EditarRutaComponent } from './pages/editar-ruta/editar-ruta.component';
 import { EditarAvionComponent } from './pages/editar-avion/editar-avion.component';
+import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -63,9 +65,10 @@ import { EditarAvionComponent } from './pages/editar-avion/editar-avion.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

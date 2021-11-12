@@ -3,11 +3,11 @@ const jwt = require('jsonwebtoken');
 const secret = 'secret';
 
 module.exports.get = async (req, res, next)=>{
-    const posts = await PostModel.find().exec()
+    const posts = await PostModel.find().populate("ID_Rol").exec()
     res.json(posts);
 };
 module.exports.getByID = async (req, res, next)=>{
-    const posts = await PostModel.findOne({ _id: req.params.id }).exec()
+    const posts = await PostModel.findOne({ _id: req.params.id }).populate("ID_Rol").exec()
     if(posts){
         res.json({result: "Registro encontrado"});
         res.json(posts);

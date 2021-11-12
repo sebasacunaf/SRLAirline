@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/Usuario.service';
 import { TokenStorageService } from '../../services/token-storage.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles='';
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService,private router: Router) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -29,20 +29,30 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     const { Usuario, Contrasenna } = this.form;
-    console.log(Usuario)
+    //console.log(Usuario)
     this.authService.login(Usuario, Contrasenna).subscribe(
       data => {
         console.log(data)
         if(data.success===true){
           console.log(data.success, 'data.success');
-          data.roles = data.Usuario.ID_Rol;
+         // data.roles = data.Usuario.ID_Rol;
+         data.roles="admin";
           this.tokenStorage.saveToken(data.token);
           this.tokenStorage.saveUser(data);
           this.isLoginFailed = false;
           this.isLoggedIn = true;
-          this.roles = this.tokenStorage.getUser().ID_Rol;
-          
-        }else{
+         //this.roles = this.tokenStorage.getUser().ID_Rol;
+          this.roles = "admin";
+        
+        if (this.roles === 'user') {
+          this.router.navigate(['/blog']);
+        }
+        if (this.roles === 'admin') {
+          this.router.navigate(['/dashboard/admin']);
+        }
+        console.log(this.roles, 'this.roles');
+      } 
+      else{
           this.errorMessage = data.msg;
           this.isLoginFailed = true;
         }

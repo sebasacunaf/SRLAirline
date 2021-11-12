@@ -22,13 +22,23 @@ import { RegistrarTipoAvionComponent } from './pages/registrar-tipo-avion/regist
 import { RegistrarUsuarioComponent } from './pages/registrar-usuario/registrar-usuario.component';
 import { RegistrarVuelosComponent } from './pages/registrar-vuelos/registrar-vuelos.component';
 
+import { AuthGuard } from './shared/guards/auth.guard';
 
-
-const routes: Routes = [
-  {path:'',component: HomeComponent}, 
-  {path:'login',component: LoginComponent},
-  {path:'register',component: RegisterComponent},
-  {path:'about',component: AboutComponent},
+const routes: Routes = 
+[
+  {path:'',
+  children: [
+    {path:'',component: HomeComponent},
+    {path:'login',component: LoginComponent},
+    {path:'register',component: RegisterComponent},
+    {path:'about',component: AboutComponent},
+  ],
+}, 
+{
+  path: 'dashboard',
+  canActivate: [AuthGuard],
+  component: AdminComponent,
+  children: [
   {path:'admin',component: AdminComponent},
   {path:'registrar-usuario',component: RegistrarUsuarioComponent},
   {path:'registrar-avion',component: RegistrarAvionComponent},
@@ -46,6 +56,8 @@ const routes: Routes = [
   {path:'editar-vuelos',component: EditarVuelosComponent},
   {path:'editar-reservaciones',component: EditarReservacionesComponent},
   {path:'editar-factura',component: EditarFacturaComponent},
+  ],
+},
 ];
 
 @NgModule({
