@@ -18,70 +18,14 @@
                 <li class="nav-item" *ngIf="!isUserAuthenticated()"><a class="nav-link" href="/about">Contáctanos</a></li>
         
  <!--Administrador-->
-            <li class="nav-item dropdown" *ngIf="isUserAuthenticated()">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Usuario</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/dashboard/registrar-usuario">Registrar</a></li>
-                  <li><a class="dropdown-item" href="/dashboard/consultar-usuario">Consultar</a></li>
-                  <li><a class="dropdown-item" href="/dashboard/editar-usuario">Editar</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown" *ngIf="isUserAuthenticated()">
-                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Avión</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/dashboard/registrar-avion">Registrar</a></li>
-                    <li><a class="dropdown-item" href="/dashboard/consultar-avion">Consultar</a></li>
-                    <li><a class="dropdown-item" href="/dashboard/editar-avion">Editar</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item dropdown" *ngIf="isUserAuthenticated()">
-                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tipo avión</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/dashboard/registrar-tipo-avion">Registrar</a></li>
-                    <li><a class="dropdown-item" href="/dashboard/consultar-avion">Consultar</a></li>
-                    <li><a class="dropdown-item" href="/dashboard/editar-tipo-avion">Editar</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item dropdown" *ngIf="isUserAuthenticated()">
-                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Horario</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/dashboard/registrar-horario">Registrar</a></li>
-                    <li><a class="dropdown-item" href="/dashboard/consultar-horario">Consultar</a></li>
-                    <li><a class="dropdown-item" href="/dashboard/editar-horario">Editar</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item dropdown" *ngIf="isUserAuthenticated()">
-                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Ruta</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/dashboard/registrar-ruta">Registrar</a></li>
-                    <li><a class="dropdown-item" href="/dashboard/consultar-ruta">Consultar</a></li>
-                    <li><a class="dropdown-item" href="/dashboard/editar-ruta">Editar</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item dropdown" *ngIf="isUserAuthenticated()">
-                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Vuelos</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/dashboard/registrar-vuelos">Registrar</a></li>
-                    <li><a class="dropdown-item" href="/dashboard/consultar-vuelos">Consultar</a></li>
-                    <li><a class="dropdown-item" href="/dashboard/editar-vuelos">Editar</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item dropdown" *ngIf="isUserAuthenticated()">
-                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Reservaciones</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/dashboard/registrar-reservaciones">Registrar</a></li>
-                    <li><a class="dropdown-item" href="/dashboard/consultar-reservaciones">Consultar</a></li>
-                    <li><a class="dropdown-item" href="/dashboard/editar-reservaciones">Editar</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item dropdown" *ngIf="isUserAuthenticated()">
-                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Factura</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/dashboard/registrar-factura">Registrar</a></li>
-                    <li><a class="dropdown-item" href="/dashboard/consultar-factura">Consultar</a></li>
-                    <li><a class="dropdown-item" href="/dashboard/editar-factura">Editar</a></li>
-                  </ul>
-                </li>
+              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-usuario">Usuario</a></li>
+              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-avion">Avión</a></li>
+              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-tipo-avion">Tipo avión</a></li>
+              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-horario">Horario</a></li>
+              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-ruta">Ruta</a></li>
+              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-vuelos">Vuelos</a></li>
+              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-reservaciones">Reservaciones</a></li>
+              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-factura">Factura</a></li>
                 <li class="nav-item" *ngIf="isUserAuthenticated()"><a href="#" class="nav-link px-lg-3 py-3 py-lg-4"
                     (click)="logout()">{{UsuarioValue}} - Cerrar sesión</a>
             </ul>

@@ -31,6 +31,14 @@ import { EditarRutaComponent } from './pages/editar-ruta/editar-ruta.component';
 import { EditarAvionComponent } from './pages/editar-avion/editar-avion.component';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomeUsuarioComponent } from './pages/home-usuario/home-usuario.component';
+import { HomeAvionComponent } from './pages/home-avion/home-avion.component';
+import { HomeTipoAvionComponent } from './pages/home-tipo-avion/home-tipo-avion.component';
+import { HomeHorarioComponent } from './pages/home-horario/home-horario.component';
+import { HomeRutaComponent } from './pages/home-ruta/home-ruta.component';
+import { HomeVuelosComponent } from './pages/home-vuelos/home-vuelos.component';
+import { HomeReservacionesComponent } from './pages/home-reservaciones/home-reservaciones.component';
+import { HomeFacturaComponent } from './pages/home-factura/home-factura.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +67,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     EditarTipoAvionComponent,
     EditarHorarioComponent,
     EditarRutaComponent,
-    EditarAvionComponent
+    EditarAvionComponent,
+    HomeUsuarioComponent,
+    HomeAvionComponent,
+    HomeTipoAvionComponent,
+    HomeHorarioComponent,
+    HomeRutaComponent,
+    HomeVuelosComponent,
+    HomeReservacionesComponent,
+    HomeFacturaComponent
   ],
   imports: [
     BrowserModule,

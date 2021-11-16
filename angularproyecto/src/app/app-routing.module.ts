@@ -10,6 +10,14 @@ import { EditarRutaComponent } from './pages/editar-ruta/editar-ruta.component';
 import { EditarTipoAvionComponent } from './pages/editar-tipo-avion/editar-tipo-avion.component';
 import { EditarUsuarioComponent } from './pages/editar-usuario/editar-usuario.component';
 import { EditarVuelosComponent } from './pages/editar-vuelos/editar-vuelos.component';
+import { HomeAvionComponent } from './pages/home-avion/home-avion.component';
+import { HomeFacturaComponent } from './pages/home-factura/home-factura.component';
+import { HomeHorarioComponent } from './pages/home-horario/home-horario.component';
+import { HomeReservacionesComponent } from './pages/home-reservaciones/home-reservaciones.component';
+import { HomeRutaComponent } from './pages/home-ruta/home-ruta.component';
+import { HomeTipoAvionComponent } from './pages/home-tipo-avion/home-tipo-avion.component';
+import { HomeUsuarioComponent } from './pages/home-usuario/home-usuario.component';
+import { HomeVuelosComponent } from './pages/home-vuelos/home-vuelos.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
@@ -56,6 +64,14 @@ const routes: Routes =
   {path:'editar-vuelos',component: EditarVuelosComponent},
   {path:'editar-reservaciones',component: EditarReservacionesComponent},
   {path:'editar-factura',component: EditarFacturaComponent},
+  {path:'home-usuario',component: HomeUsuarioComponent},
+  {path:'home-avion',component: HomeAvionComponent},
+  {path:'home-tipo-avion',component: HomeTipoAvionComponent },
+  {path:'home-horario',component: HomeHorarioComponent },
+  {path:'home-ruta',component: HomeRutaComponent},
+  {path:'home-vuelos',component: HomeVuelosComponent },
+  {path:'home-reservaciones',component: HomeReservacionesComponent },
+  {path:'home-factura',component: HomeFacturaComponent},
   ],
 },
 ];
