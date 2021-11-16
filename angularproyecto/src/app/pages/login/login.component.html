@@ -25,11 +25,11 @@
           <div class="mb-3">
             <label for="Contrasenna">Contraseña</label>
             <input type="Contrasenna" class="form-control" name="Contrasenna" [(ngModel)]="form.Contrasenna"
-              placeholder="Contraseña" required minlength="1" #Contrasenna="ngModel" />
+              placeholder="Contraseña" required minlength="3" #Contrasenna="ngModel" />
             <div class="alert alert-danger" role="alert" *ngIf="Contrasenna.errors && f.submitted">
               <div *ngIf="Contrasenna.errors.required">Contraseña es requerida!</div>
               <div *ngIf="Contrasenna.errors.minlength">
-                Password must be at least 6 characters
+                Contraseña debe ser de al menos 3 dígitos!
               </div>
             </div>
           </div>
@@ -41,7 +41,7 @@
           </div>
           <div class="form-group">
             <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
-              Login failed: {{ errorMessage }}
+              Inicio de sesión fallido: {{ errorMessage }}
             </div>
           </div>
         </form>

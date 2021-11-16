@@ -1,10 +1,11 @@
 const {Schema, model} = require('mongoose')
 const bcrypt = require('bcrypt-nodejs');
 const UsuarioSchema = new Schema({
-    ID_Rol:{
-        type: Schema.Types.ObjectId, 
-        ref: "Rol"
-    },
+    Rol: {
+        type: String,
+        default: "Cliente",
+        enum: ["Cliente", "Administrador"],
+      },
     Usuario:  {
         type: String,
         unique: true,
@@ -20,8 +21,6 @@ const UsuarioSchema = new Schema({
     TelefonoTrabajo: String, 
     Correo: String, 
     FechaNacimiento: Date,
-    Latitud: Number, 
-    Longitud: Number, 
     Descripcion: String
 })
 

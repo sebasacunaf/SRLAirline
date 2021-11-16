@@ -23,10 +23,10 @@ export class AppComponent {
     console.log(this.isLoggedIn, 'this.isLoggedIn');
     if (this.isLoggedIn) {
       const { user } = this.tokenStorageService.getUser();
-      this.roles = user.ID_Rol;
+      this.roles = user.Rol;
       this.Usuario = user.Usuario;
-      //this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-     // this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+      this.showAdminBoard = this.roles.includes('Admin');
+      this.showModeratorBoard = this.roles.includes('User');
       console.log(this.Usuario, 'this.Usuario');
     }
   }

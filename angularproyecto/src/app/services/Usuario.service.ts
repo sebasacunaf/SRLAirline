@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ObjectId } from 'mongoose';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
@@ -13,7 +12,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class UsuarioService {
 
   constructor(private http: HttpClient) {}
   
@@ -28,13 +27,12 @@ export class AuthService {
     );
   }
 
-  register(ID_Rol: ObjectId, Usuario:String, Contrasenna:String, Nombre:String, Apellidos:String, Celular:String, TelefonoTrabajo:String, Correo:String,FechaNacimiento:Date, Latitud:Number,Longitud:Number, 
+  register(Rol: String, Usuario:String, Contrasenna:String, Nombre:String, Apellidos:String, Celular:String, TelefonoTrabajo:String, Correo:String,FechaNacimiento:Date,
     Descripcion:String): Observable<any> {
     return this.http.post(
       AUTH_API + 'signup',
       {
-        ID_Rol, Usuario, Contrasenna, Nombre, Apellidos, Celular, TelefonoTrabajo, Correo,FechaNacimiento, Latitud,Longitud, 
-        Descripcion
+        Rol, Usuario, Contrasenna, Nombre, Apellidos, Celular, TelefonoTrabajo, Correo,FechaNacimiento, Descripcion
       },
       httpOptions
     );
