@@ -43,7 +43,7 @@
                     <td>{{Usuario.FechaNacimiento}}</td>
                     <!--<td>{{Usuario.Descripcion}}</td>-->
                     <td class="text-end">
-                        <a routerLink="/dashboard/editar-usuario/{{Usuario._id}}" class="edit btn btn-small btn-primary rounded me-2"
+                        <a [routerLink]="['/dashboard/editar-usuario',Usuario._id]" class="edit btn btn-small btn-primary rounded me-2"
                             data-toggle="modal"><i class="far fa-edit">Editar</i></a>
                         <a (click)="delete(Usuario._id)" class="delete btn  btn-small btn-danger rounded"
                             data-toggle="modal"><i class="far fa-trash-alt">Eliminar</i></a>

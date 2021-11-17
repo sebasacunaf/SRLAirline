@@ -55,7 +55,7 @@ const routes: Routes =
   {path:'registrar-vuelos',component: RegistrarVuelosComponent},
   {path:'registrar-reservaciones',component: RegistrarReservacionesComponent},
   {path:'registrar-factura',component: RegistrarFacturaComponent},
-  {path:'editar-usuario',component: EditarUsuarioComponent},
+  {path:'editar-usuario/:id',component: EditarUsuarioComponent},
   {path:'editar-avion',component: EditarAvionComponent},
   {path:'editar-tipo-avion',component: EditarTipoAvionComponent},
   {path:'editar-horario',component:EditarHorarioComponent},
