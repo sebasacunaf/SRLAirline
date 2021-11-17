@@ -6,7 +6,7 @@
                     <h2> <b>Ruta</b></h2>
                 </div>
                 <div class="col-sm-6 d-flex justify-content-end">
-                    <a routerLink="/dashboard/blog/new" class="btn btn-success btn-small" data-toggle="modal"><i
+                    <a routerLink="/dashboard/registrar-ruta" class="btn btn-success btn-small" data-toggle="modal"><i
                             class="fas fa-plus-square mr-3 d-inline-block"></i>&nbsp;&nbsp; <span
                             class="d-inline-block">Nuevo
                            </span></a>
@@ -17,25 +17,22 @@
         <table class="table table-striped table-hover mt-5">
             <thead>
                 <tr>
-                    <th class="w-25">Ruta</th>
-                    <th class="w-50">Duración</th>
+                    <th class="w-20">Ruta</th>
+                    <th class="w-20">Duración</th>
                     <th class="text-end">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <!--<tr *ngFor="let post of posts">
-                    <td>{{post.title}}</td>
-                    <td>{{post.body}}</td>
-
+                <tr *ngFor="let Ruta of Rutas">
+                    <td>{{Ruta.Ruta}}</td>
+                    <td>{{Ruta.Duracion}}</td>
                     <td class="text-end">
-                        <a routerLink="/dashboard/blog/{{post._id}}" class="edit btn btn-small btn-primary rounded me-2"
-                            data-toggle="modal"><i class="far fa-edit"></i></a>
-                        <a (click)="delete(post._id)" class="delete btn  btn-small btn-danger rounded"
-                            data-toggle="modal"><i class="far fa-trash-alt"></i></a>
+                        <a routerLink="/dashboard/editar-ruta/{{Ruta._id}}" class="edit btn btn-small btn-primary rounded me-2"
+                            data-toggle="modal"><i class="far fa-edit">Editar</i></a>
+                        <a (click)="delete(Ruta._id)" class="delete btn  btn-small btn-danger rounded"
+                            data-toggle="modal"><i class="far fa-trash-alt">Eliminar</i></a>
                     </td>
                 </tr>
-            -->
-
             </tbody>
         </table>
 

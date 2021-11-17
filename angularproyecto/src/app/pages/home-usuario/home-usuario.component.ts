@@ -15,7 +15,7 @@ export class HomeUsuarioComponent implements OnInit {
     console.log(this.Usuarios);
   }
   delete(id: string): void {
-    if (confirm('¿Esta seguro que quiere borrar este Usuario?')) {
+    if (confirm('¿Esta seguro que quiere borrar este usuario?')) {
       this.usuarioService.delete(id).subscribe((res: any) => {
         this.Usuarios = this.Usuarios.filter((usuario: any) => usuario._id !== id);
       });

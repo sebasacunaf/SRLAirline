@@ -10,21 +10,33 @@ module.exports.getByID = async (req, res, next)=>{
         res.json({result: "Registro encontrado"});
         res.json(posts);
     }else{
-        res.json({result: "{Id de inválido, o no existe el registro"});
+        res.json({result: "{Id del vuelo es inválida, o no existe el registro"});
     }
 }
+
+
 module.exports.create = (req, res, next)=>{
     const {ID_Avion, CodigoVuelo, Descripcion, Origen, Destino,FechaIda,FechaRegreso,EspaciosDisponibles} = req.body;
-    const post = new PostModel({ID_Avion, CodigoVuelo, Descripcion,Origen,Destino,FechaIda,FechaRegreso,EspaciosDisponibles});
-    post.save();
-    res.json(post);
+    if (!ID_Avion || !CodigoVuelo || !Descripcion || !Origen || !Destino || !FechaIda || !FechaRegreso || !EspaciosDisponibles ) {
+        res.json({ success: false, msg: 'Existen algún valor nulo' });
+    } else {
+        var newV= new PostModel({ID_Avion:ID_Avion, CodigoVuelo:CodigoVuelo, Descripcion:Descripcion ,Origen:Origen,Destino:Destino,FechaIda:FechaIda,FechaRegreso:FechaRegreso,EspaciosDisponibles:EspaciosDisponibles});
+       
+
+        newV.save(function (err) {
+            if (err) {
+                return res.json({ success: false, msg: 'El vuelo ya existe' });
+            }
+            res.json({ success: true, msg: 'Vuelo creado existosamente' });
+        });
+    }
 };
 module.exports.delete = async (req, res, next)=>{
     const post = await PostModel.findByIdAndRemove(req.params.id);
     if(post){
         res.json({result: "Registro borrado correctamente"});
     }else{
-        res.json({result: "{Id del Horario inválido}"})
+        res.json({result: "{Id del vuelo es inválida}"})
     }
 };
 module.exports.update = async (req, res, next)=>{

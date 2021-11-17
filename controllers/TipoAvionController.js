@@ -15,16 +15,26 @@ module.exports.getByID = async (req, res, next)=>{
 }
 module.exports.create = (req, res, next)=>{
     const {Anno,Modelo, Marca, CantidadPasajeros,CantidaFilas,CantidadColumnas} = req.body;
-    const post = new PostModel({Anno,Modelo, Marca, CantidadPasajeros,CantidaFilas,CantidadColumnas});
-    post.save();
-    res.json(post);
+    if (!Anno || !Modelo || !Marca || !CantidadPasajeros || !CantidadFilas || !CantidadColumnas) {
+        res.json({ success: false, msg: 'Existen algún valor nulo' });
+    } else {
+        var newTipoA = new PostModel({ Anno: Anno,Modelo:Modelo,Marca:Marca,CantidadPasajeros:CantidadPasajeros,CantidaFilas:CantidaFilas,CantidadColumnas:CantidadColumnas});
+       
+
+        newTipoA.save(function (err) {
+            if (err) {
+                return res.json({ success: false, msg: 'El tipo avión ya existe' });
+            }
+            res.json({ success: true, msg: 'Tipo avión creado existosamente' });
+        });
+    }
 };
 module.exports.delete = async (req, res, next)=>{
     const post = await PostModel.findByIdAndRemove(req.params.id);
     if(post){
         res.json({result: "Registro borrado correctamente"});
     }else{
-        res.json({result: "{Id del Tipo de Avión inválido}"})
+        res.json({result: "{Id del Tipo de Avión inválida}"})
     }
 };
 module.exports.update = async (req, res, next)=>{

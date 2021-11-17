@@ -5,7 +5,7 @@ const RutaController = require("../controllers/RutaController")
 
 router.get("/", RutaController.get);
 router.get("/:id", RutaController.getByID);
-router.post("/", RutaController.create );
+router.post("/create", RutaController.create );
 router.delete("/:id", RutaController.delete);
 router.put("/:id", RutaController.update);
 module.exports = router; 

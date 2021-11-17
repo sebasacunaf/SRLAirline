@@ -6,7 +6,7 @@
                     <h2> <b>Reservaciones</b></h2>
                 </div>
                 <div class="col-sm-6 d-flex justify-content-end">
-                    <a routerLink="/dashboard/blog/new" class="btn btn-success btn-small" data-toggle="modal"><i
+                    <a routerLink="/dashboard/registrar-reservaciones" class="btn btn-success btn-small" data-toggle="modal"><i
                             class="fas fa-plus-square mr-3 d-inline-block"></i>&nbsp;&nbsp; <span
                             class="d-inline-block">Nuevo
                             </span></a>
@@ -17,26 +17,27 @@
         <table class="table table-striped table-hover mt-5">
             <thead>
                 <tr>
-                    <th class="w-25">Identificación vuelo</th>
-                    <th class="w-25">Identificación usuario</th>
-                    <th class="w-25">Número de reservación</th>
-                    <th class="w-25">Cantidad de asientos</th>
+                    <th class="w-20">Identificación vuelo</th>
+                    <th class="w-20">Identificación usuario</th>
+                    <th class="w-20">Número de reservación</th>
+                    <th class="w-20">Cantidad de asientos</th>
                     <th class="text-end">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <!--<tr *ngFor="let post of posts">
-                    <td>{{post.title}}</td>
-                    <td>{{post.body}}</td>
-
+                <tr *ngFor="let Reservacion of Reservaciones">
+                    <td>{{Reservacion.ID_Vuelo}}</td>
+                    <td>{{Reservacion.ID_Usuario}}</td>
+                    <td>{{Reservacion.numReservacion}}</td>
+                    <td>{{Reservacion.CantidadAsientos}}</td>
                     <td class="text-end">
-                        <a routerLink="/dashboard/blog/{{post._id}}" class="edit btn btn-small btn-primary rounded me-2"
-                            data-toggle="modal"><i class="far fa-edit"></i></a>
-                        <a (click)="delete(post._id)" class="delete btn  btn-small btn-danger rounded"
-                            data-toggle="modal"><i class="far fa-trash-alt"></i></a>
+                        <a routerLink="/dashboard/editar-reservaciones/{{Reservacion._id}}" class="edit btn btn-small btn-primary rounded me-2"
+                            data-toggle="modal"><i class="far fa-edit">Editar</i></a>
+                        <a (click)="delete(Reservacion._id)" class="delete btn  btn-small btn-danger rounded"
+                            data-toggle="modal"><i class="far fa-trash-alt">Eliminar</i></a>
                     </td>
                 </tr>
-            -->
+
 
             </tbody>
         </table>

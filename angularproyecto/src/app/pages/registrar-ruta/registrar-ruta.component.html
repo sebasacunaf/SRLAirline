@@ -8,18 +8,32 @@
       <div class="container">
         <div class="row align-items-center justify-content-center vh-100">
           <div class="col-md-5">
-            <form class="login-form" action="#">
-                <div class="mb-3">
-                  <label for="Ruta">Ruta</label>
-                    <input type="text" class="form-control" placeholder="Ruta"
-                      required>
+            <form class="login-form" *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+            novalidate>
+            <div class="mb-3">
+              <div class="form-group">
+                <label for="Ruta">Ruta</label>
+                <input type="text" class="form-control" placeholder="Ruta" name="Ruta" [(ngModel)]="form.Ruta"
+                  #Ruta="ngModel" required>
+                <div class="alert-danger" *ngIf="Ruta.errors && f.submitted">
+                  <div *ngIf="Ruta.errors.required">Año requerido</div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+                    <div class="form-group">
+                      <label for="Duracion">Duración</label>
+                      <input type="text" class="form-control" placeholder="Duración"
+                      name="Duracion"  [(ngModel)]="form.Duracion" #Duracion="ngModel" required>
+                      <div class="alert-danger" *ngIf="Duracion.errors && f.submitted">
+                        <div *ngIf="Duracion.errors.required">Duración requerida</div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="mb-3">
-                    <label for="Duracion">Duración</label>
-                    <input type="text" class="form-control" placeholder="Duración"
-                      required>
-                  </div>
-              <button type="button" class="btn btn-success btn-lg btn-block mt-3">Crear</button>
+              <button type="submit" class="btn btn-success btn-lg btn-block mt-3">Crear</button>
+                <!--  <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+            Error al registrar tipo avión!<br />{{ errorMessage }}
+          </div>-->
             </form>
             <p class="pt-3 text-center"><b>SRL Airlines - 2021</b>  Copyright &copy; Todos los derechos reservados</p>
           </div>

@@ -32,7 +32,7 @@ export class RegistrarTipoAvionComponent implements OnInit {
         if(data.success){
           this.isSuccessful = true;
           this.isSignUpFailed = false;
-          //this.router.navigate(['/dashboard/home-tipo-avion']);
+          this.router.navigate(['/dashboard/home-tipo-avion']);
         }else{
           this.errorMessage = data.msg;
           this.isSignUpFailed = true;

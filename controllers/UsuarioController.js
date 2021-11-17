@@ -12,7 +12,7 @@ module.exports.getByID = async (req, res, next)=>{
         res.json({result: "Registro encontrado"});
         res.json(posts);
     }else{
-        res.json({result: "{Id de inválido, o no existe el registro"});
+        res.json({result: "{Id de usuario es inválida, o no existe el registro"});
     }
 };
 // creación de nuevos usuarios
@@ -68,15 +68,15 @@ module.exports.delete = async (req, res, next)=>{
     if(post){
         res.json({result: "Registro borrado correctamente"});
     }else{
-        res.json({result: "{Id del Horario inválido}"})
+        res.json({result: "{Id del usuario es inválida}"})
     }
 };
 module.exports.update = async (req, res, next)=>{
-    const {ID_Rol,Usuario,Contrasenna,Nombre,Apellidos, Celular, TelefonoTrabajo, Correo,FechaNacimiento, 
+    const {Rol,Usuario,Contrasenna,Nombre,Apellidos, Celular, TelefonoTrabajo, Correo,FechaNacimiento, 
         Descripcion} = req.body;
     const post = await PostModel.findOneAndUpdate(
         { _id: req.params.id},
-        {ID_Rol,Usuario,Contrasenna,Nombre,Apellidos, Celular, TelefonoTrabajo, Correo,FechaNacimiento,
+        {Rol,Usuario,Contrasenna,Nombre,Apellidos, Celular, TelefonoTrabajo, Correo,FechaNacimiento,
             Descripcion},
         {new: true}
     )

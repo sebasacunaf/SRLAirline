@@ -10,21 +10,32 @@ module.exports.getByID = async (req, res, next)=>{
         res.json({result: "Registro encontrado"});
         res.json(posts);
     }else{
-        res.json({result: "{Id de inválido, o no existe el registro"});
+        res.json({result: "{Id de horario es inválida, o no existe el registro"});
     }
 }
+
 module.exports.create = (req, res, next)=>{
     const {ID_Ruta,Dia, HoraSalida, HoraLlegada, Precio} = req.body;
-    const post = new PostModel({ID_Ruta,Dia, HoraSalida, HoraLlegada, Precio});
-    post.save();
-    res.json(post);
+    if (!ID_Ruta || !Dia || !HoraSalida  || !HoraLlegada  || !Precio ) {
+        res.json({ success: false, msg: 'Existen algún valor nulo' });
+    } else {
+        var newH= new PostModel({ID_Ruta:ID_Ruta ,Dia:Dia, HoraSalida: HoraSalida , HoraLlegada:HoraLlegada, Precio: Precio});
+       
+
+        newH.save(function (err) {
+            if (err) {
+                return res.json({ success: false, msg: 'El horario ya existe' });
+            }
+            res.json({ success: true, msg: 'Horario creado existosamente' });
+        });
+    }
 };
 module.exports.delete = async (req, res, next)=>{
     const post = await PostModel.findByIdAndRemove(req.params.id);
     if(post){
         res.json({result: "Registro borrado correctamente"});
     }else{
-        res.json({result: "{Id del Horario inválido}"})
+        res.json({result: "{Id del horario es inválida}"})
     }
 };
 module.exports.update = async (req, res, next)=>{

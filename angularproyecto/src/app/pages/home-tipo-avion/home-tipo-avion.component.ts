@@ -14,7 +14,7 @@ export class HomeTipoAvionComponent implements OnInit {
     console.log(this.TipoAviones);
   }
   delete(id: string): void {
-    if (confirm('¿Esta seguro que quiere borrar este Tipo de Avión?')) {
+    if (confirm('¿Esta seguro que quiere borrar este tipo de avión?')) {
       this.tipoAvionService.delete(id).subscribe((res: any) => {
         this.TipoAviones = this.TipoAviones.filter((TipoAvion: any) => TipoAvion._id !== id);
       });
