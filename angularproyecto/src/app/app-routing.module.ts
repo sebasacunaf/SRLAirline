@@ -45,7 +45,6 @@ const routes: Routes =
 {
   path: 'dashboard',
   canActivate: [AuthGuard],
-  component: AdminComponent,
   children: [
   {path:'admin',component: AdminComponent},
   {path:'registrar-usuario',component: RegistrarUsuarioComponent},

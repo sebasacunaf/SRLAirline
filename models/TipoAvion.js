@@ -4,7 +4,7 @@ const TipoAvionSchema = new Schema({
     Modelo: String,
     Marca: String, 
     CantidadPasajeros: Number,
-    CantidaFilas: Number,
+    CantidadFilas: Number,
     CantidadColumnas: Number
 })
 const TipoAvionModel = model("TipoAvion", TipoAvionSchema);

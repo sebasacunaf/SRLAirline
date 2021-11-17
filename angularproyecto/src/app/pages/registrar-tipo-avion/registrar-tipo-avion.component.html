@@ -1,55 +1,85 @@
-<app-nav-a></app-nav-a>
 <html>
-    <head>
-      <meta charset="utf-8">
-      <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
-    </head>
-    <body>
-      <div class="container">
-        <div class="row align-items-center justify-content-center vh-100">
-          <div class="col-md-5">
-            <form class="login-form" action="#">
-                <div class="mb-3">
-                    <label for="Anno">Año</label>
-                      <input type="text" class="form-control" placeholder="Año"
-                        required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="Modelo">Modelo</label>
-                        <input type="text" class="form-control" placeholder="Modelo"
-                          required>
-                      </div>
-                <div class="mb-3">
-                  <label for="Marca">Marca</label>
-                    <input type="text" class="form-control" placeholder="Marca"
-                      required>
-                  </div>
-                  <div class="mb-3">
-                    <label for="CantidadP">Cantidad de pasajeros</label>
-                    <input type="text" class="form-control" placeholder="Cantidad de pasajeros"
-                      required>
-                  </div>
-                  <div class="row" style="margin-bottom: 15px;">
-                    <div class="col">
-                      <label for="CantidadF">Cantidad de filas</label>
-                      <input type="text" class="form-control" placeholder="Cantidad de filas"
-                        required>
-                    </div>
-                    <div class="col">
-                      <label for="CantidadC">Cantidad de columnas</label>
-                      <input type="text" class="form-control" placeholder="Cantidad de columnas"
-                        required>
-                    </div>
-                  </div>
-              <button type="button" class="btn btn-success btn-lg btn-block mt-3">Crear</button>
-            </form>
-            <p class="pt-3 text-center"><b>SRL Airlines - 2021</b>  Copyright &copy; Todos los derechos reservados</p>
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row align-items-center justify-content-center vh-100">
+      <div class="col-md-5">
+        <form class="login-form" ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+          novalidate>
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="Anno">Año</label>
+              <input type="text" class="form-control" placeholder="Año" name="Anno" [(ngModel)]="form.Anno"
+                #Anno="ngModel" required>
+              <div class="alert-danger" *ngIf="Anno.errors && f.submitted">
+                <div *ngIf="Anno.errors.required">Año requerido</div>
+              </div>
+            </div>
           </div>
-        </div>
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="Modelo">Modelo</label>
+              <input type="text" class="form-control" placeholder="Modelo" [(ngModel)]="form.Modelo" #Modelo="ngModel"
+                required>
+              <div class="alert-danger" *ngIf="Modelo.errors && f.submitted">
+                <div *ngIf="Modelo.errors.required">Modelo requerido</div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="Marca">Marca</label>
+              <input type="text" class="form-control" placeholder="Marca" [(ngModel)]="form.Marca" #Marca="ngModel"
+                required>
+              <div class="alert-danger" *ngIf="Marca.errors && f.submitted">
+                <div *ngIf="Marca.errors.required">Marca requerida</div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="CantidadPasajeros">Cantidad de pasajeros</label>
+              <input type="number" class="form-control" placeholder="Cantidad de pasajeros"
+                [(ngModel)]="form.CantidadPasajeros" #CantidadPasajeros="ngModel" required>
+              <div class="alert-danger" *ngIf="CantidadPasajeros.errors && f.submitted">
+                <div *ngIf="CantidadPasajeros.errors.required">Cantidad de Pasajeros requerida</div>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom: 15px;">
+            <div class="col">
+              <div class="form-group">
+                <label for="CantidadFilas">Cantidad de filas</label>
+                <input type="number" class="form-control" placeholder="Cantidad de filas"
+                  [(ngModel)]="form.CantidadFilas" #CantidadFilas="ngModel" required>
+                <div class="alert-danger" *ngIf="CantidadFilas.errors && f.submitted">
+                  <div *ngIf="CantidadFilas.errors.required">Cantidad de Filas requerida</div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="CantidadColumnas">Cantidad de filas</label>
+                <input type="number" class="form-control" placeholder="Cantidad de columnas"
+                  [(ngModel)]="form.CantidadColumnas" #CantidadColumnas="ngModel" required>
+                <div class="alert-danger" *ngIf="CantidadColumnas.errors && f.submitted">
+                  <div *ngIf="CantidadColumnas.errors.required">Cantidad de columnas requerida</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success btn-lg btn-block mt-3">Crear</button>
+        </form>
+        <p class="pt-3 text-center"><b>SRL Airlines - 2021</b> Copyright &copy; Todos los derechos reservados</p>
       </div>
-    </body>
-  </html>
+    </div>
+  </div>
+</body>
 
-
-
+</html>

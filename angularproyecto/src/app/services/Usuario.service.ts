@@ -16,6 +16,20 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) {}
   
+  get(): Observable<any> {
+    return this.http.get(AUTH_API, httpOptions);
+  }
+  create(post: any): Observable<any> {
+    return this.http.post(AUTH_API, post);
+  }
+  delete(id: string): Observable<any> {
+    return this.http.delete(`${AUTH_API}/${id}`);
+  }
+
+  edit(id: string, post: any): Observable<any> {
+    return this.http.put(`${AUTH_API}/${id}`, post);
+  }
+  
   login(Usuario: string, Contrasenna: string): Observable<any> {
     return this.http.post(
       AUTH_API + 'signin',

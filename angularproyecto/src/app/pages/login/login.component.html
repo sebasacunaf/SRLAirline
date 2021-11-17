@@ -24,7 +24,7 @@
           </div>
           <div class="mb-3">
             <label for="Contrasenna">Contraseña</label>
-            <input type="Contrasenna" class="form-control" name="Contrasenna" [(ngModel)]="form.Contrasenna"
+            <input type="password" class="form-control" name="Contrasenna" [(ngModel)]="form.Contrasenna"
               placeholder="Contraseña" required minlength="3" #Contrasenna="ngModel" />
             <div class="alert alert-danger" role="alert" *ngIf="Contrasenna.errors && f.submitted">
               <div *ngIf="Contrasenna.errors.required">Contraseña es requerida!</div>
