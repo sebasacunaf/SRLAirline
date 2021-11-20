@@ -28,7 +28,7 @@ body{
     input{
     height: 52px;
     font-size: 18px !important;
-    color: #f2f2f2;
+    color: #000000;
     }
     .form-control:focus{
     box-shadow: 0 0 0 0 rgba(13,110,253,.25);

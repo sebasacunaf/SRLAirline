@@ -1,7 +1,7 @@
 const PostModel = require("../models/Horario");
 
 module.exports.get = async (req, res, next)=>{
-    const posts = await PostModel.find().exec()
+    const posts = await PostModel.find().populate('ID_Ruta').exec()
     res.json(posts);
 };
 module.exports.getByID = async (req, res, next)=>{
@@ -20,8 +20,7 @@ module.exports.create = (req, res, next)=>{
         res.json({ success: false, msg: 'Existen algún valor nulo' });
     } else {
         var newH= new PostModel({ID_Ruta:ID_Ruta ,Dia:Dia, HoraSalida: HoraSalida , HoraLlegada:HoraLlegada, Precio: Precio});
-       
-
+    
         newH.save(function (err) {
             if (err) {
                 return res.json({ success: false, msg: 'El horario ya existe' });

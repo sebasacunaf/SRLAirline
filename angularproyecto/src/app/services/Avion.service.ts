@@ -25,4 +25,12 @@ export class AvionService {
   edit(id: string, post: any): Observable<any> {
     return this.http.put(`${AUTH_API}/${id}`, post);
   }
+  create(ID_TipoAvion:String, ID_Horario:String, CodigoAvion:Number): Observable<any> {
+    return this.http.post(AUTH_API + 'create',
+    {
+      ID_TipoAvion, ID_Horario, CodigoAvion
+    },
+     httpOptions
+    );
+  }
 }

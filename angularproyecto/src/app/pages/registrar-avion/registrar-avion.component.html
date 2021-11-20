@@ -1,37 +1,55 @@
 <html>
-    <head>
-      <meta charset="utf-8">
-      <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
-    </head>
-    <body>
-      <div class="container">
-        <div class="row align-items-center justify-content-center vh-100">
-          <div class="col-md-5">
-            <form class="login-form" action="#">
-                <div class="mb-3">
-                  <label for="Codigo">Código avión</label>
-                    <input type="text" class="form-control" placeholder="Código avión"
-                      required>
-                  </div>
-                  <div class="row" style="margin-bottom: 15px;">
-                    <div class="col">
-                      <label for="CodigoTA">Código Tipo de avión</label>
-                      <input type="text" class="form-control" placeholder="Código tipo de avión"
-                      required>
-                    </div>
-                    <div class="col">
-                      <label for="CodigoH">Código Horario</label>
-                      <input type="text" class="form-control" placeholder="Código horario" required>
-                    </div>
-                  </div>
-              <button type="button" class="btn btn-success btn-lg btn-block mt-3">Crear</button>
-            </form>
-            <p class="pt-3 text-center"><b>SRL Airlines - 2021</b>  Copyright &copy; Todos los derechos reservados</p>
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row align-items-center justify-content-center vh-100">
+      <div class="col-md-5">
+        <form class="login-form" *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+          novalidate>
+          <div class="mb-3">
+            <label>Tipo de Avión</label>
+            <select class="form-select" name="ID_TipoAvion" [(ngModel)]="form.ID_TipoAvion" #ID_TipoAvion="ngModel"
+             required>
+
+              <option *ngFor="let TipoAvion of TipoAviones" value={{TipoAvion._id}}>{{TipoAvion.Marca}}&nbsp;{{TipoAvion.Modelo}}&nbsp;{{TipoAvion.Anno}}</option>
+
+            </select>
+            <div class="alert-danger" *ngIf="ID_TipoAvion.errors && f.submitted">
+              <div *ngIf="ID_TipoAvion.errors.required">Debe seleccionar un Tipo de Avión</div>
+            </div>
           </div>
-        </div>
+          <div class="mb-3">
+            <label>Horario</label>
+            <select class="form-select" name="ID_Horario" [(ngModel)]="form.ID_Horario" #ID_Horario="ngModel"
+              required>
+
+              <option *ngFor="let Horario of Horarios" value={{Horario._id}}>{{Horario.ID_Ruta.Ruta}}&nbsp;{{Horario.Dia}}&nbsp;{{Horario.HoraSalida}}</option>
+
+            </select>
+            <div class="alert-danger" *ngIf="ID_Horario.errors && f.submitted">
+              <div *ngIf="ID_Horario.errors.required">Debe seleccionar un Horario</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label >Código avión</label>
+            <input  type="text" class="form-control" placeholder="Código Avión" name="CodigoAvion" [(ngModel)]="form.CodigoAvion"
+            #CodigoAvion="ngModel" required>
+            <div class="alert-danger" *ngIf="CodigoAvion.errors && f.submitted">
+              <div *ngIf="CodigoAvion.errors.required">Código de Avión requerido</div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success btn-lg btn-block mt-3">Crear</button>
+        </form>
+        <p class="pt-3 text-center"><b>SRL Airlines - 2021</b> Copyright &copy; Todos los derechos reservados</p>
       </div>
-    </body>
-  </html>
+    </div>
+  </div>
+</body>
 
-
+</html>

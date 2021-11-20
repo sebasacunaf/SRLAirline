@@ -14,11 +14,11 @@ module.exports.getByID = async (req, res, next)=>{
     }
 }
 module.exports.create = (req, res, next)=>{
-    const {Anno,Modelo, Marca, CantidadPasajeros,CantidaFilas,CantidadColumnas} = req.body;
+    const {Anno,Modelo, Marca, CantidadPasajeros,CantidadFilas,CantidadColumnas} = req.body;
     if (!Anno || !Modelo || !Marca || !CantidadPasajeros || !CantidadFilas || !CantidadColumnas) {
         res.json({ success: false, msg: 'Existen algún valor nulo' });
     } else {
-        var newTipoA = new PostModel({ Anno: Anno,Modelo:Modelo,Marca:Marca,CantidadPasajeros:CantidadPasajeros,CantidaFilas:CantidaFilas,CantidadColumnas:CantidadColumnas});
+        var newTipoA = new PostModel({ Anno: Anno,Modelo:Modelo,Marca:Marca,CantidadPasajeros:CantidadPasajeros,CantidadFilas:CantidadFilas,CantidadColumnas:CantidadColumnas});
        
 
         newTipoA.save(function (err) {

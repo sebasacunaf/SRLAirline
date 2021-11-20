@@ -1,23 +1,23 @@
 <div class="mt-5">
     <div class="table-wrapper">
         <div class="table-title">
-            <div class="row">
+            <div class="row" style="width: 60%; margin-left: 20%;">
                 <div class="col-sm-6">
                     <h2> <b>Horario</b></h2>
                 </div>
                 <div class="col-sm-6 d-flex justify-content-end">
                     <a routerLink="/dashboard/registrar-horario" class="btn btn-success btn-small" data-toggle="modal"><i
-                            class="fas fa-plus-square mr-3 d-inline-block"></i>&nbsp;&nbsp; <span
-                            class="d-inline-block">Nuevo
+                            class="fas fa-plus-square mr-3 d-inline-block"></i><span
+                            class="d-inline-block">Nuevo Horario
                            </span></a>
 
                 </div>
             </div>
         </div>
-        <table class="table table-striped table-hover mt-5">
+        <table class="table table-striped table-hover mt-5" style="width: 60%; margin-left: 20%;">
             <thead>
                 <tr>
-                    <th class="w-20">Identifiación ruta</th>
+                    <th class="w-20">Ruta</th>
                     <th class="w-20">Día</th>
                     <th class="w-20">Hora salida</th>
                     <th class="w-20">Hora llegada</th>
@@ -27,7 +27,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let Horario of Horarios">
-                    <td>{{Horario.ID_Ruta}}</td>
+                    <td>{{Horario.ID_Ruta.Ruta}}</td>
                     <td>{{Horario.Dia}}</td>
                     <td>{{Horario.HoraSalida}}</td>
                     <td>{{Horario.HoraLlegada}}</td>
