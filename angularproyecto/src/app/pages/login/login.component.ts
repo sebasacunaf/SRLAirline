@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
           this.isLoggedIn = true;
           this.roles = this.tokenStorage.getUser().Rol;
           if (this.roles === 'Cliente') {
-            this.router.navigate(['/home']);
+            this.router.navigate(['/dashboard/cliente']);
           }
           if (this.roles === 'Administrador') {
             this.router.navigate(['/dashboard/admin']);
