@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './pages/about/about.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { ClienteComponent } from './pages/cliente/cliente.component';
 import { EditarAvionComponent } from './pages/editar-avion/editar-avion.component';
 import { EditarFacturaComponent } from './pages/editar-factura/editar-factura.component';
 import { EditarHorarioComponent } from './pages/editar-horario/editar-horario.component';
@@ -47,6 +48,7 @@ const routes: Routes =
   canActivate: [AuthGuard],
   children: [
   {path:'admin',component: AdminComponent},
+  {path:'cliente',component: ClienteComponent},
   {path:'registrar-usuario',component: RegistrarUsuarioComponent},
   {path:'registrar-avion',component: RegistrarAvionComponent},
   {path:'registrar-tipo-avion',component: RegistrarTipoAvionComponent},

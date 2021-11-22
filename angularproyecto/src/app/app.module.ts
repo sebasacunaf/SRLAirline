@@ -39,6 +39,7 @@ import { HomeRutaComponent } from './pages/home-ruta/home-ruta.component';
 import { HomeVuelosComponent } from './pages/home-vuelos/home-vuelos.component';
 import { HomeReservacionesComponent } from './pages/home-reservaciones/home-reservaciones.component';
 import { HomeFacturaComponent } from './pages/home-factura/home-factura.component';
+import { ClienteComponent } from './pages/cliente/cliente.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { HomeFacturaComponent } from './pages/home-factura/home-factura.componen
     HomeRutaComponent,
     HomeVuelosComponent,
     HomeReservacionesComponent,
-    HomeFacturaComponent
+    HomeFacturaComponent,
+    ClienteComponent
   ],
   imports: [
     BrowserModule,
