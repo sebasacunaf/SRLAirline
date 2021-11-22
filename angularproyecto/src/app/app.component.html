@@ -26,7 +26,7 @@
               <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-vuelos">Vuelos</a></li>
               <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-reservaciones">Reservaciones</a></li>
               <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-factura">Factura</a></li>
-                <li class="nav-item" *ngIf="isUserAuthenticated()"><a href="#" class="nav-link px-lg-3 py-3 py-lg-4"
+                <li class="nav-item" *ngIf="isUserAuthenticated()"><a href="#" class="nav-link"
                     (click)="logout()">{{UsuarioValue}} - Cerrar sesión</a>
             </ul>
         </div>
