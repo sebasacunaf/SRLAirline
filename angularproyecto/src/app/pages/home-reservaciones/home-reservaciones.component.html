@@ -7,7 +7,7 @@
                 </div>
                 <div class="col-sm-6 d-flex justify-content-end">
                     <a routerLink="/dashboard/registrar-reservaciones" class="btn btn-success btn-small" data-toggle="modal"><i
-                            class="fas fa-plus-square mr-3 d-inline-block"></i>&nbsp;&nbsp; <span
+                            class="fas fa-plus-square mr-3 d-inline-block"></i><span
                             class="d-inline-block">Nueva Reservación
                             </span></a>
 
@@ -26,15 +26,17 @@
             </thead>
             <tbody>
                 <tr *ngFor="let Reservacion of Reservaciones">
-                    <td>{{Reservacion.ID_Vuelo}}</td>
-                    <td>{{Reservacion.ID_Usuario}}</td>
+                    <td>{{Reservacion.ID_Vuelo.CodigoVuelo}}&nbsp;-&nbsp;{{Reservacion.ID_Vuelo.Descripcion}}&nbsp;-&nbsp;{{Reservacion.ID_Vuelo.FechaIda}}</td>
+                    <td>{{Reservacion.ID_Usuario.Usuario}}</td>
                     <td>{{Reservacion.numReservacion}}</td>
                     <td>{{Reservacion.CantidadAsientos}}</td>
                     <td class="text-end">
-                        <a routerLink="/dashboard/editar-reservaciones/{{Reservacion._id}}" class="edit btn btn-small btn-primary rounded me-2"
-                            data-toggle="modal"><i class="far fa-edit">Editar</i></a>
-                        <a (click)="delete(Reservacion._id)" class="delete btn  btn-small btn-danger rounded"
-                            data-toggle="modal"><i class="far fa-trash-alt">Eliminar</i></a>
+                        <a (click)="delete(Reservacion._id)" class="delete btn  btn-small btn-danger rounded rounded"
+                        data-toggle="modal"><i class="far fa-trash-alt">Eliminar</i></a>&nbsp;
+                        <a routerLink="/dashboard/editar-reservaciones/{{Reservacion._id}}" class="edit btn btn-small btn-primary rounded"
+                            data-toggle="modal"><i class="far fa-edit">Editar</i></a>&nbsp;
+                        <a (click)="createFactura(Reservacion._id)" class="edit btn btn-small btn-success rounded "
+                            data-toggle="modal"><i class="far fa-edit">Facturar</i></a>
                     </td>
                 </tr>
 

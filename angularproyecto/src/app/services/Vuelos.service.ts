@@ -26,4 +26,12 @@ export class VuelosService {
   edit(id: string, post: any): Observable<any> {
     return this.http.put(`${AUTH_API}/${id}`, post);
   }
+  create(ID_Avion:String, CodigoVuelo:Number, Descripcion:String, Origen:String, Destino:String, FechaIda:String, FechaRegreso:String,EspaciosDisponibles:String): Observable<any> {
+    return this.http.post(AUTH_API + 'create',
+    {
+      ID_Avion, CodigoVuelo, Descripcion, Origen, Destino, FechaIda, FechaRegreso,EspaciosDisponibles
+    },
+     httpOptions
+    );
+  }
 }

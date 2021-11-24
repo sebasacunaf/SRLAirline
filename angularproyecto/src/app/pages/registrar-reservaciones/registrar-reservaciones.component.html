@@ -1,42 +1,61 @@
 <html>
-    <head>
-      <meta charset="utf-8">
-      <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
-    </head>
-    <body>
-      <div class="container">
-        <div class="row align-items-center justify-content-center vh-100">
-          <div class="col-md-5">
-            <form class="login-form" action="#">
-                <div class="mb-3">
-                  <label for="CodigoV">Código vuelo</label>
-                    <input type="text" class="form-control" placeholder="Código vuelo"
-                      required>
-                  </div>
-                  <div class="mb-3">
-                    <label for="IdentificaciónU">Identificación del usuario</label>
-                    <input type="text" class="form-control" placeholder="Identificación del usuario"
-                      required>
-                  </div>
-                  <div class="mb-3">
-                    <label for="NumeroR">Número de reservación</label>
-                    <input type="text" class="form-control" placeholder="Número de reservación"
-                      required>
-                  </div>
-                  <div class="mb-3">
-                    <label for="CantidadA">Cantidad de asientos</label>
-                    <input type="text" class="form-control" placeholder="Cantidad de asientos"
-                      required>
-                  </div>
-              <button type="button" class="btn btn-success btn-lg btn-block mt-3">Crear</button>
-            </form>
-            <p class="pt-3 text-center"><b>SRL Airlines - 2021</b>  Copyright &copy; Todos los derechos reservados</p>
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row align-items-center justify-content-center vh-100">
+      <div class="col-md-5">
+        <form class="login-form" *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+          novalidate>
+          <div class="mb-3">
+            <label>Vuelos</label>
+            <select class="form-select" id="ejemplo" name="ID_Vuelo" [(ngModel)]="form.ID_Vuelo" #ID_Vuelo="ngModel"
+              required>
+
+              <option *ngFor="let Vuelo of Vuelos" value={{Vuelo._id}}>Vuelo:
+                {{Vuelo.CodigoVuelo}}&nbsp;-&nbsp;{{Vuelo.Descripcion}}&nbsp;-&nbsp;Fecha Ida: {{Vuelo.FechaIda}}
+              </option>
+
+            </select>
           </div>
-        </div>
+          <div class="mb-3">
+            <label>Usuarios</label>
+            <select class="form-select" id="ejemplo" name="ID_Usuario" [(ngModel)]="form.ID_Usuario" #ID_Usuario="ngModel"
+              required>
+
+              <option *ngFor="let Usuario of Usuarios" value={{Usuario._id}}>Usuario:
+                {{Usuario.Usuario}}
+              </option>
+
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="Dia">Número de vuelo</label>
+            <input type="number" class="form-control" placeholder="Número de vuelo" name="CodigoVuelo"
+              [(ngModel)]="form.numReservacion" #numReservacion="ngModel" required>
+            <div class="alert-danger" *ngIf="numReservacion.errors && f.submitted">
+              <div *ngIf="numReservacion.errors.required">Número de vuelo requerido</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="Dia">Cantidad de asientos</label>
+            <input type="number" class="form-control" placeholder="Cantidad de asientos" name="CantidadAsientos"
+              [(ngModel)]="form.CantidadAsientos" #CantidadAsientos="ngModel" required>
+            <div class="alert-danger" *ngIf="CantidadAsientos.errors && f.submitted">
+              <div *ngIf="CantidadAsientos.errors.required">Cantidad de asientos requerido</div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success btn-lg btn-block mt-3">Reservar y Facturar</button>
+        </form>
+        <p class="pt-3 text-center"><b>SRL Airlines - 2021</b> Copyright &copy; Todos los derechos reservados</p>
       </div>
-    </body>
-  </html>
+    </div>
+  </div>
+</body>
 
-
-
+</html>

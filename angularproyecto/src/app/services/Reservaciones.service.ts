@@ -26,4 +26,16 @@ export class ReservacionesService {
   edit(id: string, post: any): Observable<any> {
     return this.http.put(`${AUTH_API}/${id}`, post);
   }
+  getById(id: string): Observable<any> {
+    return this.http.get(`${AUTH_API}/${id}`);
+  }
+
+  create(ID_Vuelo:String, ID_Usuario:String, numReservacion:number, CantidadAsientos:Number): Observable<any> {
+    return this.http.post(AUTH_API + 'create',
+    {
+      ID_Vuelo, ID_Usuario, numReservacion, CantidadAsientos
+    },
+     httpOptions
+    );
+  }
 }

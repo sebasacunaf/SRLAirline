@@ -26,4 +26,12 @@ export class FacturaService {
   edit(id: string, post: any): Observable<any> {
     return this.http.put(`${AUTH_API}/${id}`, post);
   }
+  create(ID_Reservacion:String, NumeroFactura:String, Descripcion:String, TotalColones:Number, TotalDolares:Number, FechaReservacion:String): Observable<any> {
+    return this.http.post(AUTH_API + 'create',
+    {
+      ID_Reservacion, NumeroFactura, Descripcion, TotalColones, TotalDolares, FechaReservacion
+    },
+     httpOptions
+    );
+  }
 }

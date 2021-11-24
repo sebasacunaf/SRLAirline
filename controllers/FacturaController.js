@@ -1,7 +1,7 @@
 const PostModel = require("../models/Factura");
 
 module.exports.get = async (req, res, next)=>{
-    const posts = await PostModel.find().exec()
+    const posts = await PostModel.find().populate("ID_Reservacion").exec()
     res.json(posts);
 };
 module.exports.getByID = async (req, res, next)=>{

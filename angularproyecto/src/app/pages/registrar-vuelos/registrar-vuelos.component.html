@@ -1,63 +1,104 @@
 <html>
-    <head>
-      <meta charset="utf-8">
-      <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
-    </head>
-    <body>
-      <div class="container">
-        <div class="row align-items-center justify-content-center vh-100">
-          <div class="col-md-5">
-            <form class="login-form" action="#">
-              <div class="mb-3">
-                <label for="Codigo">Código</label>
-                  <input type="text" class="form-control" placeholder="Código"
-                    required>
-                </div>
-              <div class="mb-3">
-                <label for="Codigo">Código avión</label>
-                  <input type="text" class="form-control" placeholder="Código avión"
-                    required>
-                </div>
-                  <div class="mb-3">
-                    <label for="Descripcion">Descripción</label>
-                    <input type="text" class="form-control" placeholder="Descripción"
-                      required>
-                  </div>
-                  <div class="row" style="margin-bottom: 15px;">
-                    <div class="col">
-                      <label for="Origen">Origen</label>
-                      <input type="text" class="form-control" placeholder="Origen"
-                        required>
-                    </div>
-                    <div class="col">
-                      <label for="Destino">Destino</label>
-                    <input type="text" class="form-control" placeholder="Destino"
-                      required>
-                    </div>
-                  </div>
-                  <div class="row" style="margin-bottom: 15px;">
-                    <div class="col">
-                      <label for="FechaI">Fecha Ida</label>
-                      <input type="text" class="form-control" placeholder="Fecha Ida"
-                        required>
-                    </div>
-                    <div class="col">
-                      <label for="FechaR">Fecha Regreso</label>
-                      <input type="text" class="form-control" placeholder="Fecha Regreso"
-                        required>
-                    </div>
-                  </div>
-                  <div class="mb-3">
-                    <label for="EspaciosD">Espacios Disponibles</label>
-                    <input type="text" class="form-control" placeholder="Espacios disponibles"
-                      required>
-                  </div>
-              <button type="button" class="btn btn-success btn-lg btn-block mt-3">Crear</button>
-            </form>
-            <p class="pt-3 text-center"><b>SRL Airlines - 2021</b>  Copyright &copy; Todos los derechos reservados</p>
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row align-items-center justify-content-center vh-100">
+      <div class="col-md-5">
+        <form class="login-form" *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+          novalidate>
+          <div class="mb-3">
+            <label>Avión</label>
+            <select class="form-select" id="ejemplo" name="ID_Avion" [(ngModel)]="form.ID_Avion" #ID_Avion="ngModel"
+              required>
+
+              <option *ngFor="let Avion of Aviones" value={{Avion._id}}>
+                {{Avion.CodigoAvion}}&nbsp;-&nbsp;{{Avion.ID_TipoAvion.Marca}}&nbsp;{{Avion.ID_TipoAvion.Modelo}}
+              </option>
+
+            </select>
           </div>
-        </div>
+          <div class="mb-3">
+            <div class="mb-3">
+              <label for="Dia">Código Vuelo</label>
+              <input type="number" class="form-control" placeholder="Código Vuelo" name="CodigoVuelo"
+                [(ngModel)]="form.CodigoVuelo" #CodigoVuelo="ngModel" required>
+              <div class="alert-danger" *ngIf="CodigoVuelo.errors && f.submitted">
+                <div *ngIf="CodigoVuelo.errors.required">Código Vuelo requerido</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="Dia">Descripción</label>
+              <input type="text" class="form-control" placeholder="Descripción" name="Descripcion"
+                [(ngModel)]="form.Descripcion" #Descripcion="ngModel" required>
+              <div class="alert-danger" *ngIf="Descripcion.errors && f.submitted">
+                <div *ngIf="Descripcion.errors.required">Descripción requerido</div>
+              </div>
+            </div>
+            <div class="row" style="margin-bottom: 15px;">
+              <div class="col">
+                <div class="mb-3">
+                  <label for="Dia">Origen</label>
+                  <input type="text" class="form-control" placeholder="Origen" name="Origen"
+                    [(ngModel)]="form.Origen" #Origen="ngModel" required>
+                  <div class="alert-danger" *ngIf="Origen.errors && f.submitted">
+                    <div *ngIf="Origen.errors.required">Origen requerido</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="mb-3">
+                  <label for="Dia">Destino</label>
+                  <input type="text" class="form-control" placeholder="Destino" name="Destino"
+                    [(ngModel)]="form.Destino" #Destino="ngModel" required>
+                  <div class="alert-danger" *ngIf="Destino.errors && f.submitted">
+                    <div *ngIf="Destino.errors.required">Destino requerido</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="margin-bottom: 15px;">
+              <div class="col">
+                <div class="mb-3">
+                  <label for="Dia">Fecha Ida</label>
+                  <input type="date" class="form-control" placeholder="Fecha Ida" name="FechaIda"
+                    [(ngModel)]="form.FechaIda" #FechaIda="ngModel" required>
+                  <div class="alert-danger" *ngIf="FechaIda.errors && f.submitted">
+                    <div *ngIf="FechaIda.errors.required">Fecha Ida requerida</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="mb-3">
+                  <label for="Dia">Fecha Regreso</label>
+                  <input type="date" class="form-control" placeholder="Fecha Regreso" name="FechaRegreso"
+                    [(ngModel)]="form.FechaRegreso" #FechaRegreso="ngModel" required>
+                  <div class="alert-danger" *ngIf="FechaRegreso.errors && f.submitted">
+                    <div *ngIf="FechaRegreso.errors.required">Fecha Regreso requerida</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="Dia">Espacios Disponibles</label>
+              <input type="number" class="form-control" placeholder="Espacios Disponibles" name="EspaciosDisponibles"
+                [(ngModel)]="form.EspaciosDisponibles" #EspaciosDisponibles="ngModel" required>
+              <div class="alert-danger" *ngIf="EspaciosDisponibles.errors && f.submitted">
+                <div *ngIf="EspaciosDisponibles.errors.required">Espacios Disponibles requerido</div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success btn-lg btn-block mt-3">Crear</button>
+          </div>
+        </form>
+        <p class="pt-3 text-center"><b>SRL Airlines - 2021</b> Copyright &copy; Todos los derechos reservados</p>
       </div>
-    </body>
-  </html>
+    </div>
+  </div>
+</body>
+
+</html>

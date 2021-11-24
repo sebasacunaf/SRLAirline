@@ -25,9 +25,12 @@ export class UsuarioService {
   delete(id: string): Observable<any> {
     return this.http.delete(`${AUTH_API}/${id}`);
   }
+  getByID(id: string): Observable<any> {
+    return this.http.get(`${AUTH_API}/${id}`);
+  }
 
-  update(id: string, post: any): Observable<any> {
-    return this.http.put(`${AUTH_API}/${id}`, post);
+  update(id: string, usuario: any): Observable<any> {
+    return this.http.put(`${AUTH_API}/${id}`, usuario);
   }
   
   login(Usuario: string, Contrasenna: string): Observable<any> {

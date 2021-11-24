@@ -20,7 +20,7 @@ const UsuarioSchema = new Schema({
     Celular: String, 
     TelefonoTrabajo: String, 
     Correo: String, 
-    FechaNacimiento: Date,
+    FechaNacimiento: String,
     Descripcion: String
 })
 
