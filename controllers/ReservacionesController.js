@@ -7,7 +7,6 @@ module.exports.get = async (req, res, next)=>{
 module.exports.getByID = async (req, res, next)=>{
     const posts = await PostModel.findOne(req.params.id).populate("ID_Vuelo").populate("ID_Usuario").exec()
     if(posts){
-        res.json({result: "Registro encontrado"});
         res.json(posts);
     }else{
         res.json({result: "{Id de reservación es inválida, o no existe el registro"});

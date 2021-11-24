@@ -73,11 +73,23 @@ module.exports.delete = async (req, res, next)=>{
 module.exports.update = async (req, res, next)=>{
     const {Rol,Usuario,Contrasenna,Nombre,Apellidos, Celular, TelefonoTrabajo, Correo,FechaNacimiento, 
         Descripcion} = req.body;
-    const post = await PostModel.findOneAndUpdate(
-        { _id: req.params.id},
-        {Rol,Usuario,Contrasenna,Nombre,Apellidos, Celular, TelefonoTrabajo, Correo,FechaNacimiento,
-            Descripcion},
-        {new: true}
-    )
-    res.json(post);
-};
+
+        bcrypt.genSalt(10, function (err, salt) {
+        
+            bcrypt.hash(Contrasenna, salt, null, async function (err, hash) {
+               
+              
+              Contrasenna = hash;
+              const post = await PostModel.findOneAndUpdate(
+                { _id: req.params.id},
+                {Rol,Usuario,Contrasenna,Nombre,Apellidos, Celular, TelefonoTrabajo, Correo,FechaNacimiento,
+                    Descripcion},
+                {new: true}
+            ) 
+          
+              
+              res.json(post);
+            });
+        });
+    }
+

@@ -35,7 +35,7 @@ export class RegistrarHorarioComponent implements OnInit {
         if(data.success){
           this.isSuccessful = true;
           this.isSignUpFailed = false;
-          //this.router.navigate(['/home-horario']);
+          this.router.navigate(['/dashboard/home-horario']);
         }else{
           this.errorMessage = data.msg;
           this.isSignUpFailed = true;

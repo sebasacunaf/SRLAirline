@@ -33,7 +33,7 @@
                     <td>{{Horario.HoraLlegada}}</td>
                     <td>{{Horario.Precio}}</td>
                     <td class="text-end">
-                        <a routerLink="/dashboard/editar-horario/{{Horario._id}}" class="edit btn btn-small btn-primary rounded me-2"
+                        <a [routerLink]="['/dashboard/editar-horario',Horario._id]"  class="edit btn btn-small btn-primary rounded me-2"
                             data-toggle="modal"><i class="far fa-edit">Editar</i></a>
                         <a (click)="delete(Horario._id)" class="delete btn  btn-small btn-danger rounded"
                             data-toggle="modal"><i class="far fa-trash-alt">Eliminar</i></a>

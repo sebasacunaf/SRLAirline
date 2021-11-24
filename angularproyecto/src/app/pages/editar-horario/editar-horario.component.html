@@ -8,40 +8,34 @@
       <div class="container">
         <div class="row align-items-center justify-content-center vh-100">
           <div class="col-md-5">
-            <form class="login-form" action="#">
+            <form [formGroup]="commentForm" (ngSubmit)="submitForm()">
                 <div class="mb-3">
-                  <label for="CódigoR">Código ruta</label>
-                    <input type="text" class="form-control" placeholder="Código ruta"
-                      required>
-                  </div>
-                  <div class="mb-3">
-                    <label for="TipoAvion">Tipo de avión</label>
-                    <input type="text" class="form-control" placeholder="Tipo de avión"
-                      required>
+                  <label for="Ruta">Ruta</label>
+                  <select class="form-select" id="ejemplo" name="ID_Ruta" id="ID_Ruta" formControlName="ID_Ruta">
+
+                    <option *ngFor="let Ruta of Rutas" value={{Ruta._id}}>{{Ruta.Ruta}}</option>
+      
+                  </select>
                   </div>
                   <div class="mb-3">
                     <label for="Dia">Día</label>
-                    <input type="text" class="form-control" placeholder="Día"
-                      required>
+                    <input formControlName="Dia" type="text" class="form-control" id="Dia" placeholder="Día" >
                   </div>
                   <div class="row" style="margin-bottom: 15px;">
                     <div class="col">
-                      <label for="HoraS">Hora salida</label>
-                    <input type="text" class="form-control" placeholder="Hora salida"
-                      required>
+                      <label for="HoraSalida"> Hora de Salida</label>
+                  <input formControlName="HoraSalida" type="text" class="form-control" id="HoraSalida" placeholder="Hora Salida" >
                     </div>
                     <div class="col">
-                      <label for="HoraLL">Hora llegada</label>
-                      <input type="text" class="form-control" placeholder="Hora llegada"
-                        required>
+                      <label for="HoraLlegada">Hora de Llegada</label>
+                      <input formControlName="HoraLlegada" type="text" class="form-control" id="HoraLlegada" placeholder="Hora Llegada" >
                     </div>
                   </div>
                   <div class="mb-3">
                     <label for="Precio">Precio</label>
-                    <input type="text" class="form-control" placeholder="Precio"
-                      required>
+                    <input formControlName="Precio" type="number" class="form-control" id="Precio" placeholder="Precio" >
                   </div>
-              <button type="button" class="btn btn-success btn-lg btn-block mt-3">Editar</button>
+              <button type="submit" class="btn btn-success btn-lg btn-block mt-3">Editar</button>
             </form>
             <p class="pt-3 text-center"><b>SRL Airlines - 2021</b>  Copyright &copy; Todos los derechos reservados</p>
           </div>

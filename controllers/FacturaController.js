@@ -5,9 +5,8 @@ module.exports.get = async (req, res, next)=>{
     res.json(posts);
 };
 module.exports.getByID = async (req, res, next)=>{
-    const posts = await PostModel.findOne({ _id: id }).exec()
+    const posts = await PostModel.findOne({ _id: req.params.id }).populate("ID_Reservacion").exec()
     if(posts){
-        res.json({result: "Registro encontrado"});
         res.json(posts);
     }else{
         res.json({result: "{Id de factura es inválida, o no existe el registro"});

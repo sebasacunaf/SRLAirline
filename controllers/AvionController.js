@@ -7,9 +7,8 @@ module.exports.get = async (req, res, next)=>{
 };
 module.exports.getByID = async (req, res, next)=>{
     const id = req.params.id;
-    const posts = await PostModel.findOne({ _id: id }).exec()
+    const posts = await PostModel.findOne({ _id: req.params.id }).exec()
     if(posts){
-        res.json({result: "Registro encontrado"});
         res.json(posts);
     }else{
         res.json({result: "{Id del avión inválido, o no existe el registro"});

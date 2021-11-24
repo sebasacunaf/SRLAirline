@@ -9,24 +9,31 @@
       <div class="container">
         <div class="row align-items-center justify-content-center vh-100">
           <div class="col-md-5">
-            <form class="login-form" action="#">
+            <form [formGroup]="commentForm" (ngSubmit)="submitForm()">
                 <div class="mb-3">
-                  <label for="Codigo">Código avión</label>
-                    <input type="text" class="form-control" placeholder="Código avión"
-                      required>
+                  <label for="ID_TipoAvion">Tipo de avión</label>
+                  <select class="form-select" name="ID_TipoAvion" formControlName="ID_TipoAvion">
+
+              <option *ngFor="let TipoAvion of TipoAviones" value={{TipoAvion._id}}>{{TipoAvion.Marca}}&nbsp;{{TipoAvion.Modelo}}&nbsp;{{TipoAvion.Anno}}</option>
+
+            </select>
                   </div>
                   <div class="row" style="margin-bottom: 15px;">
                     <div class="col">
-                      <label for="CodigoTA">Código Tipo de avión</label>
-                      <input type="text" class="form-control" placeholder="Código tipo de avión"
-                      required>
+                      <label for="ID_Horario">Horario</label>
+                      <select class="form-select" name="ID_Horario" formControlName="ID_Horario"
+                     >
+        
+                      <option *ngFor="let Horario of Horarios" value={{Horario._id}}>{{Horario.ID_Ruta.Ruta}}&nbsp;{{Horario.Dia}}&nbsp;{{Horario.HoraSalida}}</option>
+        
+                    </select>
                     </div>
                     <div class="col">
-                      <label for="CodigoH">Código Horario</label>
-                      <input type="text" class="form-control" placeholder="Código horario" required>
-                    </div>
+                      <label for="CodigoAvion"> Código de Avion</label>
+                  <input formControlName="CodigoAvion" type="text" class="form-control" id="CodigoAvion" placeholder="Código Avion" >
                   </div>
-              <button type="button" class="btn btn-success btn-lg btn-block mt-3">Editar</button>
+                </div>
+              <button type="submit" class="btn btn-success btn-lg btn-block mt-3">Editar</button>
             </form>
             <p class="pt-3 text-center"><b>SRL Airlines - 2021</b>  Copyright &copy; Todos los derechos reservados</p>
           </div>

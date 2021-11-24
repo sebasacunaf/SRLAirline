@@ -23,8 +23,11 @@ export class FacturaService {
     return this.http.delete(`${AUTH_API}/${id}`);
   }
 
-  edit(id: string, post: any): Observable<any> {
+  update(id: string, post: any): Observable<any> {
     return this.http.put(`${AUTH_API}/${id}`, post);
+  }
+  getByID(id: string): Observable<any> {
+    return this.http.get(`${AUTH_API}/${id}`);
   }
   create(ID_Reservacion:String, NumeroFactura:String, Descripcion:String, TotalColones:Number, TotalDolares:Number, FechaReservacion:String): Observable<any> {
     return this.http.post(AUTH_API + 'create',

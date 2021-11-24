@@ -31,12 +31,13 @@
                     <td>{{Reservacion.numReservacion}}</td>
                     <td>{{Reservacion.CantidadAsientos}}</td>
                     <td class="text-end">
-                        <a (click)="delete(Reservacion._id)" class="delete btn  btn-small btn-danger rounded rounded"
-                        data-toggle="modal"><i class="far fa-trash-alt">Eliminar</i></a>&nbsp;
-                        <a routerLink="/dashboard/editar-reservaciones/{{Reservacion._id}}" class="edit btn btn-small btn-primary rounded"
-                            data-toggle="modal"><i class="far fa-edit">Editar</i></a>&nbsp;
-                        <a (click)="createFactura(Reservacion._id)" class="edit btn btn-small btn-success rounded "
-                            data-toggle="modal"><i class="far fa-edit">Facturar</i></a>
+                      
+                    <!--    <a  [routerLink]="['/dashboard/editar-reservaciones',Reservacion._id]"class="edit btn btn-small btn-primary rounded"
+                            data-toggle="modal"><i class="far fa-edit">Editar</i></a>&nbsp;-->
+                            <a (click)="delete(Reservacion._id)" class="delete btn  btn-small btn-danger rounded rounded"
+                            data-toggle="modal"><i class="far fa-trash-alt">Eliminar</i></a>
+                      <!--  <a (click)="createFactura(Reservacion._id)" class="edit btn btn-small btn-success rounded "
+                            data-toggle="modal"><i class="far fa-edit">Facturar</i></a>-->
                     </td>
                 </tr>
 

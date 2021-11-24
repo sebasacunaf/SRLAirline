@@ -23,8 +23,11 @@ export class HorarioService {
     return this.http.delete(`${AUTH_API}/${id}`);
   }
 
-  edit(id: string, post: any): Observable<any> {
+  update(id: string, post: any): Observable<any> {
     return this.http.put(`${AUTH_API}/${id}`, post);
+  }
+  getByID(id: string): Observable<any> {
+    return this.http.get(`${AUTH_API}/${id}`);
   }
   create(ID_Ruta:String, Dia:String, HoraSalida:String, HoraLlegada:String, Precio:Number): Observable<any> {
     return this.http.post(AUTH_API + 'create',

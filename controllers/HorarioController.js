@@ -5,9 +5,8 @@ module.exports.get = async (req, res, next)=>{
     res.json(posts);
 };
 module.exports.getByID = async (req, res, next)=>{
-    const posts = await PostModel.findOne({ _id: id }).exec()
+    const posts = await PostModel.findOne({ _id: req.params.id }).populate('ID_Ruta').exec()
     if(posts){
-        res.json({result: "Registro encontrado"});
         res.json(posts);
     }else{
         res.json({result: "{Id de horario es inválida, o no existe el registro"});

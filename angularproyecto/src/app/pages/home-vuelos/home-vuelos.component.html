@@ -39,8 +39,8 @@
                     <td>{{Vuelo.FechaRegreso}}</td>
                     <td>{{Vuelo.EspaciosDisponibles}}</td>
                     <td class="text-end">
-                        <a routerLink="/dashboard/editar-vuelos/{{Vuelo._id}}" class="edit btn btn-small btn-primary rounded me-2"
-                            data-toggle="modal"><i class="far fa-edit">Editar</i></a>
+                     <!--   <a [routerLink]="['/dashboard/editar-vuelo',Vuelo._id]"class="edit btn btn-small btn-primary rounded me-2"
+                            data-toggle="modal"><i class="far fa-edit">Editar</i></a> --> 
                         <a (click)="delete(Vuelo._id)" class="delete btn  btn-small btn-danger rounded"
                             data-toggle="modal"><i class="far fa-trash-alt">Eliminar</i></a>
                     </td>

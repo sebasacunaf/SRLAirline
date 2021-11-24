@@ -1,54 +1,48 @@
 <html>
-    <head>
-      <meta charset="utf-8">
-      <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
-    </head>
-    <body>
-      <div class="container">
-        <div class="row align-items-center justify-content-center vh-100">
-          <div class="col-md-5">
-            <form class="login-form" action="#">
-                <div class="mb-3">
-                    <label for="Anno">Año</label>
-                      <input type="text" class="form-control" placeholder="Año"
-                        required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="Modelo">Modelo</label>
-                        <input type="text" class="form-control" placeholder="Modelo"
-                          required>
-                      </div>
-                <div class="mb-3">
-                  <label for="Marca">Marca</label>
-                    <input type="text" class="form-control" placeholder="Marca"
-                      required>
-                  </div>
-                  <div class="mb-3">
-                    <label for="CantidadP">Cantidad de pasajeros</label>
-                    <input type="text" class="form-control" placeholder="Cantidad de pasajeros"
-                      required>
-                  </div>
-                  <div class="row" style="margin-bottom: 15px;">
-                    <div class="col">
-                      <label for="CantidadF">Cantidad de filas</label>
-                      <input type="text" class="form-control" placeholder="Cantidad de filas"
-                        required>
-                    </div>
-                    <div class="col">
-                      <label for="CantidadC">Cantidad de columnas</label>
-                      <input type="text" class="form-control" placeholder="Cantidad de columnas"
-                        required>
-                    </div>
-                  </div>
-              <button type="button" class="btn btn-success btn-lg btn-block mt-3">Editar</button>
-            </form>
-            <p class="pt-3 text-center"><b>SRL Airlines - 2021</b>  Copyright &copy; Todos los derechos reservados</p>
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row align-items-center justify-content-center vh-100">
+      <div class="col-md-5">
+        <form [formGroup]="commentForm" (ngSubmit)="submitForm()">
+          <div class="mb-3">
+            <label for="Anno">Año</label>
+            <input formControlName="Anno" type="text" class="form-control" id="Anno" placeholder="Año">
           </div>
-        </div>
+          <div class="mb-3">
+            <label for="Modelo">Modelo</label>
+            <input formControlName="Modelo" type="text" class="form-control" id="Modelo" placeholder="Modelo">
+          </div>
+          <div class="mb-3">
+            <label for="Marca">Marca</label>
+            <input formControlName="Marca" type="text" class="form-control" id="Marca" placeholder="Marca">
+          </div>
+          <div class="mb-3">
+            <label for="CantidadPasajeros">Cantidad de Pasajeros</label>
+            <input formControlName="CantidadPasajeros" type="text" class="form-control" id="CantidadPasajeros" placeholder="Cantidad Pasajeros">
+          </div>
+          <div class="row" style="margin-bottom: 15px;">
+            <div class="col">
+              <label for="CantidadFilas">Cantidad de Filas</label>
+              <input formControlName="CantidadFilas" type="text" class="form-control" id="CantidadFilas" placeholder="Cantidad Filas">
+            </div>
+            <div class="col">
+              <label for="CantidadColumnas">Cantidad de Columnas</label>
+              <input formControlName="CantidadColumnas" type="text" class="form-control" id="CantidadColumnas" placeholder="Cantidad Columnas">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success btn-lg btn-block mt-3">Editar</button>
+        </form>
+        <p class="pt-3 text-center"><b>SRL Airlines - 2021</b> Copyright &copy; Todos los derechos reservados</p>
       </div>
-    </body>
-  </html>
+    </div>
+  </div>
+</body>
 
-
-
+</html>

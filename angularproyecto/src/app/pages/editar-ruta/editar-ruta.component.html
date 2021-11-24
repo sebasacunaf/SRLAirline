@@ -8,18 +8,16 @@
       <div class="container">
         <div class="row align-items-center justify-content-center vh-100">
           <div class="col-md-5">
-            <form class="login-form" action="#">
+            <form [formGroup]="commentForm" (ngSubmit)="submitForm()">
                 <div class="mb-3">
                   <label for="Ruta">Ruta</label>
-                    <input type="text" class="form-control" placeholder="Ruta"
-                      required>
+                  <input formControlName="Ruta" type="text" class="form-control" id="Ruta" placeholder="Ruta" >
                   </div>
                   <div class="mb-3">
                     <label for="Duracion">Duración</label>
-                    <input type="text" class="form-control" placeholder="Duración"
-                      required>
+                    <input formControlName="Duracion" type="text" class="form-control" id="Duracion" placeholder="Duración" >
                   </div>
-              <button type="button" class="btn btn-success btn-lg btn-block mt-3">Editar</button>
+              <button type="submit" class="btn btn-success btn-lg btn-block mt-3">Editar</button>
             </form>
             <p class="pt-3 text-center"><b>SRL Airlines - 2021</b>  Copyright &copy; Todos los derechos reservados</p>
           </div>

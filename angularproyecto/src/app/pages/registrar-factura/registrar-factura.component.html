@@ -8,40 +8,47 @@
       <div class="container">
         <div class="row align-items-center justify-content-center vh-100">
           <div class="col-md-5">
-            <form class="login-form" action="#">
+            <form class="login-form" *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+        novalidate>
                 <div class="mb-3">
-                  <label for="Codigo">Código reservación</label>
-                    <input type="text" class="form-control" placeholder="Código reservación"
-                      required>
+                  <label for="ID_Reservacion">Reservación</label>
+            <select class="form-select" id="ejemplo" name="ID_Reservacion" [(ngModel)]="form.ID_Reservacion" #ID_Reservacion="ngModel" required>
+
+              <option *ngFor="let Reservacion of Reservaciones" value={{Reservacion._id}}>{{Reservacion.Reservacion}}</option>
+
+            </select>
                   </div>
                   <div class="mb-3">
-                    <label for="NumeroF">Número de factura</label>
-                    <input type="text" class="form-control" placeholder="Número de faltura"
-                      required>
+                    <label for="NumeroFactura">Número Factura</label>
+                    <input type="text" class="form-control" placeholder="Número Factura" name="NumeroFactura" [(ngModel)]="form.NumeroFactura"
+                    #NumeroFactura="ngModel" required>
+                    <div class="alert-danger" *ngIf="NumeroFactura.errors && f.submitted">
+                      <div *ngIf="NumeroFactura.errors.required">Número Factura requerido</div>
+                    </div>
                   </div>
                   <div class="mb-3">
-                    <label for="Descripcion">Descripción</label>
-                    <input type="text" class="form-control" placeholder="Descripción"
-                      required>
+                      <label for="Descripcion">Descripción</label>
+                      <input type="text" class="form-control" name="Descripcion" [(ngModel)]="form.Descripcion" #Descripcion="ngModel"
+                        placeholder="Descripción" required>
                   </div>
                   <div class="row" style="margin-bottom: 15px;">
                     <div class="col">
-                      <label for="TotalC">Total colones</label>
-                      <input type="text" class="form-control" placeholder="Total colones"
-                        required>
+                      <label for="TotalColones">Total Colones</label>
+                      <input type="text" class="form-control" name="TotalColones" [(ngModel)]="form.TotalColones" #TotalColones="ngModel"
+                        placeholder="Total Colones" required>
                     </div>
                     <div class="col">
-                      <label for="TotalD">Total dólares</label>
-                    <input type="text" class="form-control" placeholder="Total dólares"
-                      required>
+                      <label for="TotalDolares">Total Dolares</label>
+                      <input type="text" class="form-control" name="TotalDolares" [(ngModel)]="form.TotalDolares" #TotalDolares="ngModel"
+                        placeholder="Total Dolares" required>
                     </div>
                   </div>
                   <div class="mb-3">
-                    <label for="FechaR">Fecha de reservación</label>
-                    <input type="text" class="form-control" placeholder="Fecha de reservación"
-                      required>
+                    <label for="FechaReservacion">Fecha Reservación</label>
+                      <input type="date" class="form-control" name="FechaReservacion" [(ngModel)]="form.FechaReservacion" #FechaReservacion="ngModel"
+                        placeholder="Fecha Reservación" required>
                   </div>
-              <button type="button" class="btn btn-success btn-lg btn-block mt-3">Crear</button>
+              <button type="sbmit" class="btn btn-success btn-lg btn-block mt-3">Crear</button>
             </form>
             <p class="pt-3 text-center"><b>SRL Airlines - 2021</b>  Copyright &copy; Todos los derechos reservados</p>
           </div>
