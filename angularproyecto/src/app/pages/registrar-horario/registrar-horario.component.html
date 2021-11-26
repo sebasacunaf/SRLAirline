@@ -11,19 +11,20 @@
     <div class="row align-items-center justify-content-center vh-100">
       <div class="col-md-5">
         <form class="login-form" *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
-        novalidate>
+          novalidate>
           <div class="mb-3">
             <label for="CódigoR">Ruta</label>
-            <select class="form-select" id="ejemplo" name="ID_Ruta" [(ngModel)]="form.ID_Ruta" #ID_Ruta="ngModel" required>
+            <select class="form-select" id="ejemplo" name="ID_Ruta" [(ngModel)]="form.ID_Ruta" #ID_Ruta="ngModel"
+              required>
 
-              <option *ngFor="let Ruta of Rutas" value={{Ruta._id}}>{{Ruta.Ruta}}</option>
+              <option *ngFor="let Ruta of Rutas" value={{Ruta._id}}>{{Ruta.Ruta}}&nbsp;-&nbsp;DURACIÓN:&nbsp;{{Ruta.Duracion}}</option>
 
             </select>
           </div>
           <div class="mb-3">
             <label for="Dia">Día</label>
-            <input type="text" class="form-control" placeholder="Día" name="Dia" [(ngModel)]="form.Dia"
-            #Dia="ngModel" required>
+            <input type="text" class="form-control" placeholder="Día" name="Dia" [(ngModel)]="form.Dia" #Dia="ngModel"
+              required>
             <div class="alert-danger" *ngIf="Dia.errors && f.submitted">
               <div *ngIf="Dia.errors.required">Día requerido</div>
             </div>
@@ -31,28 +32,28 @@
           <div class="row" style="margin-bottom: 15px;">
             <div class="col">
               <label for="HoraS">Hora salida</label>
-              <input type="text" class="form-control" id="HoraSalida" placeholder="Hora de Salida" name="HoraSalida" [(ngModel)]="form.HoraSalida"
-                #HoraSalida="ngModel" required>
-                <div class="alert-danger" *ngIf="HoraSalida.errors && f.submitted">
-                  <div *ngIf="HoraSalida.errors.required">Hora de Salida requerida</div>
-                </div>
+              <input type="text" class="form-control" id="HoraSalida" placeholder="Hora de Salida" name="HoraSalida"
+                [(ngModel)]="form.HoraSalida" #HoraSalida="ngModel" required>
+              <div class="alert-danger" *ngIf="HoraSalida.errors && f.submitted">
+                <div *ngIf="HoraSalida.errors.required">Hora de Salida requerida</div>
+              </div>
             </div>
             <div class="col">
               <label for="HoraLL">Hora llegada</label>
-              <input type="text" class="form-control" id="HoraLlegada" placeholder="Hora de Llegada" name="HoraLlegada" [(ngModel)]="form.HoraLlegada"
-                #HoraLlegada="ngModel" required>
-                <div class="alert-danger" *ngIf="HoraLlegada.errors && f.submitted">
-                  <div *ngIf="HoraLlegada.errors.required">Hora de Llegada requerida</div>
-                </div>
+              <input type="text" class="form-control" id="HoraLlegada" placeholder="Hora de Llegada" name="HoraLlegada"
+                [(ngModel)]="form.HoraLlegada" #HoraLlegada="ngModel" required>
+              <div class="alert-danger" *ngIf="HoraLlegada.errors && f.submitted">
+                <div *ngIf="HoraLlegada.errors.required">Hora de Llegada requerida</div>
+              </div>
             </div>
           </div>
           <div class="mb-3">
             <label for="Precio">Precio</label>
-            <input type="number" class="form-control" id="Precio" placeholder="Precio" name="Precio" [(ngModel)]="form.Precio"
-              #Precio="ngModel" required>
-              <div class="alert-danger" *ngIf="Precio.errors && f.submitted">
-                <div *ngIf="Precio.errors.required">Precio requerido</div>
-              </div>
+            <input type="number" class="form-control" id="Precio" placeholder="Precio" name="Precio"
+              [(ngModel)]="form.Precio" #Precio="ngModel" required>
+            <div class="alert-danger" *ngIf="Precio.errors && f.submitted">
+              <div *ngIf="Precio.errors.required">Precio requerido</div>
+            </div>
           </div>
           <button type="submit" class="btn btn-success btn-lg btn-block mt-3">Crear</button>
         </form>

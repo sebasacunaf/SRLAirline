@@ -12,6 +12,7 @@ export class RegistrarHorarioComponent implements OnInit {
   form: any = {
     ID_Ruta: null,
     Dia: null,
+    Duracion:null,
     HoraSalida: null,
     HoraLlegada: null,
     Precio: null,
