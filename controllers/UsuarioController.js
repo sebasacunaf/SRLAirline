@@ -20,7 +20,7 @@ module.exports.signup = async (req, res, next) => {
     if (!Rol || !Usuario || !Contrasenna || !Nombre || !Apellidos || !Celular || !TelefonoTrabajo || !Correo || !FechaNacimiento || !Descripcion) {
         res.json({ success: false, msg: 'Existen algún valor nulo' });
     } else {
-        var newUser = new PostModel({ Rol: Rol,Usuario:Usuario,Contrasenna:Contrasenna,Nombre:Nombre,Apellidos:Apellidos, Celular:Celular, TelefonoTrabajo:TelefonoTrabajo, Correo:Correo,FechaNacimiento:FechaNacimiento, Descripcion:Descripcion });
+        var newUser = new PostModel({ Rol: Rol,Usuario:Usuario,Contrasenna:Contrasenna,Nombre:Nombre,Apellidos:Apellidos, Celular:Celular, TelefonoTrabajo:TelefonoTrabajo, Correo:Correo,FechaNacimiento:FechaNacimiento, Descripcion:Descripcion, Estado:1 });
         // save the user
 
         newUser.save(function (err) {
@@ -63,12 +63,13 @@ module.exports.signin = async (req, res, next) => {
     }
 };
 module.exports.delete = async (req, res, next)=>{
-    const post = await PostModel.findByIdAndRemove(req.params.id);
-    if(post){
-        res.json({result: "Registro borrado correctamente"});
-    }else{
-        res.json({result: "{Id del usuario es inválida}"})
-    }
+    const {estado } = req.body;
+    const user = await UsuarioModel.findOneAndUpdate(
+      { _id: req.params.id },
+      {Estado}, 
+      { new: true } 
+    );
+    res.json(user);
 };
 module.exports.update = async (req, res, next)=>{
     const {Rol,Usuario,Contrasenna,Nombre,Apellidos, Celular, TelefonoTrabajo, Correo,FechaNacimiento, 

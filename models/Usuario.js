@@ -21,7 +21,8 @@ const UsuarioSchema = new Schema({
     TelefonoTrabajo: String, 
     Correo: String, 
     FechaNacimiento: String,
-    Descripcion: String
+    Descripcion: String,
+    Estado: Number,
 })
 
 UsuarioSchema.pre('save', function (next) {

@@ -11,13 +11,26 @@ export class HomeUsuarioComponent implements OnInit {
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
-    this.usuarioService.get().subscribe((Usuarios)=>{this.Usuarios = Usuarios});
+    this.usuarioService.get().subscribe((Usuarios) => { this.Usuarios = Usuarios });
     console.log(this.Usuarios);
   }
   delete(id: string): void {
-    if (confirm('¿Esta seguro que quiere borrar este usuario?')) {
-      this.usuarioService.delete(id).subscribe((res: any) => {
-        this.Usuarios = this.Usuarios.filter((usuario: any) => usuario._id !== id);
+    if (confirm('¿Esta seguro que quiere cambiar el estado de este usuario?')) {
+      var Usuario: any;
+      for (const usuario of this.Usuarios) {
+        if (usuario._id == id) {
+          Usuario = usuario;
+        }
+      }
+      if(Usuario.Estado == 1){
+        Usuario.Estado = 0;
+      }
+     else{
+      Usuario.Estado = 1;
+     }
+      this.usuarioService.delete(id, Usuario).subscribe((res: any) => {
+        //  this.Usuarios = this.Usuarios.filter((usuario: any) => usuario._id !== id);
+
       });
     }
   }

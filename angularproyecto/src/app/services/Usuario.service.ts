@@ -22,8 +22,8 @@ export class UsuarioService {
   create(post: any): Observable<any> {
     return this.http.post(AUTH_API, post);
   }
-  delete(id: string): Observable<any> {
-    return this.http.delete(`${AUTH_API}/${id}`);
+  delete(id: string, usuario: any): Observable<any> {
+    return this.http.delete(`${AUTH_API}/${id}`, usuario);
   }
   getByID(id: string): Observable<any> {
     return this.http.get(`${AUTH_API}/${id}`);
