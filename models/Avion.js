@@ -8,7 +8,8 @@ const AvionSchema = new Schema({
         type: Schema.Types.ObjectId, 
         ref: "Horario"
     },
-    CodigoAvion: Number
+    CodigoAvion: Number,
+    Estado: Number,
 })
 const AvionModel = model("Avion", AvionSchema);
 module.exports = AvionModel;

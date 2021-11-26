@@ -7,7 +7,8 @@ const HorarioSchema = new Schema({
     Dia: String,
     HoraSalida: String, 
     HoraLlegada: String, 
-    Precio: Number
+    Precio: Number,
+    Estado: Number,
 })
 const HorarioModel = model("Horario", HorarioSchema);
 module.exports = HorarioModel;

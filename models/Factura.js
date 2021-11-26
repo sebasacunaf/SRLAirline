@@ -8,7 +8,8 @@ const FacturaSchema = new Schema({
     Descripcion: String, 
     TotalColones: Number, 
     TotalDolares: Number,
-    FechaReservacion: String
+    FechaReservacion: String,
+    Estado: Number,
 })
 const FacturaModel = model("Factura", FacturaSchema);
 module.exports = FacturaModel;

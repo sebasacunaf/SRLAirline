@@ -9,7 +9,8 @@ const ReservacionesSchema = new Schema({
         ref: "Usuario"
     },
     numReservacion: Number, 
-    CantidadAsientos: Number
+    CantidadAsientos: Number,
+    Estado: Number,
 })
 const ReservacionesModel = model("Reservaciones", ReservacionesSchema);
 module.exports = ReservacionesModel;

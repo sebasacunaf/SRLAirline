@@ -5,7 +5,8 @@ const TipoAvionSchema = new Schema({
     Marca: String, 
     CantidadPasajeros: Number,
     CantidadFilas: Number,
-    CantidadColumnas: Number
+    CantidadColumnas: Number,
+    Estado: Number,
 })
 const TipoAvionModel = model("TipoAvion", TipoAvionSchema);
 module.exports = TipoAvionModel;
