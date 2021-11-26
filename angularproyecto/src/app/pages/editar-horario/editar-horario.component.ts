@@ -27,7 +27,7 @@ export class EditarHorarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.rutaService.get().subscribe((Rutas)=>{this.Rutas = Rutas});
-  this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
     console.log(this.id);
     this.horarioService.getByID(this.id).subscribe((data) => {
 
@@ -40,7 +40,7 @@ export class EditarHorarioComponent implements OnInit {
        })
        console.log(data);
     });
-    
+    console.log(this.commentForm)
   }
   submitForm() {
     if (this.commentForm.valid) {
