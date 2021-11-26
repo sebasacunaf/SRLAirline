@@ -32,7 +32,7 @@ export class EditarHorarioComponent implements OnInit {
     this.horarioService.getByID(this.id).subscribe((data) => {
 
       this.commentForm.setValue({ 
-        ID_Ruta: data.ID_Ruta,
+        ID_Ruta: data.ID_Ruta._id,
         Dia: data.Dia,
         HoraSalida: data.HoraSalida,
         HoraLlegada: data.HoraLlegada,
