@@ -63,7 +63,7 @@ module.exports.signin = async (req, res, next) => {
     }
 };
 module.exports.delete = async (req, res, next)=>{
-    const {Estado } = req.body;
+    const {Estado} = req.body;
     const user = await PostModel.findOneAndUpdate(
       { _id: req.params.id },
       {Estado}, 

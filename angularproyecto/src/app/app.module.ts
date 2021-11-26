@@ -40,6 +40,10 @@ import { HomeVuelosComponent } from './pages/home-vuelos/home-vuelos.component';
 import { HomeReservacionesComponent } from './pages/home-reservaciones/home-reservaciones.component';
 import { HomeFacturaComponent } from './pages/home-factura/home-factura.component';
 import { ClienteComponent } from './pages/cliente/cliente.component';
+import { EditarClienteComponent } from './pages/editar-cliente/editar-cliente.component';
+import { ClienteFacturaComponent } from './pages/cliente-factura/cliente-factura.component';
+import { ClienteReservacionComponent } from './pages/cliente-reservacion/cliente-reservacion.component';
+import { ClienteVuelosComponent } from './pages/cliente-vuelos/cliente-vuelos.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +81,11 @@ import { ClienteComponent } from './pages/cliente/cliente.component';
     HomeVuelosComponent,
     HomeReservacionesComponent,
     HomeFacturaComponent,
-    ClienteComponent
+    ClienteComponent,
+    EditarClienteComponent,
+    ClienteFacturaComponent,
+    ClienteReservacionComponent,
+    ClienteVuelosComponent
   ],
   imports: [
     BrowserModule,

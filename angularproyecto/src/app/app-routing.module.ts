@@ -2,8 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './pages/about/about.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { ClienteFacturaComponent } from './pages/cliente-factura/cliente-factura.component';
+import { ClienteReservacionComponent } from './pages/cliente-reservacion/cliente-reservacion.component';
+import { ClienteVuelosComponent } from './pages/cliente-vuelos/cliente-vuelos.component';
 import { ClienteComponent } from './pages/cliente/cliente.component';
 import { EditarAvionComponent } from './pages/editar-avion/editar-avion.component';
+import { EditarClienteComponent } from './pages/editar-cliente/editar-cliente.component';
 import { EditarFacturaComponent } from './pages/editar-factura/editar-factura.component';
 import { EditarHorarioComponent } from './pages/editar-horario/editar-horario.component';
 import { EditarReservacionesComponent } from './pages/editar-reservaciones/editar-reservaciones.component';
@@ -49,6 +53,10 @@ const routes: Routes =
   children: [
   {path:'admin',component: AdminComponent},
   {path:'cliente',component: ClienteComponent},
+  {path:'cliente-factura',component: ClienteFacturaComponent},
+  {path:'cliente-reservacion',component: ClienteReservacionComponent},
+  {path:'cliente-vuelos',component: ClienteVuelosComponent},
+  {path:'editar-cliente',component: EditarClienteComponent},
   {path:'registrar-usuario',component: RegistrarUsuarioComponent},
   {path:'registrar-avion',component: RegistrarAvionComponent},
   {path:'registrar-tipo-avion',component: RegistrarTipoAvionComponent},

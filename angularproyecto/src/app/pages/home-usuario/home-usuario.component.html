@@ -47,6 +47,7 @@
                             data-toggle="modal"><i class="far fa-edit">Editar</i></a>
                         <a (click)="delete(Usuario._id)" class="delete btn  btn-small btn-danger rounded"
                             data-toggle="modal" *ngIf="Usuario.Estado==1"><i class="far fa-trash-alt">Desactivar</i></a>
+                            
                             <a (click)="delete(Usuario._id)" class="delete btn  btn-small btn-warning rounded"
                             data-toggle="modal" *ngIf="Usuario.Estado==0"><i class="far fa-trash-alt">Activar</i></a>
                     </td>
