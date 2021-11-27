@@ -6,7 +6,6 @@ const TipoAvionSchema = new Schema({
     CantidadPasajeros: Number,
     CantidadFilas: Number,
     CantidadColumnas: Number,
-    Estado: Number,
 })
 const TipoAvionModel = model("TipoAvion", TipoAvionSchema);
 module.exports = TipoAvionModel;
