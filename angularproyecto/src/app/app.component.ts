@@ -34,6 +34,14 @@ export class AppComponent {
   get isUserAuthenticated(): any {
     return this.tokenStorageService.getToken;
   }
+   isAdmin(): any {
+    const { user } = this.tokenStorageService.getUser();
+    return user.Rol == 'Administrador';
+  }
+  isCliente(): any {
+    const { user } = this.tokenStorageService.getUser();
+    return user.Rol == 'Cliente';
+  }
   get UsuarioValue(): any {
     const { user } = this.tokenStorageService.getUser();
     return user.Usuario;

@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string = '';
 
-  constructor(private authService: UsuarioService, private tokenStorage: TokenStorageService,private router: Router) { }
+  constructor(private authService: UsuarioService, private tokenStorage: TokenStorageService, private router: Router) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -30,36 +30,39 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     const { Usuario, Contrasenna } = this.form;
 
-    this.authService.login(Usuario, Contrasenna).subscribe(
-      (data) => {
-        console.log(data);
-        if (data.success === true) {
-          console.log(data.success, 'data.success');
-          data.roles = data.user.Rol;
-          this.tokenStorage.saveToken(data.token);
-          this.tokenStorage.saveUser(data);
-          this.isLoginFailed = false;
-          this.isLoggedIn = true;
-          this.roles = this.tokenStorage.getUser().roles;
-          if (this.roles === 'Cliente') {
-            this.router.navigate(['/dashboard/cliente']);
-          }
-          if (this.roles === 'Administrador') {
-            this.router.navigate(['/dashboard/admin']);
-          }
-          console.log(this.roles, 'this.roles');
-        } else {
-          this.errorMessage = data.msg;
-          this.isLoginFailed = true;
-        }
-      },
-      (err) => {
-        //console.log(err);
-        this.errorMessage = err.msg;
-        this.isLoginFailed = true;
-      }
-    );
-  }
+    this.authService.login(Usuario, Contrasenna).subscribe(
+      (data) => {
+        console.log(data);
+        if (data.success === true) {
+          if (data.user.Estado == 1) {
+            console.log(data.success, 'data.success');
+            data.roles = data.user.Rol;
+            this.tokenStorage.saveToken(data.token);
+            this.tokenStorage.saveUser(data);
+            this.isLoginFailed = false;
+            this.isLoggedIn = true;
+            this.roles = this.tokenStorage.getUser().roles;
+            if (this.roles === 'Administrador') {
+              this.router.navigate(['/dashboard/admin']);
+            }
+            if (this.roles === 'Cliente') {
+              this.router.navigate(['/dashboard/cliente']);
+            }
+          }else{
+            this.router.navigate(['/about']);
+          }
+        } else {
+          this.errorMessage = data.msg;
+          this.isLoginFailed = true;
+        }
+      },
+      (err) => {
+        //console.log(err);
+        this.errorMessage = err.msg;
+        this.isLoginFailed = true;
+      }
+    );
+  }
 
   reloadPage(): void {
     window.location.reload();

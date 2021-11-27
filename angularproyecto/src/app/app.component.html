@@ -18,19 +18,23 @@
                 <li class="nav-item" *ngIf="!isUserAuthenticated()"><a class="nav-link" href="/about">Contáctanos</a></li>
         
  <!--Administrador-->
-              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-usuario">Usuario</a></li>
-              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-avion">Avión</a></li>
-              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-tipo-avion">Tipo avión</a></li>
-              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-horario">Horario</a></li>
-              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-ruta">Ruta</a></li>
-              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-vuelos">Vuelos</a></li>
-              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-reservaciones">Reservaciones</a></li>
-              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/home-factura">Factura</a></li>
-              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/editar-cliente">Mi perfil</a></li>
-              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/cliente-vuelos">Consultar vuelos</a></li>
-              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/cliente-reservacion">Mis reservaciones</a></li>
-              <li class="nav-item" *ngIf="isUserAuthenticated()"><a class="nav-link" href="/dashboard/cliente-factura">Mis facturas</a></li>
-                <li class="nav-item" *ngIf="isUserAuthenticated()"><a href="#" class="nav-link"
+              <li class="nav-item" *ngIf="isUserAuthenticated()&&isAdmin()"><a class="nav-link" href="/dashboard/home-usuario">Usuario</a></li>
+              <li class="nav-item" *ngIf="isUserAuthenticated()&&isAdmin()"><a class="nav-link" href="/dashboard/home-avion">Avión</a></li>
+              <li class="nav-item" *ngIf="isUserAuthenticated()&&isAdmin()"><a class="nav-link" href="/dashboard/home-tipo-avion">Tipo avión</a></li>
+              <li class="nav-item" *ngIf="isUserAuthenticated()&&isAdmin()"><a class="nav-link" href="/dashboard/home-horario">Horario</a></li>
+              <li class="nav-item" *ngIf="isUserAuthenticated()&&isAdmin()"><a class="nav-link" href="/dashboard/home-ruta">Ruta</a></li>
+              <li class="nav-item" *ngIf="isUserAuthenticated()&&isAdmin()"><a class="nav-link" href="/dashboard/home-vuelos">Vuelos</a></li>
+              <li class="nav-item" *ngIf="isUserAuthenticated()&&isAdmin()"><a class="nav-link" href="/dashboard/home-reservaciones">Reservaciones</a></li>
+              <li class="nav-item" *ngIf="isUserAuthenticated()&&isAdmin()"><a class="nav-link" href="/dashboard/home-factura">Factura</a></li>
+
+
+              <li class="nav-item" *ngIf="isUserAuthenticated()&&isCliente()"><a class="nav-link" href="/dashboard/editar-cliente">Mi perfil</a></li>
+              <li class="nav-item" *ngIf="isUserAuthenticated()&&isCliente()"><a class="nav-link" href="/dashboard/cliente-vuelos">Consultar vuelos</a></li>
+              <li class="nav-item" *ngIf="isUserAuthenticated()&&isCliente()"><a class="nav-link" href="/dashboard/cliente-reservacion">Mis reservaciones</a></li>
+              <li class="nav-item" *ngIf="isUserAuthenticated()&&isCliente()"><a class="nav-link" href="/dashboard/cliente-factura">Mis facturas</a></li>
+                
+              
+              <li class="nav-item" *ngIf="isUserAuthenticated()"><a href="#" class="nav-link"
                     (click)="logout()">{{UsuarioValue}} - Cerrar sesión</a>
             </ul>
         </div>

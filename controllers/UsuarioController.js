@@ -52,7 +52,7 @@ module.exports.signin = async (req, res, next) => {
               );
               // return the information including token as JSON
               const payload = { Rol: user.Rol, Usuario: user.Usuario, Contrasenna: user.Contrasenna, Nombre: user.Nombre, Apellido: user.Apellido,
-            Celular: user.Celular, TelefonoTrabajo: user.TelefonoTrabajo, Correo: user.Correo, FechaNacimiento: user.FechaNacimiento, Descripcion: user.Descripcion };
+            Celular: user.Celular, TelefonoTrabajo: user.TelefonoTrabajo, Correo: user.Correo, FechaNacimiento: user.FechaNacimiento, Descripcion: user.Descripcion, Estado: user.Estado };
               res.json({ success: true, token: token, user: payload });
             } else {
                 //si la contraseña no coincide se procede a indicar el error
