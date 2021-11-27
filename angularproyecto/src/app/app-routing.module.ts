@@ -25,6 +25,7 @@ import { HomeUsuarioComponent } from './pages/home-usuario/home-usuario.componen
 import { HomeVuelosComponent } from './pages/home-vuelos/home-vuelos.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { MensajeComponent } from './pages/mensaje/mensaje.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RegistrarAvionComponent } from './pages/registrar-avion/registrar-avion.component';
 import { RegistrarFacturaComponent } from './pages/registrar-factura/registrar-factura.component';
@@ -45,6 +46,7 @@ const routes: Routes =
     {path:'login',component: LoginComponent},
     {path:'register',component: RegisterComponent},
     {path:'about',component: AboutComponent},
+    {path:'mensaje',component: MensajeComponent},
   ],
 }, 
 {

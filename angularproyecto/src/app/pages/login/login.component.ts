@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['/dashboard/cliente']);
             }
           }else{
-            this.router.navigate(['/about']);
+            this.router.navigate(['/mensaje']);
           }
         } else {
           this.errorMessage = data.msg;

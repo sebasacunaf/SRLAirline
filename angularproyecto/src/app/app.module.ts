@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavComponent } from './pages/nav/nav.component';
 import { PagesComponent } from './pages/pages.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -12,7 +11,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AdminComponent } from './pages/admin/admin.component';
-import { NavAComponent } from './pages/nav-a/nav-a.component';
 import { RegistrarAvionComponent } from './pages/registrar-avion/registrar-avion.component';
 import { RegistrarHorarioComponent } from './pages/registrar-horario/registrar-horario.component';
 import { RegistrarRutaComponent } from './pages/registrar-ruta/registrar-ruta.component';
@@ -44,11 +42,11 @@ import { EditarClienteComponent } from './pages/editar-cliente/editar-cliente.co
 import { ClienteFacturaComponent } from './pages/cliente-factura/cliente-factura.component';
 import { ClienteReservacionComponent } from './pages/cliente-reservacion/cliente-reservacion.component';
 import { ClienteVuelosComponent } from './pages/cliente-vuelos/cliente-vuelos.component';
+import { MensajeComponent } from './pages/mensaje/mensaje.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
     PagesComponent,
     FooterComponent,
     AboutComponent,
@@ -56,7 +54,6 @@ import { ClienteVuelosComponent } from './pages/cliente-vuelos/cliente-vuelos.co
     LoginComponent,
     RegisterComponent,
     AdminComponent,
-    NavAComponent,
     RegistrarAvionComponent,
     RegistrarHorarioComponent,
     RegistrarRutaComponent,
@@ -85,7 +82,8 @@ import { ClienteVuelosComponent } from './pages/cliente-vuelos/cliente-vuelos.co
     EditarClienteComponent,
     ClienteFacturaComponent,
     ClienteReservacionComponent,
-    ClienteVuelosComponent
+    ClienteVuelosComponent,
+    MensajeComponent
   ],
   imports: [
     BrowserModule,
