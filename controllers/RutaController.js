@@ -18,7 +18,7 @@ module.exports.create = (req, res, next)=>{
     if (!Ruta || !Duracion ) {
         res.json({ success: false, msg: 'Existen algún valor nulo' });
     } else {
-        var newR= new PostModel({Ruta: Ruta,Duracion:Duracion});
+        var newR= new PostModel({Ruta: Ruta,Duracion:Duracion, Estado: 1});
        
 
         newR.save(function (err) {
@@ -30,19 +30,23 @@ module.exports.create = (req, res, next)=>{
     }
 };
 module.exports.delete = async (req, res, next)=>{
-    const post = await PostModel.findByIdAndRemove(req.params.id);
-    if(post){
-        res.json({result: "Registro borrado correctamente"});
-    }else{
-        res.json({result: "{Id de la ruta es inválida}"})
-    }
+    const {Estado} = req.body;
+    console.log(req.body);
+    const user = await PostModel.findOneAndUpdate(
+      { _id: req.params.id },
+      {Estado}, 
+      { new: true } 
+    );
+    res.json(user);
 };
 module.exports.update = async (req, res, next)=>{
     const {Ruta,Duracion} = req.body;
+    console.log(req.body);
     const post = await PostModel.findOneAndUpdate(
         { _id: req.params.id},
         {Ruta,Duracion},
         {new: true}
     )
+    console.log(post);
     res.json(post);
 };

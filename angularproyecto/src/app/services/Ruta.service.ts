@@ -27,8 +27,9 @@ export class RutaService {
      httpOptions
     );
   }
-  delete(id: string): Observable<any> {
-    return this.http.delete(`${AUTH_API}/${id}`);
+  delete(id: string, ruta: any): Observable<any> {
+    return this.http.put(`${AUTH_API}/${id}`, ruta);
+
   }
 
   update(id: string, post: any): Observable<any> {
