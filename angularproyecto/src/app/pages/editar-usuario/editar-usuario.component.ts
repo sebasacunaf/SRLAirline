@@ -15,6 +15,7 @@ export class EditarUsuarioComponent implements OnInit {
  
  
   commentForm = new FormGroup({
+    Rol: new FormControl('', Validators.required),
     Usuario: new FormControl('', Validators.required),
     Contrasenna: new FormControl('', Validators.required),
     Nombre: new FormControl('', Validators.required),
@@ -36,6 +37,7 @@ export class EditarUsuarioComponent implements OnInit {
     this.usuarioService.getByID(this.id).subscribe((data) => {
 
       this.commentForm.setValue({ 
+        Rol: data.Rol,
         Usuario:data.Usuario,
         Contrasenna: "",
         Nombre: data.Nombre,
@@ -53,7 +55,7 @@ export class EditarUsuarioComponent implements OnInit {
   submitForm() {
     if (this.commentForm.valid) {
       console.log(this.commentForm.value, 'this.commentForm.value');
-      this.usuarioService.update(this.id, this.commentForm.value).subscribe()
+      this.usuarioService.delete(this.id, this.commentForm.value).subscribe()
        
     }
     this.router.navigate(['/dashboard/home-usuario']);

@@ -30,7 +30,7 @@ export class UsuarioService {
     return this.http.get(`${AUTH_API}/${id}`);
   }
 
-  update(id: string, usuario: any): Observable<any> {
+update(id: string, usuario: any): Observable<any> {
     return this.http.put(`${AUTH_API}/${id}`, usuario);
   }
   

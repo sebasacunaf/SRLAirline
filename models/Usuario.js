@@ -1,5 +1,5 @@
 const {Schema, model} = require('mongoose')
-const bcrypt = require('bcrypt');
+let bcrypt = require('bcrypt-nodejs');
 const UsuarioSchema = new Schema({
     Rol: {
         type: String,

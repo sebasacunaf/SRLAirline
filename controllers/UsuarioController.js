@@ -1,6 +1,6 @@
 const PostModel = require("../models/Usuario");
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+let bcrypt = require('bcrypt-nodejs');
 const secret = 'secret';
 
 module.exports.get = async (req, res, next)=>{
@@ -23,7 +23,7 @@ module.exports.signup = async (req, res, next) => {
     } else {
         var newUser = new PostModel({ Rol: Rol,Usuario:Usuario,Contrasenna:Contrasenna,Nombre:Nombre,Apellidos:Apellidos, Celular:Celular, TelefonoTrabajo:TelefonoTrabajo, Correo:Correo,FechaNacimiento:FechaNacimiento, Descripcion:Descripcion, Estado:1 });
         // save the user
-
+        console.log(newUser)
         newUser.save(function (err) {
             if (err) {
                 return res.json({ success: false, msg: 'El usuario ya existe' });
@@ -87,14 +87,13 @@ module.exports.update = async (req, res, next)=>{
         });
 }
 module.exports.delete = async (req, res, next)=>{
-    const {Rol,Usuario,Contrasenna,Nombre,Apellidos, Celular, TelefonoTrabajo, Correo,FechaNacimiento, 
+    let {Rol,Usuario,Contrasenna,Nombre,Apellidos, Celular, TelefonoTrabajo, Correo,FechaNacimiento, 
         Descripcion,Estado} = req.body;
 
         bcrypt.genSalt(10, function (err, salt) {
         
             bcrypt.hash(Contrasenna, salt, null, async function (err, hash) {
-               
-              
+
               Contrasenna = hash;
               const post = await PostModel.findOneAndUpdate(
                 { _id: req.params.id},

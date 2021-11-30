@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
       FechaNacimiento: null,
       Descripcion: null,
       Telefono: null,
-      Celular: null
+      Celular: null, 
     };
     isSuccessful = false;
     isSignUpFailed = false;
@@ -29,7 +29,7 @@ import { Router } from '@angular/router';
   
     onSubmit(): void {
       const { Rol, Usuario, Contrasenna, Nombre, Apellidos, Celular, Telefono, Correo, FechaNacimiento,
-       Descripcion } = this.form;
+       Descripcion} = this.form;
   
       this.usuarioService.register(Rol, Usuario, Contrasenna, Nombre, Apellidos, Celular, Telefono, Correo, FechaNacimiento,
          Descripcion).subscribe(

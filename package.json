@@ -15,7 +15,9 @@
     "passport": "^0.5.0",
     "passport-jwt": "^4.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/bcrypt-nodejs": "0.0.31"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
