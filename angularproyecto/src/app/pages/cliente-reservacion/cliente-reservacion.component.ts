@@ -21,13 +21,7 @@ export class ClienteReservacionComponent implements OnInit {
     console.log(this.Reservaciones);
   }
   
-  delete(id: string): void {
-    if (confirm('¿Esta seguro que quiere borrar esta reservación?')) {
-      this.reservacionesService.delete(id).subscribe((res: any) => {
-        this.Reservaciones = this.Reservaciones.filter((Reservacion: any) => Reservacion._id !== id);
-      });
-    }
-  }
+  
   createFactura(id:string): void{
     this.reservacionesService.getById(id).subscribe((res:any)=>{
       console.log(id);

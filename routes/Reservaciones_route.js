@@ -6,6 +6,6 @@ const ReservacionesController = require("../controllers/ReservacionesController"
 router.get("/", ReservacionesController.get);
 router.get("/:id", ReservacionesController.getByID);
 router.post("/create", ReservacionesController.create );
-router.delete("/:id", ReservacionesController.delete);
+router.put("/:id", ReservacionesController.delete);
 router.put("/:id", ReservacionesController.update);
 module.exports = router; 

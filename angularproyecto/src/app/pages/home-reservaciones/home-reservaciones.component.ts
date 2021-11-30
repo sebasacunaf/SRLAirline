@@ -23,9 +23,22 @@ export class HomeReservacionesComponent implements OnInit {
   }
   
   delete(id: string): void {
-    if (confirm('¿Esta seguro que quiere borrar esta reservación?')) {
-      this.reservacionesService.delete(id).subscribe((res: any) => {
-        this.Reservaciones = this.Reservaciones.filter((Reservacion: any) => Reservacion._id !== id);
+    if (confirm('¿Esta seguro que quiere cambiar el estado de esta reservación?')) {
+      var Reservacion: any;
+      for (const reservacion of this.Reservaciones) {
+        if (reservacion._id == id) {
+          Reservacion = reservacion;
+        }
+      }
+      if(Reservacion.Estado == 1){
+        Reservacion.Estado = 0;
+      }
+     else{
+      Reservacion.Estado = 1;
+     }
+      this.reservacionesService.delete(id, Reservacion).subscribe((res: any) => {
+        //  this.Usuarios = this.Usuarios.filter((usuario: any) => usuario._id !== id);
+
       });
     }
   }

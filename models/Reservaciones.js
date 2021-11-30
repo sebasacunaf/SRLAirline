@@ -10,6 +10,7 @@ const ReservacionesSchema = new Schema({
     },
     numReservacion: Number, 
     CantidadAsientos: Number,
+    Estado: Number,
 })
 const ReservacionesModel = model("Reservaciones", ReservacionesSchema);
 module.exports = ReservacionesModel;

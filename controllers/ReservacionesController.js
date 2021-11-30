@@ -20,11 +20,11 @@ module.exports.create = (req, res, next)=>{
 };
 
 module.exports.create = (req, res, next)=>{
-    const {ID_Vuelo, ID_Usuario, numReservacion,CantidadAsientos} = req.body;
+    const {ID_Vuelo, ID_Usuario, numReservacion,CantidadAsientos, Estado} = req.body;
     if (!ID_Vuelo  ||  !ID_Usuario  ||  !numReservacion  ||  !CantidadAsientos) {
         res.json({ success: false, msg: 'Existen algún valor nulo' });
     } else {
-        var newR= new PostModel({ID_Vuelo:ID_Vuelo, ID_Usuario:ID_Usuario, numReservacion: numReservacion,CantidadAsientos:CantidadAsientos});
+        var newR= new PostModel({ID_Vuelo:ID_Vuelo, ID_Usuario:ID_Usuario, numReservacion: numReservacion,CantidadAsientos:CantidadAsientos, Estado: 1});
        
 
         newR.save(function (err) {
@@ -36,18 +36,19 @@ module.exports.create = (req, res, next)=>{
     }
 };
 module.exports.delete = async (req, res, next)=>{
-    const post = await PostModel.findByIdAndRemove(req.params.id);
-    if(post){
-        res.json({result: "Registro borrado correctamente"});
-    }else{
-        res.json({result: "{Id de la reservación es inválida}"})
-    }
-};
-module.exports.update = async (req, res, next)=>{
-    const {ID_Vuelo, ID_Usuario, numReservacion,CantidadAsientos} = req.body;
+    const {ID_Vuelo, ID_Usuario, numReservacion,CantidadAsientos, Estado} = req.body;
     const post = await PostModel.findOneAndUpdate(
         { _id: req.params.id},
-        {ID_Vuelo, ID_Usuario, numReservacion,CantidadAsientos},
+        {ID_Vuelo, ID_Usuario, numReservacion,CantidadAsientos, Estado},
+        {new: true}
+    )
+    res.json(post);
+};
+module.exports.update = async (req, res, next)=>{
+    const {ID_Vuelo, ID_Usuario, numReservacion,CantidadAsientos, Estado} = req.body;
+    const post = await PostModel.findOneAndUpdate(
+        { _id: req.params.id},
+        {ID_Vuelo, ID_Usuario, numReservacion,CantidadAsientos, Estado},
         {new: true}
     )
     res.json(post);
