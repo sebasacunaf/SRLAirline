@@ -11,6 +11,7 @@ const VueloSchema = new Schema({
     FechaIda: String, 
     FechaRegreso: String, 
     EspaciosDisponibles: Object,
+    Estado: Number,
 })
 const VueloModel = model("Vuelos", VueloSchema);
 module.exports = VueloModel;

@@ -16,9 +16,22 @@ export class HomeVuelosComponent implements OnInit {
   }
   
   delete(id: string): void {
-    if (confirm('¿Esta seguro que quiere borrar este vuelo?')) {
-      this.vuelosService.delete(id).subscribe((res: any) => {
-        this.Vuelos = this.Vuelos.filter((Vuelo: any) => Vuelo._id !== id);
+    if (confirm('¿Esta seguro que quiere cambiar el estado de este vuelo?')) {
+      var Vuelo: any;
+      for (const vuelo of this.Vuelos) {
+        if (vuelo._id == id) {
+          Vuelo = vuelo;
+        }
+      }
+      if(Vuelo.Estado == 1){
+        Vuelo.Estado = 0;
+      }
+     else{
+      Vuelo.Estado = 1;
+     }
+      this.vuelosService.delete(id, Vuelo).subscribe((res: any) => {
+        //  this.Usuarios = this.Usuarios.filter((usuario: any) => usuario._id !== id);
+
       });
     }
   }

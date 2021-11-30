@@ -35,10 +35,10 @@
                     <!--    <a  [routerLink]="['/dashboard/editar-reservaciones',Reservacion._id]"class="edit btn btn-small btn-primary rounded"
                             data-toggle="modal"><i class="far fa-edit">Editar</i></a>&nbsp;-->
                             <a (click)="delete(Reservacion._id)" class="delete btn  btn-small btn-danger rounded"
-                            data-toggle="modal" *ngIf="Reservacion.Estado==1"><i class="far fa-trash-alt">Desactivar</i></a>
+                            data-toggle="modal" *ngIf="Reservacion.Estado==1"><i class="far fa-trash-alt">Cancelar</i></a>
                             
                             <a (click)="delete(Reservacion._id)" class="delete btn  btn-small btn-warning rounded"
-                            data-toggle="modal" *ngIf="Reservacion.Estado==0"><i class="far fa-trash-alt">Activar</i></a>
+                            data-toggle="modal" *ngIf="Reservacion.Estado==0"><i class="far fa-trash-alt">Restablecer</i></a>
                       <!--  <a (click)="createFactura(Reservacion._id)" class="edit btn btn-small btn-success rounded "
                             data-toggle="modal"><i class="far fa-edit">Facturar</i></a>-->
                     </td>

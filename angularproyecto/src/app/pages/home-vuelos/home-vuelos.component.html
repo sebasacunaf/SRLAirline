@@ -41,8 +41,11 @@
                     <td class="text-end">
                      <!--   <a [routerLink]="['/dashboard/editar-vuelo',Vuelo._id]"class="edit btn btn-small btn-primary rounded me-2"
                             data-toggle="modal"><i class="far fa-edit">Editar</i></a> --> 
-                        <a (click)="delete(Vuelo._id)" class="delete btn  btn-small btn-danger rounded"
-                            data-toggle="modal"><i class="far fa-trash-alt">Cancelar</i></a>
+                            <a (click)="delete(Vuelo._id)" class="delete btn  btn-small btn-danger rounded"
+                            data-toggle="modal" *ngIf="Vuelo.Estado==1"><i class="far fa-trash-alt">Cancelar</i></a>
+                            
+                            <a (click)="delete(Vuelo._id)" class="delete btn  btn-small btn-warning rounded"
+                            data-toggle="modal" *ngIf="Vuelo.Estado==0"><i class="far fa-trash-alt">Restablecer</i></a>
                     </td>
                 </tr>
 

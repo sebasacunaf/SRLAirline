@@ -16,12 +16,6 @@ export class ClienteVuelosComponent implements OnInit {
     console.log(this.Vuelos);
   }
   
-  delete(id: string): void {
-    if (confirm('¿Esta seguro que quiere borrar este vuelo?')) {
-      this.vuelosService.delete(id).subscribe((res: any) => {
-        this.Vuelos = this.Vuelos.filter((Vuelo: any) => Vuelo._id !== id);
-      });
-    }
-  }
+ 
 
 }
