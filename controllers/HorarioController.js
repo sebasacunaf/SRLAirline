@@ -14,11 +14,11 @@ module.exports.getByID = async (req, res, next)=>{
 }
 
 module.exports.create = (req, res, next)=>{
-    const {ID_Ruta,Dia, HoraSalida, HoraLlegada, Precio} = req.body;
+    const {ID_Ruta,Dia, HoraSalida, HoraLlegada, Precio, Estado} = req.body;
     if (!ID_Ruta || !Dia || !HoraSalida  || !HoraLlegada  || !Precio ) {
         res.json({ success: false, msg: 'Existen algún valor nulo' });
     } else {
-        var newH= new PostModel({ID_Ruta:ID_Ruta ,Dia:Dia, HoraSalida: HoraSalida , HoraLlegada:HoraLlegada, Precio: Precio});
+        var newH= new PostModel({ID_Ruta:ID_Ruta ,Dia:Dia, HoraSalida: HoraSalida , HoraLlegada:HoraLlegada, Precio: Precio, Estado: 1});
     
         newH.save(function (err) {
             if (err) {
@@ -29,18 +29,19 @@ module.exports.create = (req, res, next)=>{
     }
 };
 module.exports.delete = async (req, res, next)=>{
-    const post = await PostModel.findByIdAndRemove(req.params.id);
-    if(post){
-        res.json({result: "Registro borrado correctamente"});
-    }else{
-        res.json({result: "{Id del horario es inválida}"})
-    }
-};
-module.exports.update = async (req, res, next)=>{
-    const {ID_Ruta,Dia, HoraSalida, HoraLlegada, Precio} = req.body;
+    const {ID_Ruta,Dia, HoraSalida, HoraLlegada, Precio, Estado} = req.body;
     const post = await PostModel.findOneAndUpdate(
         { _id: req.params.id},
-        {ID_Ruta,Dia, HoraSalida, HoraLlegada, Precio},
+        {ID_Ruta,Dia, HoraSalida, HoraLlegada, Precio, Estado},
+        {new: true}
+    )
+    res.json(post);
+};
+module.exports.update = async (req, res, next)=>{
+    const {ID_Ruta,Dia, HoraSalida, HoraLlegada, Precio, Estado} = req.body;
+    const post = await PostModel.findOneAndUpdate(
+        { _id: req.params.id},
+        {ID_Ruta,Dia, HoraSalida, HoraLlegada, Precio, Estado},
         {new: true}
     )
     res.json(post);

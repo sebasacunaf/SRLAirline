@@ -44,6 +44,7 @@ module.exports.update = async (req, res, next)=>{
         {Anno,Modelo, Marca, CantidadPasajeros,CantidaFilas,CantidadColumnas, Estado},
         {new: true}
     )
+    console.log('actualizado');
     res.json(post);
 };
 

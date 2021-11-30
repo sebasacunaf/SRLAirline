@@ -16,11 +16,23 @@ export class HomeHorarioComponent implements OnInit {
   }
   
   delete(id: string): void {
-    if (confirm('¿Esta seguro que quiere borrar este horario?')) {
-      this.horarioService.delete(id).subscribe((res: any) => {
-        this.Horarios = this.Horarios.filter((Horario: any) => Horario._id !== id);
+    if (confirm('¿Esta seguro que quiere cambiar el estado de este horario?')) {
+      var Horario: any;
+      for (const horario of this.Horarios) {
+        if (horario._id == id) {
+          Horario = horario;
+        }
+      }
+      if(Horario.Estado == 1){
+        Horario.Estado = 0;
+      }
+     else{
+      Horario.Estado = 1;
+     }
+      this.horarioService.delete(id, Horario).subscribe((res: any) => {
+        //  this.Usuarios = this.Usuarios.filter((usuario: any) => usuario._id !== id);
+
       });
     }
   }
-
 }

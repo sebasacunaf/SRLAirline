@@ -19,8 +19,9 @@ export class HorarioService {
     return this.http.get(AUTH_API, httpOptions);
   }
   
-  delete(id: string): Observable<any> {
-    return this.http.delete(`${AUTH_API}/${id}`);
+  delete(id: string, horario: any): Observable<any> {
+    return this.http.put(`${AUTH_API}/${id}`, horario);
+
   }
 
   update(id: string, post: any): Observable<any> {

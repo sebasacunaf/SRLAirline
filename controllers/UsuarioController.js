@@ -81,7 +81,7 @@ module.exports.update = async (req, res, next)=>{
                 {new: true}
             ) 
           
-              
+            console.log('actualizado');
               res.json(post);
             });
         });

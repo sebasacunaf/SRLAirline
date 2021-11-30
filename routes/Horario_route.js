@@ -6,6 +6,6 @@ const HorarioController = require("../controllers/HorarioController")
 router.get("/", HorarioController.get);
 router.get("/:id", HorarioController.getByID);
 router.post("/create", HorarioController.create );
-router.delete("/:id", HorarioController.delete);
+router.put("/:id", HorarioController.delete);
 router.put("/:id", HorarioController.update);
 module.exports = router; 
