@@ -19,7 +19,8 @@ export class EditarTipoAvionComponent implements OnInit {
     Marca: new FormControl('', Validators.required),
     CantidadPasajeros: new FormControl('', Validators.required),
     CantidadFilas: new FormControl('', Validators.required),
-    CantidadColumnas: new FormControl('', Validators.required)
+    CantidadColumnas: new FormControl('', Validators.required),
+    Estado: new FormControl('', Validators.required)
   });
 
   id: any;
@@ -36,7 +37,8 @@ export class EditarTipoAvionComponent implements OnInit {
         Marca: data.Marca,
         CantidadPasajeros: data.CantidadPasajeros,
         CantidadFilas: data.CantidadFilas,
-        CantidadColumnas: data.CantidadColumnas
+        CantidadColumnas: data.CantidadColumnas,
+        Estado : data.Estado
       })
     });
   }
