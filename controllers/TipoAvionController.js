@@ -29,19 +29,19 @@ module.exports.create = (req, res, next)=>{
     }
 };
 module.exports.delete = async (req, res, next)=>{
-    const {Anno,Modelo, Marca, CantidadPasajeros,CantidaFilas,CantidadColumnas, Estado} = req.body;
+    const {Anno,Modelo, Marca, CantidadPasajeros,CantidadFilas,CantidadColumnas, Estado} = req.body;
     const post = await PostModel.findOneAndUpdate(
         { _id: req.params.id},
-        {Anno,Modelo, Marca, CantidadPasajeros,CantidaFilas,CantidadColumnas, Estado},
+        {Anno,Modelo, Marca, CantidadPasajeros,CantidadFilas,CantidadColumnas, Estado},
         {new: true}
     )
     res.json(post);
 };
 module.exports.update = async (req, res, next)=>{
-    const {Anno,Modelo, Marca, CantidadPasajeros,CantidaFilas,CantidadColumnas, Estado} = req.body;
+    const {Anno,Modelo, Marca, CantidadPasajeros,CantidadFilas,CantidadColumnas, Estado} = req.body;
     const post = await PostModel.findOneAndUpdate(
         { _id: req.params.id},
-        {Anno,Modelo, Marca, CantidadPasajeros,CantidaFilas,CantidadColumnas, Estado},
+        {Anno,Modelo, Marca, CantidadPasajeros,CantidadFilas,CantidadColumnas, Estado},
         {new: true}
     )
     console.log('actualizado');
