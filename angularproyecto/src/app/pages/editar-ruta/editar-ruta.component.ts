@@ -16,6 +16,7 @@ export class EditarRutaComponent implements OnInit {
   commentForm = new FormGroup({
     Ruta: new FormControl('', Validators.required),
     Duracion: new FormControl('', Validators.required),
+    Estado: new FormControl('', Validators.required)
   });
 
   id:any;
@@ -28,7 +29,8 @@ export class EditarRutaComponent implements OnInit {
 
       this.commentForm.setValue({ 
         Ruta: data.Ruta,
-        Duracion: data.Duracion
+        Duracion: data.Duracion, 
+        Estado : data.Estado
        })
        console.log(data);
     });

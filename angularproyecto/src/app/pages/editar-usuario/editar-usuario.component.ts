@@ -24,6 +24,7 @@ export class EditarUsuarioComponent implements OnInit {
     Correo: new FormControl('', Validators.required), 
     FechaNacimiento: new FormControl('', Validators.required),
     Descripcion: new FormControl('', Validators.required),
+    Estado: new FormControl('', Validators.required)
   });
   
   id:any;
@@ -43,7 +44,8 @@ export class EditarUsuarioComponent implements OnInit {
         TelefonoTrabajo: data.TelefonoTrabajo,
         Correo: data.Correo,
         FechaNacimiento: data.FechaNacimiento,
-        Descripcion: data.Descripcion
+        Descripcion: data.Descripcion,
+        Estado: data.Estado
        })
     });
   }

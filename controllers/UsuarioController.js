@@ -62,19 +62,10 @@ module.exports.signin = async (req, res, next) => {
         });
     }
 };
-module.exports.delete = async (req, res, next)=>{
-    const {Estado} = req.body;
-    console.log(req.body);
-    const user = await PostModel.findOneAndUpdate(
-      { _id: req.params.id },
-      {Estado}, 
-      { new: true } 
-    );
-    res.json(user);
-};
+
 module.exports.update = async (req, res, next)=>{
     const {Rol,Usuario,Contrasenna,Nombre,Apellidos, Celular, TelefonoTrabajo, Correo,FechaNacimiento, 
-        Descripcion} = req.body;
+        Descripcion,Estado} = req.body;
 
         bcrypt.genSalt(10, function (err, salt) {
         
@@ -85,7 +76,7 @@ module.exports.update = async (req, res, next)=>{
               const post = await PostModel.findOneAndUpdate(
                 { _id: req.params.id},
                 {Rol,Usuario,Contrasenna,Nombre,Apellidos, Celular, TelefonoTrabajo, Correo,FechaNacimiento,
-                    Descripcion},
+                    Descripcion, Estado},
                 {new: true}
             ) 
           
@@ -93,5 +84,5 @@ module.exports.update = async (req, res, next)=>{
               res.json(post);
             });
         });
-    }
+}
 

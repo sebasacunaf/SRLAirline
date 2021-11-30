@@ -30,23 +30,23 @@ module.exports.create = (req, res, next)=>{
     }
 };
 module.exports.delete = async (req, res, next)=>{
-    const {Estado} = req.body;
+    const {Ruta,Duracion, Estado} = req.body;
     console.log(req.body);
     const user = await PostModel.findOneAndUpdate(
       { _id: req.params.id },
-      {Estado}, 
+      {Ruta,Duracion, Estado},
       { new: true } 
     );
     res.json(user);
 };
 module.exports.update = async (req, res, next)=>{
-    const {Ruta,Duracion} = req.body;
+    const {Ruta,Duracion, Estado} = req.body;
     console.log(req.body);
     const post = await PostModel.findOneAndUpdate(
         { _id: req.params.id},
-        {Ruta,Duracion},
+        {Ruta,Duracion, Estado},
         {new: true}
     )
-    console.log(post);
+    console.log('actualizado');
     res.json(post);
 };
