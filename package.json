@@ -4,6 +4,7 @@
   "description": "Proyecto",
   "main": "app.js",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "bcrypt-nodejs": "0.0.3",
     "chalk": "^4.1.2",
     "cors": "^2.8.5",

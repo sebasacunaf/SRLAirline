@@ -14,10 +14,24 @@ export class HomeTipoAvionComponent implements OnInit {
     console.log(this.TipoAviones);
   }
   delete(id: string): void {
-    if (confirm('¿Esta seguro que quiere borrar este tipo de avión?')) {
-      this.tipoAvionService.delete(id).subscribe((res: any) => {
-        this.TipoAviones = this.TipoAviones.filter((TipoAvion: any) => TipoAvion._id !== id);
+    if (confirm('¿Esta seguro que quiere cambiar el estado de este tipo de avión?')) {
+      var tipo: any;
+      for (const tipoo of this.TipoAviones) {
+        if (tipoo._id == id) {
+          tipo = tipoo;
+        }
+      }
+      if(tipo.Estado == 1){
+        tipo.Estado = 0;
+      }
+     else{
+      tipo.Estado = 1;
+     }
+      this.tipoAvionService.delete(id, tipo).subscribe((res: any) => {
+        //  this.Usuarios = this.Usuarios.filter((usuario: any) => usuario._id !== id);
+
       });
     }
-  }
 }
+}
+

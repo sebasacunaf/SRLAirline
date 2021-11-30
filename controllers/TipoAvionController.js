@@ -13,11 +13,11 @@ module.exports.getByID = async (req, res, next)=>{
     }
 }
 module.exports.create = (req, res, next)=>{
-    const {Anno,Modelo, Marca, CantidadPasajeros,CantidadFilas,CantidadColumnas} = req.body;
+    const {Anno,Modelo, Marca, CantidadPasajeros,CantidadFilas,CantidadColumnas, Estado} = req.body;
     if (!Anno || !Modelo || !Marca || !CantidadPasajeros || !CantidadFilas || !CantidadColumnas) {
         res.json({ success: false, msg: 'Existen algún valor nulo' });
     } else {
-        var newTipoA = new PostModel({ Anno: Anno,Modelo:Modelo,Marca:Marca,CantidadPasajeros:CantidadPasajeros,CantidadFilas:CantidadFilas,CantidadColumnas:CantidadColumnas});
+        var newTipoA = new PostModel({ Anno: Anno,Modelo:Modelo,Marca:Marca,CantidadPasajeros:CantidadPasajeros,CantidadFilas:CantidadFilas,CantidadColumnas:CantidadColumnas,Estado: 1});
        
 
         newTipoA.save(function (err) {
@@ -29,18 +29,19 @@ module.exports.create = (req, res, next)=>{
     }
 };
 module.exports.delete = async (req, res, next)=>{
-    const post = await PostModel.findByIdAndRemove(req.params.id);
-    if(post){
-        res.json({result: "Registro borrado correctamente"});
-    }else{
-        res.json({result: "{Id del Tipo de Avión inválida}"})
-    }
-};
-module.exports.update = async (req, res, next)=>{
-    const {Anno,Modelo, Marca, CantidadPasajeros,CantidaFilas,CantidadColumnas} = req.body;
+    const {Anno,Modelo, Marca, CantidadPasajeros,CantidaFilas,CantidadColumnas, Estado} = req.body;
     const post = await PostModel.findOneAndUpdate(
         { _id: req.params.id},
-        {Anno,Modelo, Marca, CantidadPasajeros,CantidaFilas,CantidadColumnas},
+        {Anno,Modelo, Marca, CantidadPasajeros,CantidaFilas,CantidadColumnas, Estado},
+        {new: true}
+    )
+    res.json(post);
+};
+module.exports.update = async (req, res, next)=>{
+    const {Anno,Modelo, Marca, CantidadPasajeros,CantidaFilas,CantidadColumnas, Estado} = req.body;
+    const post = await PostModel.findOneAndUpdate(
+        { _id: req.params.id},
+        {Anno,Modelo, Marca, CantidadPasajeros,CantidaFilas,CantidadColumnas, Estado},
         {new: true}
     )
     res.json(post);

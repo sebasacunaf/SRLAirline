@@ -37,8 +37,11 @@
                     <td class="text-end">
                         <a [routerLink]="['/dashboard/editar-tipo-avion',TipoAvion._id]" class="edit btn btn-small btn-primary rounded me-2"
                             data-toggle="modal"><i class="far fa-edit">Editar</i></a>
-                        <a (click)="delete(TipoAvion._id)" class="delete btn  btn-small btn-danger rounded"
-                            data-toggle="modal"><i class="far fa-trash-alt">Eliminar</i></a>
+                            <a (click)="delete(TipoAvion._id)" class="delete btn  btn-small btn-danger rounded"
+                            data-toggle="modal" *ngIf="TipoAvion.Estado==1"><i class="far fa-trash-alt">Desactivar</i></a>
+                            
+                            <a (click)="delete(TipoAvion._id)" class="delete btn  btn-small btn-warning rounded"
+                            data-toggle="modal" *ngIf="TipoAvion.Estado==0"><i class="far fa-trash-alt">Activar</i></a>
                     </td>
                 </tr>
 

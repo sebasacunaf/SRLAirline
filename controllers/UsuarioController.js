@@ -1,5 +1,6 @@
 const PostModel = require("../models/Usuario");
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 const secret = 'secret';
 
 module.exports.get = async (req, res, next)=>{
@@ -64,6 +65,28 @@ module.exports.signin = async (req, res, next) => {
 };
 
 module.exports.update = async (req, res, next)=>{
+    const {Rol,Usuario,Contrasenna,Nombre,Apellidos, Celular, TelefonoTrabajo, Correo,FechaNacimiento, 
+        Descripcion,Estado} = req.body;
+
+        bcrypt.genSalt(10, function (err, salt) {
+        
+            bcrypt.hash(Contrasenna, salt, null, async function (err, hash) {
+               
+              
+              Contrasenna = hash;
+              const post = await PostModel.findOneAndUpdate(
+                { _id: req.params.id},
+                {Rol,Usuario,Contrasenna,Nombre,Apellidos, Celular, TelefonoTrabajo, Correo,FechaNacimiento,
+                    Descripcion, Estado},
+                {new: true}
+            ) 
+          
+              
+              res.json(post);
+            });
+        });
+}
+module.exports.delete = async (req, res, next)=>{
     const {Rol,Usuario,Contrasenna,Nombre,Apellidos, Celular, TelefonoTrabajo, Correo,FechaNacimiento, 
         Descripcion,Estado} = req.body;
 
