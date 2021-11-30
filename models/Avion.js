@@ -9,6 +9,7 @@ const AvionSchema = new Schema({
         ref: "Horario"
     },
     CodigoAvion: Number,
+    Estado: Number,
 })
 const AvionModel = model("Avion", AvionSchema);
 module.exports = AvionModel;

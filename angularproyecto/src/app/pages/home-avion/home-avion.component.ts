@@ -15,9 +15,22 @@ export class HomeAvionComponent implements OnInit {
   }
   
   delete(id: string): void {
-    if (confirm('¿Esta seguro que quiere borrar este avión?')) {
-      this.avionService.delete(id).subscribe((res: any) => {
-        this.Aviones = this.Aviones.filter((Avion: any) => Avion._id !== id);
+    if (confirm('¿Esta seguro que quiere cambiar el estado de este avión?')) {
+      var Avion: any;
+      for (const avion of this.Aviones) {
+        if (avion._id == id) {
+          Avion = avion;
+        }
+      }
+      if(Avion.Estado == 1){
+        Avion.Estado = 0;
+      }
+     else{
+      Avion.Estado = 1;
+     }
+      this.avionService.delete(id, Avion).subscribe((res: any) => {
+        //  this.Usuarios = this.Usuarios.filter((usuario: any) => usuario._id !== id);
+
       });
     }
   }

@@ -18,9 +18,11 @@ export class AvionService {
     return this.http.get(AUTH_API, httpOptions);
   }
   
-  delete(id: string): Observable<any> {
-    return this.http.delete(`${AUTH_API}/${id}`);
+  delete(id: string, avion: any): Observable<any> {
+    return this.http.put(`${AUTH_API}/${id}`, avion);
+
   }
+
 
   update(id: string, post: any): Observable<any> {
     return this.http.put(`${AUTH_API}/${id}`, post);
