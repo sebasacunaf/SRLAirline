@@ -12,6 +12,14 @@ module.exports.getByID = async (req, res, next)=>{
         res.json({result: "{Id de reservación es inválida, o no existe el registro"});
     }
 };
+module.exports.getByUsuario = async (req, res, next)=>{
+    const posts = await PostModel.findOne(req.params.id).populate("ID_Vuelo").populate("ID_Usuario").exec()
+    if(posts){
+        res.json(posts);
+    }else{
+        res.json({result: "{Id de reservación es inválida, o no existe el registro"});
+    }
+};
 module.exports.create = (req, res, next)=>{
     const {ID_Vuelo, ID_Usuario, numReservacion,CantidadAsientos} = req.body;
     const post = new PostModel({ID_Vuelo, ID_Usuario, numReservacion,CantidadAsientos});
