@@ -30,6 +30,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { RegistrarAvionComponent } from './pages/registrar-avion/registrar-avion.component';
 import { RegistrarFacturaComponent } from './pages/registrar-factura/registrar-factura.component';
 import { RegistrarHorarioComponent } from './pages/registrar-horario/registrar-horario.component';
+import { RegistrarReservacionClienteComponent } from './pages/registrar-reservacion-cliente/registrar-reservacion-cliente.component';
 import { RegistrarReservacionesComponent } from './pages/registrar-reservaciones/registrar-reservaciones.component';
 import { RegistrarRutaComponent } from './pages/registrar-ruta/registrar-ruta.component';
 import { RegistrarTipoAvionComponent } from './pages/registrar-tipo-avion/registrar-tipo-avion.component';
@@ -55,6 +56,7 @@ const routes: Routes =
   children: [
   {path:'admin',component: AdminComponent},
   {path:'cliente',component: ClienteComponent},
+  {path:'registrar-reservacion-cliente',component: RegistrarReservacionClienteComponent},
   {path:'cliente-factura',component: ClienteFacturaComponent},
   {path:'cliente-reservacion',component: ClienteReservacionComponent},
   {path:'cliente-vuelos',component: ClienteVuelosComponent},

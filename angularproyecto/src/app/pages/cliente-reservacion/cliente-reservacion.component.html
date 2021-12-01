@@ -6,7 +6,7 @@
                     <h2> <b>Mis Reservaciones</b></h2>
                 </div>
                 <div class="col-sm-6 d-flex justify-content-end">
-                    <a routerLink="/dashboard/registrar-reservaciones" class="btn btn-success btn-small" data-toggle="modal"><i
+                    <a routerLink="/dashboard/registrar-reservacion-cliente" class="btn btn-success btn-small" data-toggle="modal"><i
                             class="fas fa-plus-square mr-3 d-inline-block"></i><span
                             class="d-inline-block">Reservar
                             </span></a>
@@ -19,7 +19,7 @@
                 <tr>
                     <th class="w-20">Identificación vuelo</th>
                     <th class="w-20">Identificación usuario</th>
-                    <th class="w-20">Número de reservación</th>
+                   <!-- <th class="w-20">Número de reservación</th>-->
                     <th class="w-20">Cantidad de asientos</th>
                 </tr>
             </thead>
@@ -27,7 +27,7 @@
                 <tr *ngFor="let Reservacion of Reservaciones">
                     <td>{{Reservacion.ID_Vuelo.CodigoVuelo}}&nbsp;-&nbsp;{{Reservacion.ID_Vuelo.Descripcion}}&nbsp;-&nbsp;{{Reservacion.ID_Vuelo.FechaIda}}</td>
                     <td>{{Reservacion.ID_Usuario.Usuario}}</td>
-                    <td>{{Reservacion.numReservacion}}</td>
+                  <!--  <td>{{Reservacion.numReservacion}}</td>-->
                     <td>{{Reservacion.CantidadAsientos}}</td>
                 
                 </tr>

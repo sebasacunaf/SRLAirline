@@ -24,7 +24,7 @@ module.exports.create = (req, res, next)=>{
     if (!ID_Vuelo  ||  !ID_Usuario  ||  !numReservacion  ||  !CantidadAsientos) {
         res.json({ success: false, msg: 'Existen algún valor nulo' });
     } else {
-        var newR= new PostModel({ID_Vuelo:ID_Vuelo, ID_Usuario:ID_Usuario, numReservacion: numReservacion,CantidadAsientos:CantidadAsientos, Estado: 1});
+        var newR= new PostModel({ID_Vuelo:ID_Vuelo, ID_Usuario:ID_Usuario, numReservacion: 1,CantidadAsientos:CantidadAsientos, Estado: 1});
        
 
         newR.save(function (err) {

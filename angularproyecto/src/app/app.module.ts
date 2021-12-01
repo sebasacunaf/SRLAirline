@@ -43,6 +43,7 @@ import { ClienteFacturaComponent } from './pages/cliente-factura/cliente-factura
 import { ClienteReservacionComponent } from './pages/cliente-reservacion/cliente-reservacion.component';
 import { ClienteVuelosComponent } from './pages/cliente-vuelos/cliente-vuelos.component';
 import { MensajeComponent } from './pages/mensaje/mensaje.component';
+import { RegistrarReservacionClienteComponent } from './pages/registrar-reservacion-cliente/registrar-reservacion-cliente.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { MensajeComponent } from './pages/mensaje/mensaje.component';
     ClienteFacturaComponent,
     ClienteReservacionComponent,
     ClienteVuelosComponent,
-    MensajeComponent
+    MensajeComponent,
+    RegistrarReservacionClienteComponent
   ],
   imports: [
     BrowserModule,
