@@ -53,7 +53,7 @@ module.exports.signin = async (req, res, next) => {
                 { expiresIn: "2h" }
               );
               // return the information including token as JSON
-              const payload = { Rol: user.Rol, Usuario: user.Usuario, Contrasenna: user.Contrasenna, Nombre: user.Nombre, Apellido: user.Apellido,
+              const payload = {ID: user._id, Rol: user.Rol, Usuario: user.Usuario, Contrasenna: user.Contrasenna, Nombre: user.Nombre, Apellidos: user.Apellidos,
             Celular: user.Celular, TelefonoTrabajo: user.TelefonoTrabajo, Correo: user.Correo, FechaNacimiento: user.FechaNacimiento, Descripcion: user.Descripcion, Estado: user.Estado };
               res.json({ success: true, token: token, user: payload });
             } else {

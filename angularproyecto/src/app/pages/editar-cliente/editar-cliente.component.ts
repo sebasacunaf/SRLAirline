@@ -15,6 +15,7 @@ export class EditarClienteComponent implements OnInit {
  
  
   commentForm = new FormGroup({
+   ID: new FormControl('', Validators.required),
     Usuario: new FormControl('', Validators.required),
     Contrasenna: new FormControl('', Validators.required),
     Nombre: new FormControl('', Validators.required),
@@ -24,37 +25,39 @@ export class EditarClienteComponent implements OnInit {
     Correo: new FormControl('', Validators.required), 
     FechaNacimiento: new FormControl('', Validators.required),
     Descripcion: new FormControl('', Validators.required),
+    Estado: new FormControl('', Validators.required)
   });
   
   id:any;
   currentUsuario:any;
  
   ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(this.id);
-    this.usuarioService.getByID(this.id).subscribe((data) => {
+    this.currentUsuario = this.token.getUser().user;
+    console.log(this.currentUsuario);
+   
 
       this.commentForm.setValue({ 
-        Usuario:data.Usuario,
+        ID: this.currentUsuario.ID,
+        Usuario:this.currentUsuario.Usuario,
         Contrasenna: "",
-        Nombre: data.Nombre,
-        Apellidos: data.Apellidos,
-        Celular: data.Celular,
-        TelefonoTrabajo: data.TelefonoTrabajo,
-        Correo: data.Correo,
-        FechaNacimiento: data.FechaNacimiento,
-        Descripcion: data.Descripcion
+        Nombre: this.currentUsuario.Nombre,
+        Apellidos: this.currentUsuario.Apellidos,
+        Celular: this.currentUsuario.Celular,
+        TelefonoTrabajo: this.currentUsuario.TelefonoTrabajo,
+        Correo: this.currentUsuario.Correo,
+        FechaNacimiento: this.currentUsuario.FechaNacimiento,
+        Descripcion: this.currentUsuario.Descripcion,
+        Estado: this.currentUsuario.Estado
        })
-    });
+  
   }
 
   submitForm() {
     if (this.commentForm.valid) {
       console.log(this.commentForm.value, 'this.commentForm.value');
-      this.usuarioService.update(this.id, this.commentForm.value).subscribe()
+      this.usuarioService.delete(this.currentUsuario.ID, this.commentForm.value).subscribe()
        
     }
-    this.router.navigate(['/dashboard/home-usuario']);
+    this.router.navigate(['/dashboard/cliente']);
   }
-
 }
