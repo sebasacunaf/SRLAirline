@@ -15,7 +15,7 @@ export class EditarClienteComponent implements OnInit {
  
  
   commentForm = new FormGroup({
-   ID: new FormControl('', Validators.required),
+    ID: new FormControl('', Validators.required),
     Usuario: new FormControl('', Validators.required),
     Contrasenna: new FormControl('', Validators.required),
     Nombre: new FormControl('', Validators.required),
@@ -32,31 +32,31 @@ export class EditarClienteComponent implements OnInit {
   currentUsuario:any;
  
   ngOnInit(): void {
-    this.currentUsuario = this.token.getUser().user;
-    console.log(this.currentUsuario);
-   
-
+    this.id = this.token.getUser().user.ID;
+    this.usuarioService.getByID(this.id).subscribe((data) => {
+      console.log('id'+this.id)
+      console.log('data'+data)
       this.commentForm.setValue({ 
-        ID: this.currentUsuario.ID,
-        Usuario:this.currentUsuario.Usuario,
+        ID: data._id,
+        Usuario:data.Usuario,
         Contrasenna: "",
-        Nombre: this.currentUsuario.Nombre,
-        Apellidos: this.currentUsuario.Apellidos,
-        Celular: this.currentUsuario.Celular,
-        TelefonoTrabajo: this.currentUsuario.TelefonoTrabajo,
-        Correo: this.currentUsuario.Correo,
-        FechaNacimiento: this.currentUsuario.FechaNacimiento,
-        Descripcion: this.currentUsuario.Descripcion,
-        Estado: this.currentUsuario.Estado
+        Nombre: data.Nombre,
+        Apellidos: data.Apellidos,
+        Celular: data.Celular,
+        TelefonoTrabajo: data.TelefonoTrabajo,
+        Correo: data.Correo,
+        FechaNacimiento: data.FechaNacimiento,
+        Descripcion: data.Descripcion,
+        Estado: data.Estado
        })
+    });
   
   }
 
   submitForm() {
     if (this.commentForm.valid) {
       console.log(this.commentForm.value, 'this.commentForm.value');
-      this.usuarioService.delete(this.currentUsuario.ID, this.commentForm.value).subscribe()
-       
+      this.usuarioService.delete(this.id, this.commentForm.value).subscribe()
     }
     this.router.navigate(['/dashboard/cliente']);
   }

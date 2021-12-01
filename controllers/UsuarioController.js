@@ -9,7 +9,7 @@ module.exports.get = async (req, res, next)=>{
 }
 module.exports.getByID = async (req, res, next)=>{
     const posts = await PostModel.findOne({ _id: req.params.id }).populate("Rol").exec()
-    console.log(posts)
+    console.log('controller '+posts)
     if(posts){
         res.json(posts);
     }else{

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from '../../services/Usuario.service'
+import { TokenStorageService } from '../../services/token-storage.service';
 
 @Component({
   selector: 'app-cliente',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClienteComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private token: TokenStorageService, private usuarioService: UsuarioService) { }
+  id:any;
+  currentUsuario:any;
   ngOnInit(): void {
+
   }
 
 }
