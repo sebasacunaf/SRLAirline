@@ -19,7 +19,6 @@
                 <tr>
                     <th class="w-20">Identificación vuelo</th>
                     <th class="w-20">Identificación usuario</th>
-                    <th class="w-20">Número de reservación</th>
                     <th class="w-20">Cantidad de asientos</th>
                     <th class="text-end">Acciones</th>
                 </tr>
@@ -28,7 +27,6 @@
                 <tr *ngFor="let Reservacion of Reservaciones">
                     <td>{{Reservacion.ID_Vuelo.CodigoVuelo}}&nbsp;-&nbsp;{{Reservacion.ID_Vuelo.Descripcion}}&nbsp;-&nbsp;{{Reservacion.ID_Vuelo.FechaIda}}</td>
                     <td>{{Reservacion.ID_Usuario.Usuario}}</td>
-                    <td>{{Reservacion.numReservacion}}</td>
                     <td>{{Reservacion.CantidadAsientos}}</td>
                     <td class="text-end">
                       

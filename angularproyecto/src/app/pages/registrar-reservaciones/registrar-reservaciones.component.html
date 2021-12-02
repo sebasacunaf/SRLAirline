@@ -34,14 +34,7 @@
 
             </select>
           </div>
-          <div class="mb-3">
-            <label for="Dia">Número de vuelo</label>
-            <input type="number" class="form-control" placeholder="Número de vuelo" name="CodigoVuelo"
-              [(ngModel)]="form.numReservacion" #numReservacion="ngModel" required>
-            <div class="alert-danger" *ngIf="numReservacion.errors && f.submitted">
-              <div *ngIf="numReservacion.errors.required">Número de vuelo requerido</div>
-            </div>
-          </div>
+         
           <div class="mb-3">
             <label for="Dia">Cantidad de asientos</label>
             <input type="number" class="form-control" placeholder="Cantidad de asientos" name="CantidadAsientos"
