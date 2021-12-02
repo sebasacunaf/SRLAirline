@@ -24,6 +24,7 @@ export class ReservacionesService {
 
   }
 
+  
 
   update(id: string, post: any): Observable<any> {
     return this.http.put(`${AUTH_API}/${id}`, post);
@@ -40,4 +41,9 @@ export class ReservacionesService {
      httpOptions
     );
   }
+
+  getByUsuario(user: Object): Observable<any> {
+    return this.http.get(`${AUTH_API}/getByUsuario/${user}`);
+  }
+
 }

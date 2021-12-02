@@ -2,6 +2,7 @@ const PostModel = require("../models/Reservaciones");
 
 module.exports.get = async (req, res, next)=>{
     const posts = await PostModel.find().populate("ID_Vuelo").populate("ID_Usuario").exec()
+    console.log("controller" + posts);
     res.json(posts);
 };
 module.exports.getByID = async (req, res, next)=>{
@@ -13,7 +14,10 @@ module.exports.getByID = async (req, res, next)=>{
     }
 };
 module.exports.getByUsuario = async (req, res, next)=>{
-    const posts = await PostModel.findOne(req.params.id).populate("ID_Vuelo").populate("ID_Usuario").exec()
+    console.log(req.params.id);
+    const posts = await PostModel.find({ID_Usuario: req.params.id}).populate("ID_Vuelo").populate("ID_Usuario").exec()
+   console.log(posts);
+ 
     if(posts){
         res.json(posts);
     }else{
@@ -32,7 +36,7 @@ module.exports.create = (req, res, next)=>{
     if (!ID_Vuelo  ||  !ID_Usuario  ||  !numReservacion  ||  !CantidadAsientos) {
         res.json({ success: false, msg: 'Existen algún valor nulo' });
     } else {
-        var newR= new PostModel({ID_Vuelo:ID_Vuelo, ID_Usuario:ID_Usuario, numReservacion: 1,CantidadAsientos:CantidadAsientos, Estado: 1});
+        var newR= new PostModel({ID_Vuelo:ID_Vuelo, ID_Usuario:ID_Usuario, numReservacion:numReservacion,CantidadAsientos:CantidadAsientos, Estado: 1});
        
 
         newR.save(function (err) {

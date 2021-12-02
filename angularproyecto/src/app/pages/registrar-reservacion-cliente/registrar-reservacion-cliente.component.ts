@@ -17,12 +17,12 @@ export class RegistrarReservacionClienteComponent implements OnInit {
     CantidadAsientos: null
   };
   Vuelos: any = [];
-  //Usuarios: any = [];
+  Reservaciones: any = [];
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
   currentUser: any;
-  numReservacion = 1;
+  numReservacion: any;
   constructor(private token: TokenStorageService,private reservacionesService: ReservacionesService,private router: Router, private vuelosService: VuelosService, private usuarioService: UsuarioService, private facturaService: FacturaService) { }
 
   ngOnInit(): void {
@@ -30,6 +30,13 @@ export class RegistrarReservacionClienteComponent implements OnInit {
    // this.usuarioService.get().subscribe((Usuarios)=>{this.Usuarios = Usuarios});
     this.currentUser = this.token.getUser().user;
     console.log(this.currentUser);
+  
+    this.reservacionesService.get().subscribe((Reservaciones)=>{
+      this.Reservaciones = Reservaciones;
+      this.numReservacion = Reservaciones.length + 1;
+      console.log("NumReservacion"+this.numReservacion);
+    });
+   
   }
   onSubmit(): void {
     const { ID_Vuelo, CantidadAsientos} = this.form;
