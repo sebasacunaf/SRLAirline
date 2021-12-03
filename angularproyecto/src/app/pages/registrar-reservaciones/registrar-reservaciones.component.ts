@@ -32,7 +32,7 @@ export class RegistrarReservacionesComponent implements OnInit {
   TotalColones:any;
   TotalDolares:any;
   Fecha:any;
-
+  FechaR:any;
   constructor(private reservacionesService: ReservacionesService, private router: Router, private vuelosService: VuelosService, private usuarioService: UsuarioService, private facturaService: FacturaService) { }
 
   ngOnInit(): void {
@@ -68,14 +68,14 @@ export class RegistrarReservacionesComponent implements OnInit {
       this.TotalColones = 100 * data.CantidadAsientos;
       this.TotalDolares = this.TotalColones * 639.89;
       this.Fecha = Date.now();
-
+      this.FechaR = new Date(this.Fecha).toLocaleDateString();
       this.createFactura();
       
    });
 
   }
   createFactura():void{
-    this.facturaService.create(this.IDReservacion, this.NumeroFactura, this.Descripcion, this.TotalColones, this.TotalDolares, this.Fecha.toString()).subscribe(
+    this.facturaService.create(this.IDReservacion, this.NumeroFactura, this.Descripcion, this.TotalColones, this.TotalDolares, this.FechaR).subscribe(
       data => {
         console.log(data);
         if (data.success) {
