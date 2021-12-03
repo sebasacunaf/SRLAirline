@@ -82,6 +82,7 @@ export class RegistrarReservacionesComponent implements OnInit {
           this.isSuccessful = true;
           this.isSignUpFailed = false;
           this.router.navigate(['/dashboard/home-factura']);
+          
         } else {
           this.errorMessage = data.msg;
           this.isSignUpFailed = true;
