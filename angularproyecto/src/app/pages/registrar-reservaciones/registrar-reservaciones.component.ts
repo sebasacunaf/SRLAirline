@@ -65,7 +65,7 @@ export class RegistrarReservacionesComponent implements OnInit {
 
       this.NumeroFactura = data.numReservacion;
       this.Descripcion = 'Cliente: ' + data.ID_Usuario.Nombre + ' ' + data.ID_Usuario.Apellidos + '\n' + 'Usuario: ' + data.ID_Usuario.Usuario + '\n' + 'Asientos: ' + data.CantidadAsientos;
-      this.TotalColones = 100 * data.CantidadAsientos;
+      this.TotalColones = data.ID_Vuelo.ID_Avion.ID_Horario.Precio * data.CantidadAsientos;
       this.TotalDolares = this.TotalColones * 639.89;
       this.Fecha = Date.now();
       this.FechaR = new Date(this.Fecha).toLocaleDateString();

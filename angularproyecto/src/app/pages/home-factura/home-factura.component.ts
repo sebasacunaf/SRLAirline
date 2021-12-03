@@ -16,9 +16,22 @@ export class HomeFacturaComponent implements OnInit {
   }
   
   delete(id: string): void {
-    if (confirm('¿Esta seguro que quiere borrar esta factura?')) {
-      this.facturaService.delete(id).subscribe((res: any) => {
-        this.Facturas = this.Facturas.filter((Factura: any) => Factura._id !== id);
+    if (confirm('¿Esta seguro que quiere cambiar el estado de la factura?')) {
+      var Factura: any;
+      for (const fact of this.Facturas) {
+        if (fact._id == id) {
+          Factura = fact;
+        }
+      }
+      if(Factura.Estado == 1){
+        Factura.Estado = 0;
+      }
+     else{
+      Factura.Estado = 1;
+     }
+      this.facturaService.delete(id, Factura).subscribe((res: any) => {
+        //  this.Usuarios = this.Usuarios.filter((usuario: any) => usuario._id !== id);
+
       });
     }
   }

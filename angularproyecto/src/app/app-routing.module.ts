@@ -76,7 +76,7 @@ const routes: Routes =
   {path:'editar-ruta/:id',component: EditarRutaComponent},
   {path:'editar-vuelos',component: EditarVuelosComponent},
   {path:'editar-reservaciones',component: EditarReservacionesComponent},
-  {path:'editar-factura',component: EditarFacturaComponent},
+  {path:'editar-factura/:id',component: EditarFacturaComponent},
   {path:'home-usuario',component: HomeUsuarioComponent},
   {path:'home-avion',component: HomeAvionComponent},
   {path:'home-tipo-avion',component: HomeTipoAvionComponent },

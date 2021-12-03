@@ -19,11 +19,11 @@ module.exports.create = (req, res, next)=>{
     res.json(post);
 };
 module.exports.create = (req, res, next)=>{
-    const {ID_Reservacion, NumeroFactura, Descripcion, TotalColones, TotalDolares, FechaReservacion} = req.body;
+    const {ID_Reservacion, NumeroFactura, Descripcion, TotalColones, TotalDolares, FechaReservacion, Estado} = req.body;
     if (!ID_Reservacion || !NumeroFactura || !Descripcion || !TotalColones || !TotalDolares || !FechaReservacion) {
         res.json({ success: false, msg: 'Existen algún valor nulo' });
     } else {
-        var newF= new PostModel({ID_Reservacion:ID_Reservacion, NumeroFactura: NumeroFactura , Descripcion:Descripcion, TotalColones:TotalColones, TotalDolares:TotalDolares, FechaReservacion:FechaReservacion});
+        var newF= new PostModel({ID_Reservacion:ID_Reservacion, NumeroFactura: NumeroFactura , Descripcion:Descripcion, TotalColones:TotalColones, TotalDolares:TotalDolares, FechaReservacion:FechaReservacion, Estado: 1});
        
 
         newF.save(function (err) {
@@ -35,12 +35,13 @@ module.exports.create = (req, res, next)=>{
     }
 };
 module.exports.delete = async (req, res, next)=>{
-    const post = await PostModel.findByIdAndRemove(req.params.id);
-    if(post){
-        res.json({result: "Registro borrado correctamente"});
-    }else{
-        res.json({result: "{Id de la factura es inválida}"})
-    }
+    const {Descripcion, TotalColones, TotalDolares, FechaReservacion, Estado} = req.body;
+    const post = await PostModel.findOneAndUpdate(
+        { _id: req.params.id},
+        {Descripcion, TotalColones, TotalDolares, FechaReservacion, Estado},
+        {new: true}
+    )
+    res.json(post);
 };
 module.exports.update = async (req, res, next)=>{
     const {Descripcion, TotalColones, TotalDolares, FechaReservacion} = req.body;

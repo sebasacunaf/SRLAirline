@@ -6,7 +6,17 @@ module.exports.get = async (req, res, next)=>{
 };
 module.exports.getByID = async (req, res, next)=>{
     console.log('Id en el controller '+req.params.id);
-    const posts = await PostModel.findOne({_id: req.params.id}).populate("ID_Vuelo").populate("ID_Usuario").exec()
+    const posts = await PostModel.findOne({_id: req.params.id}).populate("ID_Vuelo").populate("ID_Usuario").populate({
+        path: 'ID_Vuelo',
+        populate:{
+            path: 'ID_Avion',
+            populate:{
+                path:'ID_Horario'
+            }
+    
+        }
+    
+    }).exec()
     console.log('controller reserva '+posts)
     if(posts){
         res.json(posts);

@@ -19,8 +19,9 @@ export class FacturaService {
     return this.http.get(AUTH_API, httpOptions);
   }
   
-  delete(id: string): Observable<any> {
-    return this.http.delete(`${AUTH_API}/${id}`);
+  delete(id: string, factura: any): Observable<any> {
+    return this.http.put(`${AUTH_API}/${id}`, factura);
+
   }
 
   update(id: string, post: any): Observable<any> {
