@@ -19,7 +19,6 @@ export class HomeReservacionesComponent implements OnInit {
 
   ngOnInit(): void {
     this.reservacionesService.get().subscribe((Reservaciones)=>{this.Reservaciones = Reservaciones});
-    console.log(this.Reservaciones);
   }
   
   delete(id: string): void {

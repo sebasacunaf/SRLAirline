@@ -23,9 +23,6 @@ export class ReservacionesService {
     return this.http.put(`${AUTH_API}/${id}`, reservacion);
 
   }
-
-  
-
   update(id: string, post: any): Observable<any> {
     return this.http.put(`${AUTH_API}/${id}`, post);
   }

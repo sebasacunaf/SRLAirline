@@ -2,11 +2,12 @@ const PostModel = require("../models/Reservaciones");
 
 module.exports.get = async (req, res, next)=>{
     const posts = await PostModel.find().populate("ID_Vuelo").populate("ID_Usuario").exec()
-    console.log("controller" + posts);
     res.json(posts);
 };
 module.exports.getByID = async (req, res, next)=>{
-    const posts = await PostModel.findOne(req.params.id).populate("ID_Vuelo").populate("ID_Usuario").exec()
+    console.log('Id en el controller '+req.params.id);
+    const posts = await PostModel.findOne({_id: req.params.id}).populate("ID_Vuelo").populate("ID_Usuario").exec()
+    console.log('controller reserva '+posts)
     if(posts){
         res.json(posts);
     }else{
@@ -24,12 +25,7 @@ module.exports.getByUsuario = async (req, res, next)=>{
         res.json({result: "{Id de reservación es inválida, o no existe el registro"});
     }
 };
-module.exports.create = (req, res, next)=>{
-    const {ID_Vuelo, ID_Usuario, numReservacion,CantidadAsientos} = req.body;
-    const post = new PostModel({ID_Vuelo, ID_Usuario, numReservacion,CantidadAsientos});
-    post.save();
-    res.json(post);
-};
+
 
 module.exports.create = (req, res, next)=>{
     const {ID_Vuelo, ID_Usuario, numReservacion,CantidadAsientos, Estado} = req.body;
@@ -43,7 +39,7 @@ module.exports.create = (req, res, next)=>{
             if (err) {
                 return res.json({ success: false, msg: 'La reservación ya existe' });
             }
-            res.json({ success: true, msg: 'Reservación creada existosamente' });
+            res.json({ success: true, msg: 'Reservación creada existosamente', Reserva:newR });
         });
     }
 };

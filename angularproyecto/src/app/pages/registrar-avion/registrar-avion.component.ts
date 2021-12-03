@@ -30,7 +30,6 @@ export class RegistrarAvionComponent implements OnInit {
 
     this.avionService.create(ID_TipoAvion, ID_Horario, CodigoAvion).subscribe(
       data => {
-        console.log(data);
         if(data.success){
           this.isSuccessful = true;
           this.isSignUpFailed = false;

@@ -22,9 +22,17 @@ export class RegistrarReservacionesComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+
   numReservacion: any;
   IDReservacion: any;
   Reservaciones: any = [];
+
+  NumeroFactura:any;
+  Descripcion:any;
+  TotalColones:any;
+  TotalDolares:any;
+  Fecha:any;
+
   constructor(private reservacionesService: ReservacionesService, private router: Router, private vuelosService: VuelosService, private usuarioService: UsuarioService, private facturaService: FacturaService) { }
 
   ngOnInit(): void {
@@ -39,15 +47,41 @@ export class RegistrarReservacionesComponent implements OnInit {
   }
   onSubmit(): void {
     const { ID_Vuelo, ID_Usuario, CantidadAsientos } = this.form;
-
     this.reservacionesService.create(ID_Vuelo, ID_Usuario, this.numReservacion, CantidadAsientos).subscribe(
       data => {
+        this.IDReservacion=  data.Reserva._id
+        this.getReserva(this.IDReservacion);
+      },
+    );
+
+  
+  }
+  getReserva(id: string): void {
+    console.log('ReservaID '+id);
+    this.reservacionesService.getById(id).subscribe((data) => {
+      console.log('DATAAAAAA '+data._id);
+
+      ///this.Reserva = this.Reserva.filter((Reserva: any) => Reserva._id !== id);
+
+      this.NumeroFactura = data.numReservacion;
+      this.Descripcion = 'Cliente: ' + data.ID_Usuario.Nombre + ' ' + data.ID_Usuario.Apellidos + '\n' + 'Usuario: ' + data.ID_Usuario.Usuario + '\n' + 'Asientos: ' + data.CantidadAsientos;
+      this.TotalColones = 100 * data.CantidadAsientos;
+      this.TotalDolares = this.TotalColones * 639.89;
+      this.Fecha = Date.now();
+
+      this.createFactura();
+      
+   });
+
+  }
+  createFactura():void{
+    this.facturaService.create(this.IDReservacion, this.NumeroFactura, this.Descripcion, this.TotalColones, this.TotalDolares, this.Fecha.toString()).subscribe(
+      data => {
         console.log(data);
-        this.IDReservacion = data._id;
         if (data.success) {
           this.isSuccessful = true;
           this.isSignUpFailed = false;
-
+          this.router.navigate(['/dashboard/home-factura']);
         } else {
           this.errorMessage = data.msg;
           this.isSignUpFailed = true;
@@ -58,47 +92,8 @@ export class RegistrarReservacionesComponent implements OnInit {
         this.isSignUpFailed = true;
       }
     );
-
-   // this.createFactura(this.IDReservacion);
   }
 
-
-  createFactura(id: string): void {
-    this.reservacionesService.getById(id).subscribe((res: any) => {
-      console.log(id);
-      this.Reserva = this.Reserva.filter((Reserva: any) => Reserva._id !== id);
-      const ID_Reservacion = this.Reserva._id;
-      const NumeroFactura = this.Reserva.numReservacion;
-      console.log(this.Reserva);
-      const Descripcion = 'Cliente: ' + this.Reserva.ID_Usuario.Nombre + ' ' + this.Reserva.ID_Usuario.Apellidos + '\n' + 'Usuario: ' + this.Reserva.ID_Usuario.Usuario + '\n' + 'Asientos: ' + this.Reserva.CantidadAsientos;
-      const TotalColones = this.Reserva.ID_Vuelo.ID_Avion.ID_Horario.Precio * this.Reserva.CantidadAsientos;
-      const TotalDolares = TotalColones * 639.89;
-      const Fecha = Date.now();
-
-      this.facturaService.create(ID_Reservacion, NumeroFactura, Descripcion, TotalColones, TotalDolares, Fecha.toString()).subscribe(
-        data => {
-          console.log(data);
-          if (data.success) {
-            this.isSuccessful = true;
-            this.isSignUpFailed = false;
-            this.router.navigate(['/dashboard/home-factura']);
-          } else {
-            this.errorMessage = data.msg;
-            this.isSignUpFailed = true;
-          }
-        },
-        err => {
-          this.errorMessage = err.error.message;
-          this.isSignUpFailed = true;
-        }
-      );
-
-
-
-
-    });
-
-  }
 
 
 
