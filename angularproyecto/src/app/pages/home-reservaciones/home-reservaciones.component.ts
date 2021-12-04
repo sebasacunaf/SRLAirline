@@ -53,7 +53,7 @@ export class HomeReservacionesComponent implements OnInit {
     const TotalColones = this.Reserva.ID_Vuelo.ID_Avion.ID_Horario.Precio * this.Reserva.CantidadAsientos ;
     const TotalDolares = TotalColones * 639.89;
     const Fecha = Date.now();
-    this.facturaService.create(ID_Reservacion, NumeroFactura, Descripcion, TotalColones, TotalDolares, Fecha.toString()).subscribe(
+    this.facturaService.create(ID_Reservacion,this.Reserva.ID_Usuario._id, NumeroFactura, Descripcion, TotalColones, TotalDolares, Fecha.toString()).subscribe(
       data => {
         console.log(data);
         if(data.success){

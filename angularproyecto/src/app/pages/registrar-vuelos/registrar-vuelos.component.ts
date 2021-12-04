@@ -31,8 +31,9 @@ export class RegistrarVuelosComponent implements OnInit {
 
   onSubmit(): void {
     const { ID_Avion, CodigoVuelo, Descripcion, Origen, Destino,FechaIda,FechaRegreso,EspaciosDisponibles} = this.form;
-
-    this.vuelosService.create(ID_Avion, CodigoVuelo, Descripcion, Origen, Destino, FechaIda, FechaRegreso, EspaciosDisponibles).subscribe(
+    const FechaI = new Date(FechaIda).toLocaleDateString();
+    const FechaR = new Date(FechaRegreso).toLocaleDateString();
+    this.vuelosService.create(ID_Avion, CodigoVuelo, Descripcion, Origen, Destino, FechaI, FechaR, EspaciosDisponibles).subscribe(
       data => {
         console.log(data);
         if(data.success){

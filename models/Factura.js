@@ -4,6 +4,10 @@ const FacturaSchema = new Schema({
         type: Schema.Types.ObjectId, 
         ref: "Reservaciones"
     },
+    ID_Usuario:{
+        type: Schema.Types.ObjectId, 
+        ref: "Usuario"
+    },
     NumeroFactura: Number,
     Descripcion: String, 
     TotalColones: Number, 

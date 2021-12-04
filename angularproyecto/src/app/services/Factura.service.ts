@@ -30,12 +30,15 @@ export class FacturaService {
   getByID(id: string): Observable<any> {
     return this.http.get(`${AUTH_API}/${id}`);
   }
-  create(ID_Reservacion:String, NumeroFactura:String, Descripcion:String, TotalColones:Number, TotalDolares:Number, FechaReservacion:String): Observable<any> {
+  create(ID_Reservacion:String,ID_Usuario:String, NumeroFactura:String, Descripcion:String, TotalColones:Number, TotalDolares:Number, FechaReservacion:String): Observable<any> {
     return this.http.post(AUTH_API + 'create',
     {
-      ID_Reservacion, NumeroFactura, Descripcion, TotalColones, TotalDolares, FechaReservacion
+      ID_Reservacion,ID_Usuario, NumeroFactura, Descripcion, TotalColones, TotalDolares, FechaReservacion
     },
      httpOptions
     );
+  }
+  getByUsuario(user: Object): Observable<any> {
+    return this.http.get(`${AUTH_API}/getByUsuario/${user}`);
   }
 }

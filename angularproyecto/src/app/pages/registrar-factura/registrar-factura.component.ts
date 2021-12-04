@@ -28,9 +28,9 @@ export class RegistrarFacturaComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { ID_Reservacion, NumeroFactura, Descripcion, TotalColones, TotalDolares, FechaReservacion} = this.form;
+    const { ID_Reservacion, ID_Usuario, NumeroFactura, Descripcion, TotalColones, TotalDolares, FechaReservacion} = this.form;
 
-    this.facturaService.create(ID_Reservacion, NumeroFactura, Descripcion, TotalColones, TotalDolares, FechaReservacion).subscribe(
+    this.facturaService.create(ID_Reservacion, ID_Usuario,NumeroFactura, Descripcion, TotalColones, TotalDolares, FechaReservacion).subscribe(
       data => {
         console.log(data);
         if(data.success){

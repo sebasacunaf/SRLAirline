@@ -65,7 +65,7 @@
             </div>
             <div class="col">
               <div class="form-group">
-                <label for="CantidadColumnas">Cantidad de filas</label>
+                <label for="CantidadColumnas">Cantidad de columnas</label>
                 <input type="number" class="form-control" placeholder="Cantidad de columnas"
                 name="CantidadColumnas"  [(ngModel)]="form.CantidadColumnas" #CantidadColumnas="ngModel" required>
                 <div class="alert-danger" *ngIf="CantidadColumnas.errors && f.submitted">

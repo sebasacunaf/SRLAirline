@@ -27,6 +27,7 @@ export class RegistrarReservacionesComponent implements OnInit {
   IDReservacion: any;
   Reservaciones: any = [];
 
+  ID_Usuario:any;
   NumeroFactura:any;
   Descripcion:any;
   TotalColones:any;
@@ -64,9 +65,11 @@ export class RegistrarReservacionesComponent implements OnInit {
       ///this.Reserva = this.Reserva.filter((Reserva: any) => Reserva._id !== id);
 
       this.NumeroFactura = data.numReservacion;
+      this.ID_Usuario = data.ID_Usuario._id;
       this.Descripcion = 'Cliente: ' + data.ID_Usuario.Nombre + ' ' + data.ID_Usuario.Apellidos + '\n' + 'Usuario: ' + data.ID_Usuario.Usuario + '\n' + 'Asientos: ' + data.CantidadAsientos;
       this.TotalColones = data.ID_Vuelo.ID_Avion.ID_Horario.Precio * data.CantidadAsientos;
-      this.TotalDolares = this.TotalColones * 639.89;
+      this.TotalDolares = this.TotalColones / 639;
+      this.TotalDolares = this.TotalDolares.toFixed(2);
       this.Fecha = Date.now();
       this.FechaR = new Date(this.Fecha).toLocaleDateString();
       this.createFactura();
@@ -75,7 +78,7 @@ export class RegistrarReservacionesComponent implements OnInit {
 
   }
   createFactura():void{
-    this.facturaService.create(this.IDReservacion, this.NumeroFactura, this.Descripcion, this.TotalColones, this.TotalDolares, this.FechaR).subscribe(
+    this.facturaService.create(this.IDReservacion, this.ID_Usuario, this.NumeroFactura, this.Descripcion, this.TotalColones, this.TotalDolares, this.FechaR).subscribe(
       data => {
         console.log(data);
         if (data.success) {

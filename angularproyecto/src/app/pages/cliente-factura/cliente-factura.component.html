@@ -7,7 +7,7 @@
                 </div>
             </div>
         </div>
-        <table class="table table-striped table-hover mt-5" style="width: 75%; margin-left: 13%;">
+        <table class="table table-striped table-hover mt-5" style="width: 100%; margin-left: 0%;">
             <thead>
                 <tr>
                     <th class="w-20">Número de Reservación</th>
@@ -22,9 +22,9 @@
                 <tr *ngFor="let Factura of Facturas">
                     <td>{{Factura.ID_Reservacion.numReservacion}}</td>
                     <td>{{Factura.NumeroFactura}}</td>
-                    <td>{{Factura.Descripcion}}/td>
-                    <td>{{Factura.TotalColones}}</td>
-                    <td>{{Factura.TotalDolares}}</td>
+                    <td>{{Factura.Descripcion}}</td>
+                    <td>₡{{Factura.TotalColones}}</td>
+                    <td>${{Factura.TotalDolares}}</td>
                     <td>{{Factura.FechaReservacion}}</td>
                 </tr>
 
