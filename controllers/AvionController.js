@@ -2,7 +2,14 @@ const PostModel = require("../models/Avion");
 
 
 module.exports.get = async (req, res, next)=>{
-    const posts = await PostModel.find().populate("ID_TipoAvion").populate("ID_Horario").exec()
+    const posts = await PostModel.find().populate("ID_TipoAvion").populate({
+        path: 'ID_Horario',
+        populate:{
+            path: 'ID_Ruta'
+    
+        }
+    
+    }).exec()
     res.json(posts);
 };
 module.exports.getByID = async (req, res, next)=>{

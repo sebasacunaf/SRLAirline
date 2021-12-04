@@ -18,7 +18,7 @@
               required>
 
               <option *ngFor="let Avion of Aviones" value={{Avion._id}}>
-                {{Avion.CodigoAvion}}&nbsp;-&nbsp;{{Avion.ID_TipoAvion.Marca}}&nbsp;{{Avion.ID_TipoAvion.Modelo}}
+                {{Avion.CodigoAvion}}&nbsp;-&nbsp;{{Avion.ID_TipoAvion.Marca}}&nbsp;{{Avion.ID_TipoAvion.Modelo}}&nbsp;-&nbsp;{{Avion.ID_Horario.Dia}}&nbsp;-&nbsp;{{Avion.ID_Horario.ID_Ruta.Ruta}}
               </option>
 
             </select>

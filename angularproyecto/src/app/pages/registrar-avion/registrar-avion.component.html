@@ -17,7 +17,7 @@
             <select class="form-select" name="ID_TipoAvion" [(ngModel)]="form.ID_TipoAvion" #ID_TipoAvion="ngModel"
              required>
 
-              <option *ngFor="let TipoAvion of TipoAviones" value={{TipoAvion._id}}>{{TipoAvion.Marca}}&nbsp;{{TipoAvion.Modelo}}&nbsp;{{TipoAvion.Anno}}</option>
+              <option *ngFor="let TipoAvion of TipoAviones" value={{TipoAvion._id}}>{{TipoAvion.Marca}}&nbsp;{{TipoAvion.Modelo}}&nbsp;-&nbsp;{{TipoAvion.Anno}}</option>
 
             </select>
             <div class="alert-danger" *ngIf="ID_TipoAvion.errors && f.submitted">
@@ -29,7 +29,7 @@
             <select class="form-select" name="ID_Horario" [(ngModel)]="form.ID_Horario" #ID_Horario="ngModel"
               required>
 
-              <option *ngFor="let Horario of Horarios" value={{Horario._id}}>{{Horario.ID_Ruta.Ruta}}&nbsp;{{Horario.Dia}}&nbsp;{{Horario.HoraSalida}}</option>
+              <option *ngFor="let Horario of Horarios" value={{Horario._id}}>{{Horario.ID_Ruta.Ruta}}&nbsp;-&nbsp;{{Horario.Dia}}&nbsp;-&nbsp;{{Horario.HoraSalida}}</option>
 
             </select>
             <div class="alert-danger" *ngIf="ID_Horario.errors && f.submitted">

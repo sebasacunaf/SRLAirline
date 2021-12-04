@@ -12,7 +12,19 @@ module.exports.getByID = async (req, res, next)=>{
         res.json({result: "{Id del vuelo es inválida, o no existe el registro"});
     }
 }
-
+module.exports.getByForm = async (req, res, next)=>{
+   // if(req.params.Origen!=null){
+     //   const posts = await PostModel.find({ Origen: req.params.Origen}).exec()
+    //}
+    console.log("parametro " + req.params.Origen);
+    const posts = await PostModel.find({ Origen: req.params.Origen, Destino: req.params.Destino, FechaIda: req.params.FechaI,FechaRegreso:req.params.FechaR}).exec()
+    if(posts){
+        console.log("controller " + posts);
+        res.json(posts);
+    }else{
+        res.json({result: "{Id del vuelo es inválida, o no existe el registro"});
+    }
+}
 
 module.exports.create = (req, res, next)=>{
     const {ID_Avion, CodigoVuelo, Descripcion, Origen, Destino,FechaIda,FechaRegreso,EspaciosDisponibles, Estado} = req.body;

@@ -22,7 +22,7 @@
             </select>
           </div>
           <div class="mb-3">
-            <label for="Dia">Día</label>
+            <label for="Dia">Día de vuelo</label>
             <input type="text" class="form-control" placeholder="Día" name="Dia" [(ngModel)]="form.Dia" #Dia="ngModel"
               required>
             <div class="alert-danger" *ngIf="Dia.errors && f.submitted">
@@ -31,7 +31,7 @@
           </div>
           <div class="row" style="margin-bottom: 15px;">
             <div class="col">
-              <label for="HoraS">Hora salida</label>
+              <label for="HoraS">Hora de salida</label>
               <input type="text" class="form-control" id="HoraSalida" placeholder="Hora de Salida" name="HoraSalida"
                 [(ngModel)]="form.HoraSalida" #HoraSalida="ngModel" required>
               <div class="alert-danger" *ngIf="HoraSalida.errors && f.submitted">
@@ -39,7 +39,7 @@
               </div>
             </div>
             <div class="col">
-              <label for="HoraLL">Hora llegada</label>
+              <label for="HoraLL">Hora de llegada</label>
               <input type="text" class="form-control" id="HoraLlegada" placeholder="Hora de Llegada" name="HoraLlegada"
                 [(ngModel)]="form.HoraLlegada" #HoraLlegada="ngModel" required>
               <div class="alert-danger" *ngIf="HoraLlegada.errors && f.submitted">

@@ -31,7 +31,11 @@ export class VuelosService {
   getByID(id: string): Observable<any> {
     return this.http.get(`${AUTH_API}/${id}`);
   }
-  
+  getByForm(Origen: string, Destino: string, FechaI: string, FechaR: string): Observable<any> {
+    return this.http.get(`${AUTH_API}/${Origen}/${Destino}/${FechaI}/${FechaR}`);
+  }
+
+
   create(ID_Avion:String, CodigoVuelo:Number, Descripcion:String, Origen:String, Destino:String, FechaIda:String, FechaRegreso:String,EspaciosDisponibles:String): Observable<any> {
     return this.http.post(AUTH_API + 'create',
     {

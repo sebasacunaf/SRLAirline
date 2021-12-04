@@ -6,6 +6,7 @@ const VueloController = require("../controllers/VuelosController")
 router.get("/", VueloController.get);
 router.get("/:id", VueloController.getByID);
 router.post("/create", VueloController.create );
+router.post("/getByForm/:Origen/:Destino/:FechaI/:FechaR", VueloController.create );
 router.put("/:id", VueloController.delete);
 router.put("/:id", VueloController.update);
 module.exports = router; 
