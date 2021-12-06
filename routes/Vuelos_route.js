@@ -3,10 +3,11 @@ const router = express.Router();
 const PostModel = require("../models/Vuelos")
 const VueloController = require("../controllers/VuelosController")
 
+
 router.get("/", VueloController.get);
+router.get("/getByForm", VueloController.getByForm);
 router.get("/:id", VueloController.getByID);
 router.post("/create", VueloController.create );
-router.get("/getByForm/:Origen/:Destino", VueloController.getByForm);
 router.put("/:id", VueloController.delete);
 router.put("/:id", VueloController.update);
 module.exports = router; 

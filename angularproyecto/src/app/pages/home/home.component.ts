@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { VuelosService } from '../../services/Vuelos.service'
 import { Router } from '@angular/router';
+import  * as moment  from 'moment/moment';
+
 
 @Component({
   selector: 'app-home',
@@ -29,19 +31,19 @@ export class HomeComponent implements OnInit {
   }
   onSubmit(): void {
     const { Origen, Destino, FechaIda, FechaRegreso } = this.form;
-    const FechaI = new Date(FechaIda).toLocaleDateString();
-    const FechaR = new Date(FechaRegreso).toLocaleDateString();
+    ///const FechaI = new Date(new Date(FechaIda).toISOString()).toLocaleDateString();
+    const FechaI = moment(new Date(FechaIda)).utc().format('D/MM/yyyy');
+    const FechaR = moment(new Date(FechaRegreso)).utc().format('D/MM/yyyy');
     this.paisO = Origen;
     this.paisD = Destino;
-    this.vuelosService.getByForm(this.paisO.toUpperCase(), this.paisD.toUpperCase()).subscribe(
+    this.vuelosService.getByForm(this.paisO.toUpperCase(), this.paisD.toUpperCase(), FechaI, FechaR).subscribe(
       data => {
-        console.log("Success" + data.success);
-        console.log("msg " + data.msg);
-        console.log("datos: "+data.Vuelos._id)
+        console.log("datos: ", data.Vuelos)
+        this.Vuelos = data.Vuelos;
         if (data.success) {
           this.isSuccessful = true;
           this.isSignUpFailed = false;
-          this.Vuelos = data;
+          this.Vuelos = data.Vuelos;
         } else {
           this.errorMessage = data.msg;
           this.isSignUpFailed = true;
