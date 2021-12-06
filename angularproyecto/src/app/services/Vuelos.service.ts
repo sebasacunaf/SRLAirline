@@ -31,8 +31,8 @@ export class VuelosService {
   getByID(id: string): Observable<any> {
     return this.http.get(`${AUTH_API}/${id}`);
   }
-  getByForm(Origen: string, Destino: string, FechaI: string, FechaR: string): Observable<any> {
-    return this.http.get(`${AUTH_API}/${Origen}/${Destino}/${FechaI}/${FechaR}`);
+  getByForm(Origen: string,Destino: string): Observable<any> {
+    return this.http.get(`${AUTH_API}/getByForm/${Origen}/${Destino}`);
   }
 
 

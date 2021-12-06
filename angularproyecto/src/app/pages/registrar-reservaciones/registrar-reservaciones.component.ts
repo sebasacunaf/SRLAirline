@@ -54,15 +54,10 @@ export class RegistrarReservacionesComponent implements OnInit {
         this.getReserva(this.IDReservacion);
       },
     );
-
-  
   }
   getReserva(id: string): void {
     console.log('ReservaID '+id);
     this.reservacionesService.getById(id).subscribe((data) => {
-      console.log('DATAAAAAA '+data._id);
-
-      ///this.Reserva = this.Reserva.filter((Reserva: any) => Reserva._id !== id);
 
       this.NumeroFactura = data.numReservacion;
       this.ID_Usuario = data.ID_Usuario._id;
@@ -73,7 +68,7 @@ export class RegistrarReservacionesComponent implements OnInit {
       this.Fecha = Date.now();
       this.FechaR = new Date(this.Fecha).toLocaleDateString();
       this.createFactura();
-      
+
    });
 
   }
@@ -97,12 +92,5 @@ export class RegistrarReservacionesComponent implements OnInit {
       }
     );
   }
-
-
-
-
-
-
-
 
 }
