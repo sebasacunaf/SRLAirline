@@ -21,6 +21,9 @@
                 <option id="Cliente" value="Cliente">Cliente</option>
                 <option id="Administrador" value="Administrador">Administrador</option>
               </select>
+              <div class="alert-danger" *ngIf="Rol.errors && f.submitted">
+                <div *ngIf="Rol.errors.required">Debe seleccionar un rol</div>
+              </div>
             </div>
           </div>
           <div class="row" style="margin-bottom: 15px;">
@@ -52,12 +55,18 @@
                 <input type="text" class="form-control" name="Nombre" placeholder="Nombre" [(ngModel)]="form.Nombre"
                   #Nombre="ngModel" required>
               </div>
+              <div class="alert-danger" *ngIf="Nombre.errors && f.submitted">
+                <div *ngIf="Nombre.errors.required">Nombre requerido</div>
+              </div>
             </div>
             <div class="col">
               <div class="form-group">
                 <label for="Apellidos">Apellidos</label>
                 <input type="text" class="form-control" name="Apellidos" placeholder="Apellidos"
                   [(ngModel)]="form.Apellidos" #Apellidos="ngModel" required>
+              </div>
+              <div class="alert-danger" *ngIf="Apellidos.errors && f.submitted">
+                <div *ngIf="Apellidos.errors.required">Apellidos requeridos</div>
               </div>
             </div>
           </div>
@@ -67,6 +76,9 @@
               <input type="text" class="form-control" name="Correo" [(ngModel)]="form.Correo" #Correo="ngModel"
                 placeholder="Correo electrónico" required>
             </div>
+            <div class="alert-danger" *ngIf="Correo.errors && f.submitted">
+              <div *ngIf="Correo.errors.required">Correo requerido</div>
+            </div>
           </div>
           <div class="mb-3">
             <div class="form-group">
@@ -74,12 +86,18 @@
               <input type="date" class="form-control" name="FechaNacimiento" [(ngModel)]="form.FechaNacimiento"
                 #FechaNacimiento="ngModel" placeholder="Fecha de nacimiento" required>
             </div>
+            <div class="alert-danger" *ngIf="FechaNacimiento.errors && f.submitted">
+              <div *ngIf="FechaNacimiento.errors.required">Fecha de nacimiento requerida</div>
+            </div>
           </div>
           <div class="mb-3">
             <div class="form-group">
               <label for="Descripcion">Dirección</label>
               <input type="text" class="form-control" name="Descripcion" [(ngModel)]="form.Descripcion" #Descripcion="ngModel"
                 placeholder="Dirección" required>
+            </div>
+            <div class="alert-danger" *ngIf="Descripcion.errors && f.submitted">
+              <div *ngIf="Descripcion.errors.required">Dirección requerida</div>
             </div>
           </div>
           <div class="row" style="margin-bottom: 15px;">
@@ -89,12 +107,18 @@
                 <input type="text" class="form-control" name="Telefono" [(ngModel)]="form.Telefono" #Telefono="ngModel"
                   placeholder="Teléfono" required>
               </div>
+              <div class="alert-danger" *ngIf="Telefono.errors && f.submitted">
+                <div *ngIf="Telefono.errors.required">Teléfono requerido</div>
+              </div>
             </div>
             <div class="col">
               <div class="form-group">
                 <label for="Celular">Celular</label>
                 <input type="text" class="form-control" name="Celular" [(ngModel)]="form.Celular" #Celular="ngModel"
                   placeholder="Celular" required>
+              </div>
+              <div class="alert-danger" *ngIf="Celular.errors && f.submitted">
+                <div *ngIf="Celular.errors.required">Celular requerido</div>
               </div>
             </div>
           </div>

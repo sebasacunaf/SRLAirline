@@ -5,6 +5,7 @@ const VueloController = require("../controllers/VuelosController")
 
 
 router.get("/", VueloController.get);
+router.get("/getAdmin/", VueloController.getAdmin);
 router.get("/getByForm", VueloController.getByForm);
 router.get("/:id", VueloController.getByID);
 router.post("/create", VueloController.create );

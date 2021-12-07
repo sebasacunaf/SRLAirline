@@ -15,10 +15,14 @@ const httpOptions = {
 export class VuelosService {
   constructor(private http: HttpClient) {}
   
+  getAdmin(): Observable<any> {
+    return this.http.get(`${AUTH_API}/getAdmin`,httpOptions);
+  }
+  
   get(): Observable<any> {
     return this.http.get(AUTH_API, httpOptions);
   }
-  
+
   delete(id: string, vuelos: any): Observable<any> {
     return this.http.put(`${AUTH_API}/${id}`, vuelos);
 

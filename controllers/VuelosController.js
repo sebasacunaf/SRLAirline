@@ -1,6 +1,11 @@
 const PostModel = require("../models/Vuelos");
 
 module.exports.get = async (req, res, next) => {
+    const posts = await PostModel.find({Estado: 1}).populate("ID_Avion").exec()
+    res.json(posts);
+};
+
+module.exports.getAdmin = async (req, res, next) => {
     const posts = await PostModel.find().populate("ID_Avion").exec()
     res.json(posts);
 };
@@ -18,7 +23,7 @@ module.exports.getByForm = async (req, res, next) => {
     if (!req.query.Origen || !req.query.Destino || !req.query.FechaI || !req.query.FechaR) {
         res.json({ success: false, msg: 'Existen algún valor nulo' });
     } else {
-        const posts = await PostModel.find({ Origen: req.query.Origen, Destino: req.query.Destino, FechaIda: req.query.FechaI, FechaRegreso: req.query.FechaR }).populate("ID_Avion").exec()
+        const posts = await PostModel.find({ Origen: req.query.Origen, Destino: req.query.Destino, FechaIda: req.query.FechaI, FechaRegreso: req.query.FechaR, Estado: 1 }).populate("ID_Avion").exec()
         if (posts) {
             console.log("controller " + posts);
             res.json({ Vuelos: posts });

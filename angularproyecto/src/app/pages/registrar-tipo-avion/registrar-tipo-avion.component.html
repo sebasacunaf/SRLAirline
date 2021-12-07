@@ -48,7 +48,7 @@
               <input type="number" class="form-control" placeholder="Cantidad de pasajeros"
               name="CantidadPasajeros"  [(ngModel)]="form.CantidadPasajeros" #CantidadPasajeros="ngModel" required>
               <div class="alert-danger" *ngIf="CantidadPasajeros.errors && f.submitted">
-                <div *ngIf="CantidadPasajeros.errors.required">Cantidad de Pasajeros requerida</div>
+                <div *ngIf="CantidadPasajeros.errors.required">Cantidad de pasajeros requerida</div>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@
                 <input type="number" class="form-control" placeholder="Cantidad de filas"
                 name="CantidadFilas"    [(ngModel)]="form.CantidadFilas" #CantidadFilas="ngModel" required>
                 <div class="alert-danger" *ngIf="CantidadFilas.errors && f.submitted">
-                  <div *ngIf="CantidadFilas.errors.required">Cantidad de Filas requerida</div>
+                  <div *ngIf="CantidadFilas.errors.required">Cantidad de filas requerida</div>
                 </div>
               </div>
             </div>

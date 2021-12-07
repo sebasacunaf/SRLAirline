@@ -22,6 +22,9 @@
               </option>
 
             </select>
+            <div class="alert-danger" *ngIf="ID_Avion.errors && f.submitted">
+              <div *ngIf="ID_Avion.errors.required">Debe seleccionar un avión</div>
+            </div>
           </div>
           <div class="mb-3">
             <div class="mb-3">
@@ -29,7 +32,7 @@
               <input type="number" class="form-control" placeholder="Código Vuelo" name="CodigoVuelo"
                 [(ngModel)]="form.CodigoVuelo" #CodigoVuelo="ngModel" required>
               <div class="alert-danger" *ngIf="CodigoVuelo.errors && f.submitted">
-                <div *ngIf="CodigoVuelo.errors.required">Código Vuelo requerido</div>
+                <div *ngIf="CodigoVuelo.errors.required">Código vuelo requerido</div>
               </div>
             </div>
             <div class="mb-3">
@@ -37,7 +40,7 @@
               <input type="text" class="form-control" placeholder="Descripción" name="Descripcion"
                 [(ngModel)]="form.Descripcion" #Descripcion="ngModel" required>
               <div class="alert-danger" *ngIf="Descripcion.errors && f.submitted">
-                <div *ngIf="Descripcion.errors.required">Descripción requerido</div>
+                <div *ngIf="Descripcion.errors.required">Descripción requerida</div>
               </div>
             </div>
             <div class="row" style="margin-bottom: 15px;">
@@ -69,7 +72,7 @@
                   <input type="date" class="form-control" placeholder="Fecha Ida" name="FechaIda"
                     [(ngModel)]="form.FechaIda" #FechaIda="ngModel" required>
                   <div class="alert-danger" *ngIf="FechaIda.errors && f.submitted">
-                    <div *ngIf="FechaIda.errors.required">Fecha Ida requerida</div>
+                    <div *ngIf="FechaIda.errors.required">Fecha ida requerida</div>
                   </div>
                 </div>
               </div>
@@ -79,7 +82,7 @@
                   <input type="date" class="form-control" placeholder="Fecha Regreso" name="FechaRegreso"
                     [(ngModel)]="form.FechaRegreso" #FechaRegreso="ngModel" required>
                   <div class="alert-danger" *ngIf="FechaRegreso.errors && f.submitted">
-                    <div *ngIf="FechaRegreso.errors.required">Fecha Regreso requerida</div>
+                    <div *ngIf="FechaRegreso.errors.required">Fecha regreso requerida</div>
                   </div>
                 </div>
               </div>
@@ -89,7 +92,7 @@
               <input type="number" class="form-control" placeholder="Espacios Disponibles" name="EspaciosDisponibles"
                 [(ngModel)]="form.EspaciosDisponibles" #EspaciosDisponibles="ngModel" required>
               <div class="alert-danger" *ngIf="EspaciosDisponibles.errors && f.submitted">
-                <div *ngIf="EspaciosDisponibles.errors.required">Espacios Disponibles requerido</div>
+                <div *ngIf="EspaciosDisponibles.errors.required">Espacios disponibles requerido</div>
               </div>
             </div>
             <button type="submit" class="btn btn-success btn-lg btn-block mt-3">Crear</button>

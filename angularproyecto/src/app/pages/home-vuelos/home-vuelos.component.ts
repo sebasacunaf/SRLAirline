@@ -11,7 +11,7 @@ export class HomeVuelosComponent implements OnInit {
   constructor(private vuelosService: VuelosService) { }
 
   ngOnInit(): void {
-    this.vuelosService.get().subscribe((Vuelos)=>{this.Vuelos = Vuelos});
+    this.vuelosService.getAdmin().subscribe((Vuelos)=>{this.Vuelos = Vuelos});
     console.log(this.Vuelos);
   }
   

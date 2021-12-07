@@ -20,6 +20,9 @@
               <option *ngFor="let Ruta of Rutas" value={{Ruta._id}}>{{Ruta.Ruta}}&nbsp;-&nbsp;DURACIÓN:&nbsp;{{Ruta.Duracion}}</option>
 
             </select>
+            <div class="alert-danger" *ngIf="ID_Ruta.errors && f.submitted">
+              <div *ngIf="ID_Ruta.errors.required">Debe seleccionar una ruta</div>
+            </div>
           </div>
           <div class="mb-3">
             <label for="Dia">Día de vuelo</label>
@@ -35,7 +38,7 @@
               <input type="text" class="form-control" id="HoraSalida" placeholder="Hora de Salida" name="HoraSalida"
                 [(ngModel)]="form.HoraSalida" #HoraSalida="ngModel" required>
               <div class="alert-danger" *ngIf="HoraSalida.errors && f.submitted">
-                <div *ngIf="HoraSalida.errors.required">Hora de Salida requerida</div>
+                <div *ngIf="HoraSalida.errors.required">Hora de salida requerida</div>
               </div>
             </div>
             <div class="col">
@@ -43,7 +46,7 @@
               <input type="text" class="form-control" id="HoraLlegada" placeholder="Hora de Llegada" name="HoraLlegada"
                 [(ngModel)]="form.HoraLlegada" #HoraLlegada="ngModel" required>
               <div class="alert-danger" *ngIf="HoraLlegada.errors && f.submitted">
-                <div *ngIf="HoraLlegada.errors.required">Hora de Llegada requerida</div>
+                <div *ngIf="HoraLlegada.errors.required">Hora de llegada requerida</div>
               </div>
             </div>
           </div>

@@ -22,6 +22,10 @@
               </option>
 
             </select>
+
+            <div class="alert-danger" *ngIf="ID_Vuelo.errors && f.submitted">
+              <div *ngIf="ID_Vuelo.errors.required">Debe seleccionar un vuelo</div>
+            </div>
           </div>
           <div class="mb-3">
             <label>Usuario</label>
